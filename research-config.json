@@ -1,0 +1,37 @@
+{
+  "anchorDate":"2026-11-18",
+  "lookbackDays":7,
+  "englishJournals":[
+    {"name":"American Educational Research Journal","issn":"0002-8312","weight":5},
+    {"name":"Educational Evaluation and Policy Analysis","issn":"0162-3737","weight":5},
+    {"name":"Review of Educational Research","issn":"0034-6543","weight":5},
+    {"name":"Educational Researcher","issn":"0013-189X","weight":5},
+    {"name":"Journal of Education Policy","issn":"0268-0939","weight":4},
+    {"name":"Economics of Education Review","issn":"0272-7757","weight":4},
+    {"name":"Comparative Education Review","issn":"0010-4086","weight":4},
+    {"name":"Comparative Education","issn":"0305-0068","weight":4},
+    {"name":"Sociology of Education","issn":"0038-0407","weight":5},
+    {"name":"Journal of Rural Studies","issn":"0743-0167","weight":4},
+    {"name":"Demography","issn":"0070-3370","weight":5},
+    {"name":"Population and Development Review","issn":"0098-7921","weight":5},
+    {"name":"British Educational Research Journal","issn":"0141-1926","weight":4},
+    {"name":"International Journal of Educational Development","issn":"0738-0593","weight":4},
+    {"name":"Race Ethnicity and Education","issn":"1361-3324","weight":4},
+    {"name":"Education Economics","issn":"0964-5292","weight":4}
+  ],
+  "chineseJournals":[
+    {"name":"教育研究","url":"https://jyyj.cnaes.edu.cn/","adapter":"cnaes","weight":5},
+    {"name":"华东师范大学学报（教育科学版）","url":"https://xbjk.ecnu.edu.cn/CN/1000-5560/home.shtml","pattern":"/CN/(?:abstract|10\\.|Y)|/article/","weight":5},
+    {"name":"清华大学教育研究","url":"https://tje.ioe.tsinghua.edu.cn/default.aspx","pattern":"/oa/darticle\\.aspx","weight":4},
+    {"name":"人口研究","url":"https://rkyj.ruc.edu.cn/CN/1000-6087/home.shtml","pattern":"/CN/(?:abstract|10\\.|Y)|/article/","weight":5}
+  ],
+  "policySources":[
+    {"name":"中国教育部：中央文件","region":"中国","url":"https://www.moe.gov.cn/jyb_xxgk/moe_1777/moe_1778/","pattern":"t\\d{8}_\\d+\\.html"},
+    {"name":"中国教育部：教育部文件","region":"中国","url":"https://www.moe.gov.cn/was5/web/search?channelid=239993","pattern":"t\\d{8}_\\d+\\.html|/srcsite/"},
+    {"name":"中国教育部：其他部门文件","region":"中国","url":"https://www.moe.gov.cn/jyb_xxgk/moe_1777/moe_1779/","pattern":"t\\d{8}_\\d+\\.html"},
+    {"name":"北京市政府政策文件","region":"中国·北京","url":"https://www.beijing.gov.cn/zhengce/zhengcefagui/","pattern":"t\\d{8}_\\d+\\.html"},
+    {"name":"英国教育部","region":"英国","adapter":"govuk","url":"https://www.gov.uk/api/search.json?filter_organisations=department-for-education&filter_format=policy_paper,statutory_guidance,consultation&order=-public_timestamp&count=35"},
+    {"name":"威尔士政府","region":"英国·威尔士","url":"https://www.gov.wales/announcements","pattern":"^/[^/?#]+$"},
+    {"name":"澳大利亚教育部","region":"澳大利亚","url":"https://www.education.gov.au/newsroom","pattern":"/newsroom/articles/"}
+  ]
+}

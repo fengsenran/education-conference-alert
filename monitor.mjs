@@ -88,7 +88,7 @@ async function get(url) {
   const hint=r.headers.get('content-type')+' '+new TextDecoder().decode(buf.slice(0,1500));
   return new TextDecoder(/gb2312|gbk|gb18030/i.test(hint)?'gb18030':'utf-8').decode(buf);
 }
-async function push(title,body) {
+export async function push(title,body) {
   const key=process.env.SERVERCHAN_SENDKEY?.trim();
   if(!key || !/^SCT[a-zA-Z0-9]+$/.test(key)) throw new Error('请在仓库 Secrets 中设置正确的 SERVERCHAN_SENDKEY（SCT 开头）');
   let r;
