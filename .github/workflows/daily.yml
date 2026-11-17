@@ -1,5 +1,11 @@
 name: 教育会议微信推送
 on:
+  push:
+    paths:
+      - 'monitor.mjs'
+      - 'monitor.test.mjs'
+      - 'config.json'
+      - '.github/workflows/daily.yml'
   schedule:
     - cron: '30 0 * * *' # UTC 00:30 = 北京时间 08:30；平台可能延迟
   workflow_dispatch:
@@ -30,7 +36,7 @@ jobs:
       - name: 运行检索或测试
         env:
           SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
-          MODE: ${{ github.event.inputs.mode || 'send' }}
+          MODE: ${{ github.event.inputs.mode || (github.event_name == 'schedule' && 'send' || 'dry-run') }}
         run: |
           case "$MODE" in
             test) node monitor.mjs --test-notification ;;
