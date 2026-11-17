@@ -139,7 +139,7 @@ export async function main() {
   await mkdir(path.join(root,'reports'),{recursive:true});
   await writeFile(path.join(root,'reports','latest.json'),JSON.stringify(report,null,2));
   await writeFile(path.join(root,'reports','latest.md'),lines.join('\n\n'));
-  console.log(JSON.stringify({date:today,sources:report.sources,newItems:chosen.length,errors:report.errors.length,dryRun:dry},null,2));
+  console.log(JSON.stringify({date:today,sources:report.sources,newItems:chosen.length,errors:report.errors,dryRun:dry},null,2));
   if(dry) return;
   if(!report.sources.length) {
     await push(`教育会议监测异常 ${today}`,'全部配置网站读取失败，本次未能完成检索。请查看 GitHub Actions 日志；这不表示没有可投稿会议。');
