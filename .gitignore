@@ -1,0 +1,4 @@
+.env
+*.key
+reports/
+node_modules/

@@ -1,0 +1,56 @@
+name: 教育会议微信推送
+on:
+  schedule:
+    - cron: '30 0 * * *' # UTC 00:30 = 北京时间 08:30；平台可能延迟
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'test=连接测试；dry-run=仅检索；send=正式发送当天汇总'
+        type: choice
+        default: test
+        options: [test, dry-run, send]
+permissions:
+  contents: write
+concurrency:
+  group: education-wechat-daily
+  cancel-in-progress: false
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: 检查筛选规则
+        run: node --test monitor.test.mjs
+      - name: 运行检索或测试
+        env:
+          SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
+          MODE: ${{ github.event.inputs.mode || 'send' }}
+        run: |
+          case "$MODE" in
+            test) node monitor.mjs --test-notification ;;
+            dry-run) node monitor.mjs --dry-run ;;
+            send) node monitor.mjs ;;
+            *) exit 1 ;;
+          esac
+      - name: 保存去重状态（不包含密钥）
+        if: github.event_name == 'schedule' || inputs.mode == 'send'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add state.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update daily conference notification state'
+            git push
+          fi
+      - name: 在运行摘要中查看监测结果
+        if: always()
+        run: |
+          if [ -f reports/latest.md ]; then
+            cat reports/latest.md >> "$GITHUB_STEP_SUMMARY"
+          fi
