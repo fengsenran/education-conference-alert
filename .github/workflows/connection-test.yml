@@ -1,0 +1,20 @@
+name: 微信连接测试
+on:
+  push:
+    paths: ['.github/workflows/connection-test.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: 发送连接测试（消耗一条免费额度）
+        env:
+          SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
+        run: node monitor.mjs --test-notification
