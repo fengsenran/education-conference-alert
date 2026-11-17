@@ -1,6 +1,8 @@
 # 免费的教育会议微信推送
 
-已按你的要求配置：每天北京时间 08:30 触发，国内会议，优先农村教育、教育政策、教育公平。电脑关机也可运行。程序已上传至 https://github.com/fengsenran/education-conference-alert 。仍需由你在仓库 Secrets 中添加 SERVERCHAN_SENDKEY，并完成微信连接测试；不要把密钥写入任何代码文件。
+已按你的要求配置：每天北京时间 08:30 触发，国内会议，优先农村教育、教育政策、教育公平。电脑关机也可运行。程序已上传至 https://github.com/fengsenran/education-conference-alert 。2026-11-17 已添加仓库密钥，微信连接测试成功，用户已确认收到测试消息。下一次计划触发为 2026-11-18 08:30（北京时间），调度和检索可能延迟。不要把密钥写入任何代码文件。
+
+最近一次云端检索：5个来源入口读取成功，中国教育学会入口返回HTTP 405；本次未确认新的符合条件会议。该结果只代表有限来源监测，抓取失败会在每日消息中注明。云端检查记录：https://github.com/fengsenran/education-conference-alert/actions/runs/44020576641 ，微信连接测试记录：https://github.com/fengsenran/education-conference-alert/actions/runs/44020597185 。
 
 ## 1. 注册免费账号
 
