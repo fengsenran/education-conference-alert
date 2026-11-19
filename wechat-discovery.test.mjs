@@ -7,6 +7,7 @@ test('public-index discovery retains account and dates but never asserts an open
  assert.equal(r.length,1);assert.equal(r[0].account,'学术人生');assert.match(r[0].reason,/尚待核实/);assert.equal(r[0].deadline,undefined);
  assert.equal(parseWechatResults(item('基础教育高峰论坛通知','2020-11-18'),'教育论坛','2026-11-19').length,0);
  assert.equal(parseWechatResults(item('基础教育高峰论坛成功举办','2026-11-18'),'教育论坛','2026-11-19').length,0);
+ assert.equal(parseWechatResults(item('全国热舒适学术会议通知','2026-11-18'),'教育论坛','2026-11-19').length,0);
 });
 test('verification or unexpected HTML is a retrieval failure, not an empty result',()=>{
  assert.throws(()=>parseWechatResults('请输入验证码','教育会议'),/验证/);

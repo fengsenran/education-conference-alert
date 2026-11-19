@@ -144,7 +144,7 @@ export async function main() {
   if(fresh.length>chosen.length) lines.push(`另有 ${fresh.length-chosen.length} 条待后续汇总。`);
   const pending=report.review.filter(i=>/未能确认|无法确认|尚未核实/.test(i.reason)).filter(i=>!state.reviewSeen?.[i.url]).slice(0,6);
   if(pending.length) lines.push('### 待核实的会议线索（不能据此认定仍可投稿）',...pending.map(i=>`[${i.title}](${i.url})：${i.reason}`));
-  const wechatFresh=(report.wechat?.items||[]).filter(i=>!state.wechatSeen?.[i.title+'|'+i.account]).slice(0,8);
+  const wechatFresh=(report.wechat?.items||[]).filter(i=>!state.wechatSeen?.[i.title.replace(/\s/g,'')+'|'+i.account]).slice(0,8);
   if(report.wechat) {
     lines.push('### 公众号会议发现',`本轮公开索引查询成功${report.wechat.queries.length}项；不是微信搜一搜或公众号历史消息全量覆盖。`);
     if(wechatFresh.length)lines.push(...wechatFresh.map(i=>`[${i.title}](${i.url})\n公众号索引名称：${i.account}；索引标注发布日期：${i.publicationDate}\n${i.reason}。摘要线索：${i.snippet.slice(0,160)}`));
@@ -164,7 +164,7 @@ export async function main() {
   await push(`教育会议 ${today} 已核实${chosen.length} 待核实${wechatFresh.length+pending.length}`,lines.join('\n\n'));
   for(const i of chosen) state.seen[i.id]=today;
   state.reviewSeen??={};for(const i of pending)state.reviewSeen[i.url]=today;
-  state.wechatSeen??={};for(const i of wechatFresh)state.wechatSeen[i.title+'|'+i.account]=today;
+  state.wechatSeen??={};for(const i of wechatFresh)state.wechatSeen[i.title.replace(/\s/g,'')+'|'+i.account]=today;
   state.lastSentDay=today;
   await writeFile(path.join(root,'state.json'),JSON.stringify(state,null,2)+'\n');
   console.log('推送服务已接受请求；去重状态已保存。');
