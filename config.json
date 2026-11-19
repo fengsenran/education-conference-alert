@@ -8,6 +8,7 @@
     {"name":"西南大学西南民族教育与心理研究中心","url":"https://epc.swu.edu.cn/"}
   ],
   "topics":["农村教育","乡村教育","教育政策","教育公平","城乡教育","教育资源配置","教育均衡","优质均衡","乡村教师","农村教师","随迁子女","留守儿童","教育财政"],
+  "wechatDiscovery":{"enabled":true,"maxAgeDays":60,"accounts":["中国农村教育发展协同创新中心","学术人生","学术会议资讯"],"queries":["{year} 农村教育 研讨会 通知","{year} 基础教育 论坛 征文","{year} 教育政策 学术会议 通知","{year} 教育公平 论坛 征稿"]},
   "maxArticlesPerSource": 40,
   "maxItemsPerMessage": 8
 }

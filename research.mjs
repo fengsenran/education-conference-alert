@@ -4,7 +4,7 @@ import path from 'node:path';
 import {dayCN,plain,articleText,push} from './monitor.mjs';
 const root=path.dirname(fileURLToPath(import.meta.url));
 export const shift=(s,n)=>new Date(Date.parse(s+'T00:00:00Z')+n*86400000).toISOString().slice(0,10);
-export function due(today,anchor) {const d=(Date.parse(today)-Date.parse(anchor))/86400000;return d>=0 && d%2===0;}
+export function due(today,anchor,intervalDays=1) {const d=(Date.parse(today)-Date.parse(anchor))/86400000;return Number.isInteger(intervalDays)&&intervalDays>0&&d>=0&&d%intervalDays===0;}
 export function exactDate(value) {
   if(Array.isArray(value)) {if(value.length<3)return null;value=value.join('-');}
   const m=String(value??'').match(/^(20\d{2})\s*[年./-]\s*(\d{1,2})\s*[月./-]\s*(\d{1,2})(?:日|\b|T)/);
@@ -39,14 +39,24 @@ export function relevance(title,abstract='') {
   return {topics,score};
 }
 const excluded=/^(?:editorial|introduction|book review|reviewer acknowledgment|acknowledgment|correction|corrigendum|erratum|retraction|call for papers)|^编者|^目录|^征稿|^更正|^勘误/i;
+export function basicEducationFit(title,abstract='') {
+  const basic=/基础教育|义务教育|学前教育|中小学|小学|初中|高中|幼儿园|学龄|县中|农村学校|乡村学校|\bK[–−-]?12\b|\bpre[–-]?K\b|primary (?:school|education|pupil)|secondary (?:school|education)|elementary|middle school|high school|preschool|kindergarten|compulsory education|school[ -]age|school district|pupil/i;
+  const higher=/高等教育|高校|大学|高职|本科|研究生|higher education|universit|\bcollege\b|\bcolleges\b|postsecondary|post-secondary|tertiary|hispanic.serving institution|\bHSI\b|campus/i;
+  const school=/农村教育|乡村教育|学校布局|学校撤并|school funding|school financ|school choice|school admission|rural school|school segregation|inclusive school|school closure|school consolidation/i;
+  if(higher.test(title)&&!basic.test(title))return {eligible:false,reason:'研究对象为高等教育或高校机构'};
+  if(basic.test(title))return {eligible:true,level:'明确涉及基础教育',bonus:30};
+  if(basic.test(abstract)&&!higher.test(title))return {eligible:true,level:'摘要明确涉及基础教育',bonus:20};
+  if(school.test(title)&&!higher.test(title+' '+abstract))return {eligible:true,level:'学校教育议题，学段须复核',bonus:10};
+  return {eligible:false,reason:'无法确认与基础教育的直接关系'};
+}
 function rationale(p) {
   const methods=/difference.in.differences|regression discontinuity|randomi[sz]ed|natural experiment|instrumental variable|双重差分|断点回归|随机试验|自然实验|工具变量/i.test(p.abstract);
-  return `在本轮已核验日期且未推送的候选中，按期刊名单权重、题目及摘要主题匹配排序。涉及${p.topics.join('、')}。${methods?'摘要包含因果识别方法线索，适合进一步核查研究设计。':'可作为相关议题的阅读线索。'}推荐依据为题目${p.abstract?'和摘要':'，未获取摘要'}，尚未阅读全文。`;
+  return `学段判断：${p.level}。在本轮已核验日期且未推送的候选中，优先基础教育及四个研究主题，再按期刊权重排序。涉及${p.topics.join('、')}。${methods?'摘要包含因果识别方法线索，适合进一步核查研究设计。':'可作为相关议题的阅读线索。'}推荐依据为题目${p.abstract?'和摘要':'，未获取摘要'}，尚未阅读全文。`;
 }
 async function request(url,json=false) {
   let r;
   for(let n=0;n<2;n++) {
-    r=await fetch(url,{signal:AbortSignal.timeout(25000),headers:{'User-Agent':'EducationReadingMonitor/1.0 (academic metadata and public policy; every other day)'}});
+    r=await fetch(url,{signal:AbortSignal.timeout(25000),headers:{'User-Agent':'EducationReadingMonitor/1.0 (academic metadata and public policy; daily)'}});
     if(![429,500,502,503,504].includes(r.status)||n===1)break;
     await new Promise(resolve=>setTimeout(resolve,1500));
   }
@@ -173,7 +183,8 @@ export function selectPapers(items,today,seen={}) {
   for(const p of items) {
     if(!recent(p.date,today)||excluded.test(p.title)||seen[p.id])continue;
     const match=relevance(p.title,p.abstract);if(!match.score)continue;
-    const candidate={...p,...match,rank:match.score+(p.weight||0)+(p.abstract?1:0)};
+    const fit=basicEducationFit(p.title,p.abstract);if(!fit.eligible)continue;
+    const candidate={...p,...match,level:fit.level,rank:fit.bonus+match.score+(p.weight||0)+(p.abstract?1:0)};
     if(!unique.has(p.id)||candidate.rank>unique.get(p.id).rank)unique.set(p.id,candidate);
   }
   return ['zh','en'].map(lang=>[...unique.values()].filter(p=>p.language===lang).sort((a,b)=>b.rank-a.rank||b.date.localeCompare(a.date))[0]||null);
@@ -182,7 +193,7 @@ export async function main() {
   const today=dayCN(),dry=process.argv.includes('--dry-run');
   const cfg=JSON.parse(await readFile(path.join(root,'research-config.json'),'utf8'));
   const state=JSON.parse(await readFile(path.join(root,'research-state.json'),'utf8'));
-  if(!dry && (!due(today,cfg.anchorDate)||state.lastSentDay===today)){console.log('今天不是隔天推送日，或今天已经发送。');return;}
+  if(!dry && (!due(today,cfg.anchorDate,cfg.intervalDays??1)||state.lastSentDay===today)){console.log('今天不是计划推送日，或今天已经发送。');return;}
   const report={date:today,window:[shift(today,-6),today],sources:[],errors:[],warnings:[],papers:[],policies:[]};
   const jobs=[...cfg.englishJournals.map(s=>({s,kind:'英文期刊',run:()=>english(s,today,report)})),...cfg.chineseJournals.map(s=>({s,kind:'中文期刊',run:()=>chinese(s,report)})),...cfg.policySources.map(s=>({s,kind:'政策',run:()=>policies(s,today,report)}))];
   const runJob=async({s,kind,run})=>{
@@ -198,7 +209,7 @@ export async function main() {
   const selectedPolicies=policyItems.slice(0,8);
   report.selected={zh,en,policies:selectedPolicies};
   const lines=[`# 教育论文与政策精选｜${today}`,`核验发表窗口：${shift(today,-6)}—${today}（最近7个自然日）。`,
-    '关注农村教育、教育人口、教育政策、教育公平。规则排序仅在配置来源内比较，不代表全网最佳。'];
+    '优先基础教育：农村教育、教育人口、教育政策、教育公平；排除高校机构建设等研究对象。规则排序仅在配置来源内比较，不代表全网最佳。'];
   for(const [label,p] of [['中文论文',zh],['英文论文',en]]) {
     lines.push(`## ${label}`);
     if(!p){lines.push(`本轮已成功检索的来源中，没有确认最近7天内、主题匹配且尚未推送的${label}；失败来源不计入这个结论。`);continue;}

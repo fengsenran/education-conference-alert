@@ -1,9 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {due,exactDate,recent,crossrefDate,relevance,parseCnaes,htmlPaper,policyDate,policyKind,selectPapers} from './research.mjs';
+import {due,exactDate,recent,crossrefDate,relevance,parseCnaes,htmlPaper,policyDate,policyKind,selectPapers,basicEducationFit} from './research.mjs';
 test('every other day is continuous across months and leap days',()=>{
  assert.equal(due('2026-12-02','2026-11-18'),true);
- assert.equal(due('2026-12-01','2026-11-18'),false);
+ assert.equal(due('2026-12-01','2026-11-18',2),false);
+ assert.equal(due('2026-11-19','2026-11-18'),true);
  assert.equal(due('2026-11-17','2026-11-18'),false);
  assert.equal(due('2028-03-01','2028-02-28'),true);
 });
@@ -43,7 +44,15 @@ test('ranking picks at most one per language, de-duplicates, excludes correction
  const base={date:'2026-11-17',weight:5,abstract:'',language:'en',journal:'Journal'};
  const items=[{...base,id:'a',title:'Rural education policy and school funding'}, {...base,id:'a',title:'Rural education policy and school funding'},
  {...base,id:'b',title:'Corrigendum to rural education policy'}, {...base,id:'c',title:'Rural education policy',date:'2026-10-01'},
- {...base,id:'z',title:'农村教育治理',language:'zh'}];
+ {...base,id:'z',title:'农村学校教育治理',language:'zh'}];
  assert.deepEqual(selectPapers(items,'2026-11-17').map(x=>x?.id),['z','a']);
  assert.equal(selectPapers(items,'2026-11-17',{a:true})[1],null);
+});
+test('university institutional change is excluded while basic education is prioritised',()=>{
+ assert.equal(basicEducationFit('Exploring Perceptions of Organizational Change Processes in Becoming a Hispanic-Serving Institution (HSI)','education equity and disadvantaged students').eligible,false);
+ assert.equal(basicEducationFit('高校机构建设与教育公平','乡村大学与高等教育治理').eligible,false);
+ assert.equal(basicEducationFit('学龄人口减少与县域义务教育学校布局').eligible,true);
+ assert.equal(basicEducationFit('School funding and inequality','primary schools in rural districts').eligible,true);
+ const base={date:'2026-11-19',weight:5,language:'en',journal:'AERJ',abstract:'education equity'};
+ assert.equal(selectPapers([{...base,id:'hsi',title:'Exploring Perceptions of Organizational Change Processes in Becoming a Hispanic-Serving Institution (HSI)'}],'2026-11-19')[1],null);
 });

@@ -4,6 +4,8 @@ on:
     paths:
       - 'monitor.mjs'
       - 'monitor.test.mjs'
+      - 'wechat-discovery.mjs'
+      - 'wechat-discovery.test.mjs'
       - 'config.json'
       - '.github/workflows/daily.yml'
   schedule:
@@ -32,7 +34,7 @@ jobs:
         with:
           node-version: '24'
       - name: 检查筛选规则
-        run: node --test monitor.test.mjs
+        run: node --test monitor.test.mjs wechat-discovery.test.mjs
       - name: 运行检索或测试
         env:
           SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}

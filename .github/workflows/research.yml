@@ -1,4 +1,4 @@
-name: 隔天教育论文与政策精选
+name: 每日基础教育论文与政策精选
 on:
   push:
     paths: ['research.mjs', 'research.test.mjs', 'research-config.json', '.github/workflows/research.yml']
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'dry-run=仅检索；send=按隔天日历发送'
+        description: 'dry-run=仅检索；send=发送今日汇总'
         type: choice
         default: dry-run
         options: [dry-run, send]
@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: 检查日期、隔天日历和筛选规则
+      - name: 检查日期、每日计划和基础教育筛选规则
         run: node --test monitor.test.mjs research.test.mjs
       - name: 读取期刊与政府原始来源
         env:

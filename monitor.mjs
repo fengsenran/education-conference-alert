@@ -129,6 +129,10 @@ export async function main() {
     } catch(e) {report.errors.push({url:source.url,error:e.message});}
   }
   report.items.sort((a,b)=>b.score-a.score || a.deadline.localeCompare(b.deadline));
+  if(config.wechatDiscovery?.enabled) {
+    const {discoverWechat}=await import('./wechat-discovery.mjs');
+    report.wechat=await discoverWechat(config.wechatDiscovery,today);
+  }
   const fresh=report.items.filter(i=>!state.seen[i.id]);
   const chosen=fresh.slice(0,config.maxItemsPerMessage);
   const lines=[`国内教育学会议征稿监测｜${today}`,'关注：农村教育、教育政策、教育公平。',
@@ -140,19 +144,27 @@ export async function main() {
   if(fresh.length>chosen.length) lines.push(`另有 ${fresh.length-chosen.length} 条待后续汇总。`);
   const pending=report.review.filter(i=>/未能确认|无法确认|尚未核实/.test(i.reason)).filter(i=>!state.reviewSeen?.[i.url]).slice(0,6);
   if(pending.length) lines.push('### 待核实的会议线索（不能据此认定仍可投稿）',...pending.map(i=>`[${i.title}](${i.url})：${i.reason}`));
+  const wechatFresh=(report.wechat?.items||[]).filter(i=>!state.wechatSeen?.[i.title+'|'+i.account]).slice(0,8);
+  if(report.wechat) {
+    lines.push('### 公众号会议发现',`本轮公开索引查询成功${report.wechat.queries.length}项；不是微信搜一搜或公众号历史消息全量覆盖。`);
+    if(wechatFresh.length)lines.push(...wechatFresh.map(i=>`[${i.title}](${i.url})\n公众号索引名称：${i.account}；索引标注发布日期：${i.publicationDate}\n${i.reason}。摘要线索：${i.snippet.slice(0,160)}`));
+    else lines.push('本轮未确认新的近期公众号会议线索；不代表公众号中没有通知。');
+    if(report.wechat.errors.length)lines.push('公众号检索异常：',...report.wechat.errors.map(e=>`${e.query}：${e.error}`));
+  }
   lines.push('免费版推送内容仅保留1天，请及时保存官方链接。','未确认截止日期或国内地点的通知不列为可投稿会议，可查看运行报告核查。');
   await mkdir(path.join(root,'reports'),{recursive:true});
   await writeFile(path.join(root,'reports','latest.json'),JSON.stringify(report,null,2));
   await writeFile(path.join(root,'reports','latest.md'),lines.join('\n\n'));
-  console.log(JSON.stringify({date:today,sources:report.sources,newItems:chosen.length,errors:report.errors,dryRun:dry},null,2));
+  console.log(JSON.stringify({date:today,sources:report.sources,newItems:chosen.length,errors:report.errors,wechat:report.wechat,dryRun:dry},null,2));
   if(dry) return;
   if(!report.sources.length) {
     await push(`教育会议监测异常 ${today}`,'全部配置网站读取失败，本次未能完成检索。请查看 GitHub Actions 日志；这不表示没有可投稿会议。');
     throw new Error('全部网站读取失败，已发送异常通知');
   }
-  await push(`教育会议征稿 ${today} ${chosen.length}条`,lines.join('\n\n'));
+  await push(`教育会议 ${today} 已核实${chosen.length} 待核实${wechatFresh.length+pending.length}`,lines.join('\n\n'));
   for(const i of chosen) state.seen[i.id]=today;
   state.reviewSeen??={};for(const i of pending)state.reviewSeen[i.url]=today;
+  state.wechatSeen??={};for(const i of wechatFresh)state.wechatSeen[i.title+'|'+i.account]=today;
   state.lastSentDay=today;
   await writeFile(path.join(root,'state.json'),JSON.stringify(state,null,2)+'\n');
   console.log('推送服务已接受请求；去重状态已保存。');

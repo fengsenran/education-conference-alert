@@ -1,5 +1,6 @@
 {
   "anchorDate":"2026-11-18",
+  "intervalDays":1,
   "lookbackDays":7,
   "englishJournals":[
     {"name":"American Educational Research Journal","issn":"0002-8312","weight":5},
