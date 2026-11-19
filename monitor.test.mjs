@@ -27,3 +27,9 @@ test('same-host links and visible article text',()=>{
 test('daily boundary uses China time',()=>{
   assert.equal(dayCN(new Date('2026-11-17T16:01:00Z')),'2026-11-18');
 });
+test('priority topics rank general education meetings without excluding them',()=>{
+ const r=assess('长三角教育一体化发展高峰论坛','会议征稿\n投稿截止：2026年12月1日\n会议地点：安徽师范大学','2026-11-19',topics);
+ assert.equal(r.deadline,'2026-12-01');assert.equal(r.score,0);
+ const a=assess('教育学论坛','欢迎提交参会论文\n请拟参会代表于2026年12月1日前提交参会回执、论文题目及300字摘要\n会议地点：安徽芜湖','2026-11-19',topics);
+ assert.equal(a.deadline,'2026-12-01');
+});

@@ -218,7 +218,11 @@ export async function main() {
   await writeFile(path.join(root,'reports','research-latest.md'),lines.join('\n\n'));
   console.log(JSON.stringify({date:today,sources:report.sources,selected:{zh:zh?.title||null,en:en?.title||null,policies:selectedPolicies.length},errors:report.errors,warnings:report.warnings.length,dry},null,2));
   if(dry)return;
-  await push(`教育论文政策精选 ${today}`,lines.join('\n\n'));
+  const receipt=await push(`教育论文政策精选 ${today}`,lines.join('\n\n'));
+  await mkdir(path.join(root,'archive'),{recursive:true});
+  await writeFile(path.join(root,'archive','research-latest.md'),lines.join('\n\n'));
+  await writeFile(path.join(root,'archive','research-receipt.json'),JSON.stringify({...receipt,digestDate:today},null,2)+'\n');
+  console.log('推送服务已接受请求，实际微信送达须在接收端确认；正文和接口回执已存档。');
   for(const p of [zh,en].filter(Boolean))state.papers[p.id]=today;
   for(const p of selectedPolicies)state.policies[p.id]=today;
   state.lastSentDay=today;

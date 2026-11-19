@@ -6,7 +6,7 @@ import path from 'node:path';
 const root = path.dirname(fileURLToPath(import.meta.url));
 const dateRE = /(20\d{2})\s*[年./-]\s*(\d{1,2})\s*[月./-]\s*(\d{1,2})\s*日?/g;
 const conferenceRE = /研讨会|论坛|学术年会|学术会议|学术大会|学术研讨|年会征文/;
-const callRE = /征稿|征文|截稿|论文征集|论文提交|投稿|摘要征集/;
+const callRE = /征稿|征文|截稿|论文征集|论文提交|提交论文|提交.*摘要|投稿|摘要征集/;
 const pastRE = /圆满|顺利召开|成功召开|成功举办|会议纪要|会议报道|会议日程/;
 export function dayCN(now = new Date()) {
   return new Intl.DateTimeFormat('en-CA', {timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
@@ -39,7 +39,7 @@ export function links(html, base) {
 }
 export function articleText(html) {
   const marker=/<(?:div|article)\b[^>]*(?:wp_articlecontent|v_news_content|TRS_Editor|article-content|vsb_content|rich_media_content)[^>]*>/i.exec(html);
-  const body=marker ? html.slice(marker.index) : html;
+  const body=marker ? html.slice(marker.index) : html.replace(/^[\s\S]*?<body\b[^>]*>/i,'');
   return plain(body.split(/相关阅读|上一篇[:：]|下一篇[:：]|Copyright|版权所有/i)[0]);
 }
 function dates(s) {
@@ -52,7 +52,8 @@ function dates(s) {
 export function assess(title, body, today, topics) {
   if (pastRE.test(title) || !conferenceRE.test(title+'\n'+body) || !callRE.test(title+'\n'+body)) return {reason:'不是会议征稿通知'};
   const matches=topics.filter(t=>(title+'\n'+body).includes(t));
-  if (!matches.length) return {reason:'主题不匹配'};
+  if (!matches.length && !/教育|教学|教师|学校|学生|课程|师范/.test(title+'\n'+body)) return {reason:'主题不匹配'};
+  if (!matches.length) matches.push('一般教育学（相关主题优先排序）');
   const due=[];
   for (const d of dates(body)) {
     const before=body.slice(Math.max(0,d.index-60),d.index);
@@ -60,7 +61,7 @@ export function assess(title, body, today, topics) {
     // Require a submission deadline, never a registration deadline or publication date.
     const labelled=/(?:投稿|征文|征稿|论文(?:全文|电子稿)?|摘要|稿件|截稿)[^。；\n]{0,35}(?:截止|截稿)[^。；\n]{0,15}$/.test(before)
       || /(?:截稿|投稿截止|征文截止|征稿截止)(?:日期|时间)?\s*[:：]?\s*$/.test(before);
-    const forward=/请于\s*$/.test(before) && /^\s*(?:[日\s]*)(?:前|之前)[^。；\n]{0,30}(?:论文|稿件|投稿|摘要)/.test(after);
+    const forward=/(?:请|代表|作者|参会者)?于\s*$/.test(before) && /^\s*(?:[日\s]*)(?:前|之前)[^。；\n]{0,40}(?:论文|稿件|投稿|摘要)/.test(after);
     if (labelled || forward) due.push(d.value);
   }
   if (!due.length) return {reason:'未能确认含年份的投稿截止日期',topics:matches};
@@ -77,7 +78,7 @@ export function assess(title, body, today, topics) {
   return {deadline,venue:venue.trim(),topics:matches,
     organizer:excerpt(/主办|承办/), time:excerpt(/会议时间|举办时间|时间[:：]/),
     fee:excerpt(/会务费|会议费|注册费|不收取.*费|免.*会务费/) || '未能从网页明确识别，请查看官方通知',
-    score:matches.reduce((s,t)=>s+(title.includes(t)?3:1),0)};
+    score:matches.reduce((s,t)=>s+(topics.includes(t)?(title.includes(t)?3:1):0),0)};
 }
 async function get(url) {
   const r=await fetch(url,{signal:AbortSignal.timeout(20000),headers:{'User-Agent':'EducationCFPMonitor/1.0 (public academic notices; once daily)'}});
@@ -97,6 +98,7 @@ export async function push(title,body) {
   if(!r.ok) throw new Error(`微信推送接口 HTTP ${r.status}`);
   const data=await r.json();
   if(Number(data.code)!==0 || (data.data?.errno!=null && Number(data.data.errno)!==0)) throw new Error('微信推送接口报告失败，请到 Server酱控制台查看日志');
+  return {acceptedAt:new Date().toISOString(),code:Number(data.code),status:'推送服务已接受，微信实际送达须另行确认'};
 }
 export async function main() {
   const today=dayCN();
@@ -111,11 +113,12 @@ export async function main() {
   const report={date:today,sources:[],items:[],review:[],errors:[]};
   for(const source of config.sources) {
     try {
-      const list=links(await get(source.url),source.url).slice(0,config.maxArticlesPerSource);
+      const html=await get(source.url);
+      const list=source.direct ? [{url:source.url,title:source.title}] : links(html,source.url).slice(0,config.maxArticlesPerSource);
       const status={name:source.name,candidates:list.length,checked:0}; report.sources.push(status);
       for(const link of list) {
         try {
-          const body=articleText(await get(link.url)); status.checked++;
+          const body=articleText(source.direct ? html : await get(link.url)); status.checked++;
           const item={...link,source:source.name,...assess(link.title,body,today,config.topics)};
           if(item.reason) {report.review.push(item); continue;}
           item.id=createHash('sha256').update(item.title.replace(/[\s\p{P}]/gu,'')+'|'+item.deadline).digest('hex');
@@ -135,6 +138,8 @@ export async function main() {
   for(const i of chosen) lines.push(`### ${i.title}`,`匹配主题：${i.topics.join('、')}`,`投稿截止：${i.deadline}`,`地点：${i.venue}`,
     `时间：${i.time||'请查看官方通知'}`,`主办/承办：${i.organizer||'请查看官方通知'}`,`费用：${i.fee}`,`[官方征稿通知](${i.url})`,'');
   if(fresh.length>chosen.length) lines.push(`另有 ${fresh.length-chosen.length} 条待后续汇总。`);
+  const pending=report.review.filter(i=>/未能确认|无法确认|尚未核实/.test(i.reason)).filter(i=>!state.reviewSeen?.[i.url]).slice(0,6);
+  if(pending.length) lines.push('### 待核实的会议线索（不能据此认定仍可投稿）',...pending.map(i=>`[${i.title}](${i.url})：${i.reason}`));
   lines.push('免费版推送内容仅保留1天，请及时保存官方链接。','未确认截止日期或国内地点的通知不列为可投稿会议，可查看运行报告核查。');
   await mkdir(path.join(root,'reports'),{recursive:true});
   await writeFile(path.join(root,'reports','latest.json'),JSON.stringify(report,null,2));
@@ -147,6 +152,7 @@ export async function main() {
   }
   await push(`教育会议征稿 ${today} ${chosen.length}条`,lines.join('\n\n'));
   for(const i of chosen) state.seen[i.id]=today;
+  state.reviewSeen??={};for(const i of pending)state.reviewSeen[i.url]=today;
   state.lastSentDay=today;
   await writeFile(path.join(root,'state.json'),JSON.stringify(state,null,2)+'\n');
   console.log('推送服务已接受请求；去重状态已保存。');
