@@ -1,6 +1,6 @@
-# 教育论文与政策精选｜2026-11-23
+# 教育论文与政策精选｜2026-11-24
 
-核验发表窗口：2026-11-17—2026-11-23（最近7个自然日）。
+核验发表窗口：2026-11-18—2026-11-24（最近7个自然日）。
 
 优先基础教育：农村教育、教育人口、教育政策、教育公平；排除高校机构建设等研究对象。规则排序仅在配置来源内比较，不代表全网最佳。
 
@@ -10,21 +10,29 @@
 
 ## 英文论文
 
-本轮已成功检索的来源中，没有确认最近7天内、主题匹配且尚未推送的英文论文；失败来源不计入这个结论。
+**The (In)Visibility of Social Interactions in the Digital Classroom: A Review of Research on Digitally Mediated K–12 Science Instruction in the United States from 2012 to 2022**
+
+Review of Educational Research｜2026-11-23｜Tess Bernhard
+
+主题：教育政策
+
+推荐理由：学段判断：明确涉及基础教育。在本轮已核验日期且未推送的候选中，优先基础教育及四个研究主题，再按期刊权重排序。涉及教育政策。可作为相关议题的阅读线索。推荐依据为题目和摘要，尚未阅读全文。
+
+摘要摘录（非全文解读）：K–12 science instruction increasingly occurs in classrooms where students grapple with scientific content through individual computers. This shift toward the widespread use of digital devices occurred simultaneously with science education reforms that have pushed for students’ engagement in science practices. In this review, I explore how empirical research has studied interactions in digitally me…
+
+[期刊原文/DOI](https://doi.org/10.3102/00346543261495158)
+
+日期依据：出版社提交到Crossref的首次发表日期。全文是否开放获取请查看原文。
 
 ## 国家或地区新政策
 
 本轮监测范围内没有确认最近7天发布、主题相关且尚未推送的新政策。
 
-监测入口：26/27个成功，4项读取失败，0项元数据不完整。
+监测入口：26/27个成功，2项读取失败，0项元数据不完整。
 
 部分来源读取失败，本轮结果不完整；不能据此判断这些来源没有新文或新政策。
 
 - 华东师范大学学报（教育科学版）：fetch failed
-
-- 清华大学教育研究：The operation was aborted due to timeout
-
-- 清华大学教育研究：fetch failed
 
 - 人口研究：fetch failed
 
