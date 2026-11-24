@@ -1,7 +1,7 @@
 name: 每日基础教育论文与政策精选
 on:
   push:
-    paths: ['research.mjs', 'research.test.mjs', 'research-config.json', '.github/workflows/research.yml']
+    paths: ['research.mjs', 'research.test.mjs', 'research-profile.mjs', 'research-profile.test.mjs', 'research-config.json', '.github/workflows/research.yml']
   schedule:
     - cron: '30 0 * * *'
   workflow_dispatch:
@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: '24'
       - name: 检查日期、每日计划和基础教育筛选规则
-        run: node --test monitor.test.mjs research.test.mjs
+        run: node --test monitor.test.mjs research.test.mjs research-profile.test.mjs
       - name: 读取期刊与政府原始来源
         env:
           SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}

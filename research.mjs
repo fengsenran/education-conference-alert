@@ -2,6 +2,7 @@ import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 import {dayCN,plain,articleText,push} from './monitor.mjs';
+import {researchFit} from './research-profile.mjs';
 const root=path.dirname(fileURLToPath(import.meta.url));
 export const shift=(s,n)=>new Date(Date.parse(s+'T00:00:00Z')+n*86400000).toISOString().slice(0,10);
 export function due(today,anchor,intervalDays=1) {const d=(Date.parse(today)-Date.parse(anchor))/86400000;return Number.isInteger(intervalDays)&&intervalDays>0&&d>=0&&d%intervalDays===0;}
@@ -51,7 +52,7 @@ export function basicEducationFit(title,abstract='') {
 }
 function rationale(p) {
   const methods=/difference.in.differences|regression discontinuity|randomi[sz]ed|natural experiment|instrumental variable|双重差分|断点回归|随机试验|自然实验|工具变量/i.test(p.abstract);
-  return `学段判断：${p.level}。在本轮已核验日期且未推送的候选中，优先基础教育及四个研究主题，再按期刊权重排序。涉及${p.topics.join('、')}。${methods?'摘要包含因果识别方法线索，适合进一步核查研究设计。':'可作为相关议题的阅读线索。'}推荐依据为题目${p.abstract?'和摘要':'，未获取摘要'}，尚未阅读全文。`;
+  return `对应你的研究问题：${p.researchReason}。学段判断：${p.level}。${methods?'摘要包含因果识别方法线索，可进一步核查研究设计。':''}依据为题目${p.abstract?'和摘要':'，未获取摘要'}，并非全文学术质量评审。`;
 }
 async function request(url,json=false) {
   let r;
@@ -161,7 +162,7 @@ async function policies(source,today,report) {
       const meta=await request(`https://www.gov.uk/api/content${item.link}`,true);
       const date=exactDate(meta.first_published_at);if(!recent(date,today))continue;
       const title=meta.title||item.title,body=plain(meta.details?.body||item.description||'');
-      const match=relevance(title,body),kind=policyKind(title,body);
+      const match=researchFit(title,body),kind=policyKind(title,body);
       if(!match.score||!kind)continue;
       report.policies.push({id:meta.content_id||item.link,title,date,url:`https://www.gov.uk${item.link}`,source:source.name,region:source.region,kind,...match});count++;
     }return count;
@@ -173,7 +174,7 @@ async function policies(source,today,report) {
     try {
       const page=await request(link.url),date=policyDate(page);if(!recent(date,today))continue;
       const m=metas(page),title=m['article.title']?.[0]||m['dcterms.title']?.[0]||link.title;
-      const body=articleText(page),match=relevance(title,body),kind=policyKind(title,body);if(!match.score||!kind)continue;
+      const body=articleText(page),match=researchFit(title,body),kind=policyKind(title,body);if(!match.score||!kind)continue;
       report.policies.push({id:link.url,title,date,url:link.url,region:source.region,source:source.name,kind,...match});count++;
     }catch(e){report.errors.push({source:source.name,url:link.url,error:e.message});}
   }return count;
@@ -184,7 +185,8 @@ export function selectPapers(items,today,seen={}) {
     if(!recent(p.date,today)||excluded.test(p.title)||seen[p.id])continue;
     const match=relevance(p.title,p.abstract);if(!match.score)continue;
     const fit=basicEducationFit(p.title,p.abstract);if(!fit.eligible)continue;
-    const candidate={...p,...match,level:fit.level,rank:fit.bonus+match.score+(p.weight||0)+(p.abstract?1:0)};
+    const research=researchFit(p.title,p.abstract);if(!research.eligible)continue;
+    const candidate={...p,...match,topics:research.topics,researchReason:research.rationale,level:fit.level,rank:research.score+fit.bonus+(p.weight||0)+(p.abstract?1:0)};
     if(!unique.has(p.id)||candidate.rank>unique.get(p.id).rank)unique.set(p.id,candidate);
   }
   return ['zh','en'].map(lang=>[...unique.values()].filter(p=>p.language===lang).sort((a,b)=>b.rank-a.rank||b.date.localeCompare(a.date))[0]||null);

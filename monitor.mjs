@@ -2,6 +2,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import {researchFit,isRoundup,highLevelEducationConference} from './research-profile.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const dateRE = /(20\d{2})\s*[年./-]\s*(\d{1,2})\s*[月./-]\s*(\d{1,2})\s*日?/g;
@@ -50,7 +51,12 @@ function dates(s) {
   });
 }
 export function assess(title, body, today, topics) {
-  if (pastRE.test(title) || !conferenceRE.test(title+'\n'+body) || !callRE.test(title+'\n'+body)) return {reason:'不是会议征稿通知'};
+  if(isRoundup(title))return {reason:'会议汇总帖，不是单场会议通知'};
+  if (pastRE.test(title) || !conferenceRE.test(title+'\n'+body)) return {reason:'不是会议征稿通知'};
+  const core=researchFit(title,body);
+  const profile=core.eligible?core:highLevelEducationConference(title,body);
+  if(!profile)return {reason:'未能证明与用户研究主线相关，且非可核验的综合教育会议'};
+  if(!callRE.test(title+'\n'+body))return {reason:'未能确认是否征稿',researchReason:profile.rationale};
   const matches=topics.filter(t=>(title+'\n'+body).includes(t));
   if (!matches.length && !/教育|教学|教师|学校|学生|课程|师范/.test(title+'\n'+body)) return {reason:'主题不匹配'};
   if (!matches.length) matches.push('一般教育学（相关主题优先排序）');
@@ -64,7 +70,7 @@ export function assess(title, body, today, topics) {
     const forward=/(?:请|代表|作者|参会者)?于\s*$/.test(before) && /^\s*(?:[日\s]*)(?:前|之前)[^。；\n]{0,40}(?:论文|稿件|投稿|摘要)/.test(after);
     if (labelled || forward) due.push(d.value);
   }
-  if (!due.length) return {reason:'未能确认含年份的投稿截止日期',topics:matches};
+  if (!due.length) return {reason:'未能确认含年份的投稿截止日期',topics:profile.topics,researchReason:profile.rationale};
   const deadline=due.sort().at(-1);
   if (deadline<today) return {reason:'已截稿',deadline};
   if (deadline>`${Number(today.slice(0,4))+2}-12-31`) return {reason:'日期异常'};
@@ -73,12 +79,12 @@ export function assess(title, body, today, topics) {
   const domestic=/北京|上海|天津|重庆|河北|山西|内蒙古|辽宁|吉林|黑龙江|江苏|浙江|安徽|福建|江西|山东|河南|湖北|湖南|广东|广西|海南|四川|贵州|云南|西藏|陕西|甘肃|青海|宁夏|新疆|香港|澳门|台湾|长春|武汉|南京|杭州|湖州|无锡|成都|西安|广州|深圳|长沙|济南|合肥|福州|厦门|郑州|贵阳|昆明|南昌|南宁|兰州|银川|西宁|海口|三亚|哈尔滨|沈阳|大连|线上|在线/;
   const foreign=/美国|英国|日本|韩国|澳大利亚|加拿大|新加坡|法国|德国|泰国|马来西亚|新西兰|境外|海外|纽约|伦敦|东京|首尔/;
   const venue=venues.find(v=>domestic.test(v) && !foreign.test(v));
-  if (!venue || venues.some(v=>foreign.test(v) && !domestic.test(v))) return {reason:'无法确认国内举办地点',deadline};
+  if (!venue || venues.some(v=>foreign.test(v) && !domestic.test(v))) return {reason:'无法确认国内举办地点',deadline,researchReason:profile.rationale};
   const excerpt=(re)=>body.split('\n').filter(l=>re.test(l)).slice(0,2).join('；').slice(0,240);
-  return {deadline,venue:venue.trim(),topics:matches,
+  return {deadline,venue:venue.trim(),topics:profile.topics,researchReason:profile.rationale,
     organizer:excerpt(/主办|承办/), time:excerpt(/会议时间|举办时间|时间[:：]/),
     fee:excerpt(/会务费|会议费|注册费|不收取.*费|免.*会务费/) || '未能从网页明确识别，请查看官方通知',
-    score:matches.reduce((s,t)=>s+(topics.includes(t)?(title.includes(t)?3:1):0),0)};
+    score:profile.score};
 }
 async function get(url) {
   const r=await fetch(url,{signal:AbortSignal.timeout(20000),headers:{'User-Agent':'EducationCFPMonitor/1.0 (public academic notices; once daily)'}});
@@ -139,11 +145,11 @@ export async function main() {
     `成功读取 ${report.sources.length}/${config.sources.length} 个监测入口，抓取失败 ${report.errors.length} 项。`,
     '自动规则筛选，投稿前请核对官方通知；仅监测配置中的网站和列表前部，不代表全网。',''];
   if(!chosen.length) lines.push(report.errors.length?'本次未确认新的可投稿会议。部分页面读取失败，不能据此判断没有会议。':'本次监测范围内未确认新的可投稿会议。');
-  for(const i of chosen) lines.push(`### ${i.title}`,`匹配主题：${i.topics.join('、')}`,`投稿截止：${i.deadline}`,`地点：${i.venue}`,
+  for(const i of chosen) lines.push(`### ${i.title}`,`与你研究的关系：${i.researchReason}`,`投稿截止：${i.deadline}`,`地点：${i.venue}`,
     `时间：${i.time||'请查看官方通知'}`,`主办/承办：${i.organizer||'请查看官方通知'}`,`费用：${i.fee}`,`[官方征稿通知](${i.url})`,'');
   if(fresh.length>chosen.length) lines.push(`另有 ${fresh.length-chosen.length} 条待后续汇总。`);
-  const pending=report.review.filter(i=>/未能确认|无法确认|尚未核实/.test(i.reason)).filter(i=>!state.reviewSeen?.[i.url]).slice(0,6);
-  if(pending.length) lines.push('### 待核实的会议线索（不能据此认定仍可投稿）',...pending.map(i=>`[${i.title}](${i.url})：${i.reason}`));
+  const pending=report.review.filter(i=>i.researchReason&&/未能确认|无法确认|尚未核实/.test(i.reason)).filter(i=>!state.reviewSeen?.[i.url]).slice(0,3);
+  if(pending.length) lines.push('### 单场会议：待你核实投稿信息',...pending.map(i=>`[${i.title}](${i.url})\n与你研究的关系或组织单位依据：${i.researchReason}\n待核实：${i.reason}`));
   const wechatCandidates=(report.wechat?.items||[]).filter(i=>!state.wechatSeen?.[i.title.replace(/\s/g,'')+'|'+i.account]);
   // Search-index snippets are discovery inputs, never completed conference recommendations.
   // This adapter has not resolved or verified individual original notices yet.
