@@ -144,11 +144,13 @@ export async function main() {
   if(fresh.length>chosen.length) lines.push(`另有 ${fresh.length-chosen.length} 条待后续汇总。`);
   const pending=report.review.filter(i=>/未能确认|无法确认|尚未核实/.test(i.reason)).filter(i=>!state.reviewSeen?.[i.url]).slice(0,6);
   if(pending.length) lines.push('### 待核实的会议线索（不能据此认定仍可投稿）',...pending.map(i=>`[${i.title}](${i.url})：${i.reason}`));
-  const wechatFresh=(report.wechat?.items||[]).filter(i=>!state.wechatSeen?.[i.title.replace(/\s/g,'')+'|'+i.account]).slice(0,8);
+  const wechatCandidates=(report.wechat?.items||[]).filter(i=>!state.wechatSeen?.[i.title.replace(/\s/g,'')+'|'+i.account]);
+  // Search-index snippets are discovery inputs, never completed conference recommendations.
+  // This adapter has not resolved or verified individual original notices yet.
+  const wechatFresh=[];
   if(report.wechat) {
     lines.push('### 公众号会议发现',`本轮公开索引查询成功${report.wechat.queries.length}项；不是微信搜一搜或公众号历史消息全量覆盖。`);
-    if(wechatFresh.length)lines.push(...wechatFresh.map(i=>`[${i.title}](${i.url})\n公众号索引名称：${i.account}；索引标注发布日期：${i.publicationDate}\n${i.reason}。摘要线索：${i.snippet.slice(0,160)}`));
-    else lines.push('本轮未确认新的近期公众号会议线索；不代表公众号中没有通知。');
+    lines.push(`公开索引发现${wechatCandidates.length}条未核实候选，仅保留在检索记录中。未能核验到单场会议原始通知、研究议题和投稿条件，因此不发送搜索结果页或汇总帖作为推荐；不代表没有相关会议。`);
     if(report.wechat.errors.length)lines.push('公众号检索异常：',...report.wechat.errors.map(e=>`${e.query}：${e.error}`));
   }
   lines.push('免费版推送内容仅保留1天，请及时保存官方链接。','未确认截止日期或国内地点的通知不列为可投稿会议，可查看运行报告核查。');
