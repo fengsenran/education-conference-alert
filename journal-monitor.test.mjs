@@ -53,3 +53,7 @@ test('RSS DNS fallback retains the original HTTPS hostname and excludes private 
 test('RSS DNS fallback never retries a certificate error, CAPTCHA, or HTTP access rejection',async()=>{
  for(const message of ['HTTP 403','页面要求登录或验证','UNABLE_TO_VERIFY_LEAF_SIGNATURE'])await assert.rejects(requestPublicRss('https://navi.cnki.net/knavi/rss/JYYJ',{request:async()=>{throw new Error(message);},resolve:async()=>{throw new Error('must not resolve');}}),e=>e.message===message);
 });
+
+test('an unavailable overseas DNS route can use only the previously verified fixed-host address',async()=>{
+ const xml=await requestPublicRss('https://navi.cnki.net/knavi/rss/JYYJ',{request:async()=>{throw new Error('ENOTFOUND');},resolve:async()=>{throw new Error('NXDOMAIN');},transport:async(url,address)=>{assert.equal(new URL(url).hostname,'navi.cnki.net');assert.equal(address,'121.194.4.8');return '<rss />';}});assert.equal(xml,'<rss />');
+});

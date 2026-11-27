@@ -1,6 +1,9 @@
 import https from 'node:https';
 import {isIP} from 'node:net';
 const cache=new Map();
+// Public address independently resolved and HTTPS/feed identity checked on 2026-11-27.
+// Some overseas DNS/CDN routes return NXDOMAIN; certificate validation remains mandatory.
+const lastVerifiedAddress={'navi.cnki.net':'121.194.4.8'};
 export function publicIPv4(address) {
  if(isIP(address)!==4)return false;
  const [a,b]=address.split('.').map(Number);
@@ -29,7 +32,7 @@ export async function requestPublicRss(url,{request,resolve=resolvePublicRss,tra
  const u=new URL(url);if(u.protocol!=='https:'||u.hostname!=='navi.cnki.net'||u.port||u.username||u.password||!/^\/knavi\/rss\/[A-Z0-9]+$/i.test(u.pathname)||u.search||u.hash)throw new Error('仅支持知网公开期刊RSS入口');
  try{return await request(url);}catch(e){
   if(!/ENOTFOUND|EAI_AGAIN|ENODATA/.test([e.message,e.cause?.code].join(' ')))throw e;
-  const address=await resolve(u.hostname);if(!publicIPv4(address))throw new Error('RSS解析地址不是有效公网IPv4');
+  let address;try{address=await resolve(u.hostname);}catch(dnsError){address=lastVerifiedAddress[u.hostname];if(!address)throw dnsError;}if(!publicIPv4(address))throw new Error('RSS解析地址不是有效公网IPv4');
   return transport(url,address);
  }
 }
