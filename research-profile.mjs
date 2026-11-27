@@ -13,6 +13,7 @@ export function researchFit(title,abstract='') {
  if(/成人教育|老年教育|adult education|older adult|lifelong learning/i.test(t))return {eligible:false,reason:'研究对象不是基础教育'};
  if(!k12.test(combined))return {eligible:false,reason:'没有基础教育研究对象'};
  if(higher.test(t)&&!/中小学|基础教育|义务教育|学前教育|小学|初中|高中|primary school|secondary school|K[–-]?12/i.test(t))return {eligible:false,reason:'主要研究对象为高等教育'};
+ if(/韧性|心理健康|心理适应|学习行为|课堂教学|教学设计|教师专业发展|教师专业成长|教师职业认同|学习动机|teacher resilience|student mental health/i.test(t)&&!/人口|资源|经费|财政|配置|供给|学校布局|学位|入学|编制|师资[^。]{0,8}配置|allocation|funding|provision|school closure/i.test(t))return {eligible:false,reason:'一般教学、教师发展或心理议题，标题未明确资源或服务供给研究问题'};
  const titleAxes=axes.filter(([,r])=>r.test(t));
  const allAxes=axes.filter(([,r])=>r.test(combined));
  const names=allAxes.map(([n])=>n);

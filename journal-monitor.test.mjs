@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {journalIdentity,paperLinks,collectJournal} from './journal-monitor.mjs';
-import {htmlPaper,parseCnaes,newReport,recent} from './research.mjs';
+import {htmlPaper,parseCnaes,parseFeed,newReport,recent} from './research.mjs';
 test('all 61 promised journals have separate monitoring records and a strict 30-day window',async()=>{
  const cfg=JSON.parse(await readFile(new URL('./research-config.json',import.meta.url),'utf8'));
  const registry=JSON.parse(await readFile(new URL('./journal-registry.json',import.meta.url),'utf8'));
@@ -31,4 +31,13 @@ test('CNKI dates use publication labels and never site upload or modification ti
  const h='<h1>人口变化与农村学校布局</h1><p>摘要(Abstract)：研究义务教育资源配置。关键词：农村</p><p>发布时间：2026-11-26</p><p>出版时间：2026-11-01</p><p>网络发布时间：2026-10-20</p>';
  const p=htmlPaper(h,source,'https://example.test/a');assert.equal(p.date,'2026-10-20');assert.equal(p.abstract,'研究义务教育资源配置。');
  assert.equal(htmlPaper(h.replace(/出版时间：2026-11-01|网络发布时间：2026-10-20/g,''),source,'https://example.test/a').date,null);
+});
+
+test('CNKI RSS identity, Chinese calendar dates, stable IDs and feed limits are explicit',async()=>{
+ const report=newReport('2026-11-27',{lookbackDays:30});
+ const source={name:'测试期刊',endpoints:[{url:'https://navi.cnki.net/knavi/rss/TEST',adapter:'cnki-rss'}]};
+ const feed='<rss><channel><title>测试期刊-CNKI</title><pubDate>27 Nov 2026 00:00:00 GMT</pubDate><item><title>人口变化与乡村学校资源配置</title><link>https://kns.cnki.net/a?v=token1</link><description>县域义务教育资源配置</description><pubDate>Tue, 17 Nov 2026 16:00:00 GMT</pubDate><author>作者甲</author></item></channel></rss>';
+ await collectJournal(source,report,{request:async()=>feed,htmlPaper,parseCnaes,parseFeed,today:report.date,recent,lookback:30});
+ assert.equal(report.papers[0].date,'2026-11-18');assert.equal(report.papers[0].authors,'作者甲');assert.equal(report.papers[0].publicationVerification,'catalogue');assert.equal(report.journalCoverage[0].state,'partial');
+ const again=newReport(report.date,{lookbackDays:30});await collectJournal(source,again,{request:async()=>feed.replace('token1','token2'),htmlPaper,parseCnaes,parseFeed,today:report.date,recent,lookback:30});assert.equal(again.papers[0].id,report.papers[0].id);
 });

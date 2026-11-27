@@ -1,4 +1,5 @@
 import {plain} from './monitor.mjs';
+import {createHash} from 'node:crypto';
 const normalize=s=>String(s||'').replace(/[\s\p{P}]/gu,'').toLowerCase();
 export function journalIdentity(html,source) {
  const title=plain(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]||'');
@@ -17,13 +18,27 @@ export function paperLinks(html,base) {
  }
  return [...out.values()];
 }
-export async function collectJournal(source,report,{request,htmlPaper,parseCnaes,today,recent,lookback}) {
+export async function collectJournal(source,report,{request,htmlPaper,parseCnaes,parseFeed,today,recent,lookback}) {
  const audit={name:source.name,index:source.index,attempts:[],parsed:0,dated:0,inWindow:0,state:'unavailable'};
  report.journalCoverage.push(audit);
  const candidates=[];let identity=false;const covered=new Set();
  for(const endpoint of source.endpoints) {
   try{
-   const html=await request(endpoint.url);const verified=endpoint.adapter==='cnaes'||journalIdentity(html,source);
+   const html=await request(endpoint.url);
+   if(endpoint.adapter==='cnki-rss') {
+    const channel=plain(html.match(/<channel>\s*<title>([\s\S]*?)<\/title>/i)?.[1]||'').replace(/-CNKI$/i,'');
+    if(normalize(channel)!==normalize(source.name))throw new Error('RSS刊名与目标期刊不一致');
+    const items=parseFeed(html);if(!items.length)throw new Error('RSS没有可解析的题录');
+    const feedPapers=items.map(p=>({title:p.title,abstract:p.description,authors:p.authors,date:p.date&&p.rawDate?new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(p.rawDate)):null,
+     journal:source.name,weight:source.weight,language:'zh',id:'cnki-rss:'+createHash('sha256').update(source.name+'|'+normalize(p.title)).digest('hex'),url:p.url,publicationVerification:'catalogue',dateBasis:'知网期刊RSS条目pubDate（北京时间）；未采用频道更新时间，首次网络首发时间尚未逐篇核验'}));
+    report.papers.push(...feedPapers);identity=true;
+    const latest=feedPapers.map(p=>p.date).filter(Boolean).sort().at(-1)||null;
+    audit.rss={url:endpoint.url,items:items.length,latest,latestWithinWindow:recent(latest,today,lookback),limitedToLatestItems:items.length>=20};
+    audit.attempts.push({url:endpoint.url,status:'read',directoryItems:items.length});
+    // RSS offers only a latest-item feed, not a complete 30-day/online-first archive.
+    continue;
+   }
+   const verified=endpoint.adapter==='cnaes'||journalIdentity(html,source);
    if(!verified)throw new Error('页面刊名与目标期刊不一致或无法核验');
    identity=true;let papers=[];
    if(endpoint.adapter==='cnaes')papers=parseCnaes(html,source);

@@ -21,11 +21,17 @@ test('a 30-day window excludes older papers and prioritises a qualifying seven-d
  const base={weight:5,language:'en',journal:'Journal',abstract:'primary school funding formulas in rural districts'};
  const items=[{...base,id:'old',title:'Rural school funding and demographic change',date:'2026-11-01'},
  {...base,id:'new',title:'Rural school funding',date:'2026-11-25'},
- {...base,id:'outside',title:'Rural school funding',date:'2026-10-28'}];
+ {...base,id:'outside',title:'Rural school funding before a demographic shift',date:'2026-10-28'}];
  const diagnostics={};
  assert.equal(selectPapers(items,'2026-11-27',{}, {lookbackDays:30,diagnostics})[1].id,'new');
  assert.equal(selectPapers(items,'2026-11-27',{new:true},{lookbackDays:30})[1].readingBand,'近30天论文');
  assert.equal(diagnostics.outsideWindow,1);
+});
+
+test('a recent RSS date cannot revive a matching paper with a known earlier publication date',()=>{
+ const p={title:'Rural school funding reform',journal:'Journal',language:'en',abstract:'Rural primary school resource allocation',weight:4};
+ const items=[{...p,id:'rss',date:'2026-11-20',publicationVerification:'catalogue'},{...p,id:'publisher',date:'2026-08-10'}];
+ assert.equal(selectPapers(items,'2026-11-27',{}, {lookbackDays:30})[1],null);
 });
 
 test('policy execution, interpretation, evidence and disputes are retained with distinct labels',()=>{

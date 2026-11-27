@@ -14,7 +14,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: education-wechat-daily
+  group: ${{ (github.event_name == 'schedule' || inputs.mode == 'send') && 'education-wechat-daily' || 'education-research-validation' }}
   cancel-in-progress: false
 jobs:
   test:

@@ -131,7 +131,7 @@ async function english(source,today,report,lookbackDays=7) {
   return records.length;
 }
 async function chinese(source,report) {
-  if(source.endpoints)return collectJournal(source,report,{request,htmlPaper,parseCnaes,today:report.date,recent,lookback:report.lookbackDays});
+  if(source.endpoints)return collectJournal(source,report,{request,htmlPaper,parseCnaes,parseFeed,today:report.date,recent,lookback:report.lookbackDays});
   const html=await request(source.url);
   if(source.adapter==='cnaes') {const items=parseCnaes(html,source);if(!items.length)throw new Error('未解析到期刊文章');report.papers.push(...items);return items.length;}
   const list=anchors(html,source.url,source.pattern).slice(0,35);
@@ -162,6 +162,7 @@ export function policyKind(title,body) {
 }
 export function policyNewsKind(title,body='') {
  if(/招聘|招标|采购公告|中标|考试答案|录取名单|招生广告|award ceremony/i.test(title))return null;
+ if(/关于开展.+督导评估的公告/.test(title))return null;
  if(/争议|质疑|反对|抗议|困境|冲突|争论|controvers|dispute|protest|backlash|opposition|legal challenge/i.test(title+' '+body.slice(0,1000)))return '争议/问题报道（报道中的主张需核对证据）';
  if(/评估|评价|成效|效果|调研|调查|研究报告|统计|assessment|evaluation|impact|research report|statistics/i.test(title))return '政策评估/调研资料';
  if(/解读|答记者问|图解|评论|观察|建议|analysis|opinion|explainer/i.test(title))return '解读/评论（与正式政策文件区分）';
@@ -188,7 +189,7 @@ export function parseFeed(xml) {
   const tag=n=>s.match(new RegExp('<'+n+'[^>]*>([\\s\\S]*?)<\\/'+n+'>','i'))?.[1]||'';
   const rawDate=decode(tag('pubDate')||tag('published'));
   const parsed=Date.parse(rawDate);
-  return {title:decode(tag('title')),url:decode(tag('link'))||s.match(/<link[^>]*href=["']([^"']+)/i)?.[1]||'',
+  return {title:decode(tag('title')),url:decode(tag('link'))||s.match(/<link[^>]*href=["']([^"']+)/i)?.[1]||'',rawDate,authors:decode(tag('author')||tag('dc:creator')),
    date:Number.isFinite(parsed)?new Date(parsed).toISOString().slice(0,10):null,description:decode(tag('description')||tag('summary')),dateBasis:'发布机构/媒体RSS的pubDate或published字段（不使用updated）'};
  });
 }
@@ -230,28 +231,32 @@ async function policies(source,today,report) {
   for(const link of links) {
     try {
       const page=source.direct?html:await request(link.url),date=policyDate(page);if(!recent(date,today,days))continue;
-      const m=metas(page),title=m['article.title']?.[0]||m['dcterms.title']?.[0]||link.title;
+      const m=metas(page),title=m['article.title']?.[0]||m.articletitle?.[0]||m['og:title']?.[0]||m['dcterms.title']?.[0]||link.title.replace(/\s*20\d{2}-\d{2}-\d{2}\s*$/,'');
       const body=policyBody(page);if(add(title,body,date,link.url,'新闻原文首次发布日期（区别于原政策成文/实施日期）',{bodyVerified:true}))count++;
     }catch(e){report.errors.push({source:source.name,url:link.url,error:e.message});}
   }return count;
 }
+export function paperKey(p) {return `paper:${p.language}:${p.journal}:${p.title}`.replace(/[\s\p{P}]/gu,'').toLowerCase();}
 export function selectPapers(items,today,seen={},options={}) {
   const lookback=options.lookbackDays??7;
   const counts={input:items.length,missingDate:0,outsideWindow:0,alreadySent:0,excludedType:0,offTopic:0,eligible:0};
   const unique=new Map();
-  for(const p of items) {
+  const first=new Map();for(const p of items)if(p.date&&exactDate(p.date)===p.date&&(!first.has(paperKey(p))||p.date<first.get(paperKey(p)).date||(p.date===first.get(paperKey(p)).date&&first.get(paperKey(p)).publicationVerification==='catalogue'&&p.publicationVerification!=='catalogue')))first.set(paperKey(p),p);
+  for(const raw of items) {
+    const key=paperKey(raw),earliest=first.get(key);
+    const p=earliest&&raw.date>=earliest.date?{...raw,date:earliest.date,dateBasis:earliest.dateBasis,publicationVerification:earliest.publicationVerification}:raw;
     if(!p.date){counts.missingDate++;continue;}
     if(!recent(p.date,today,lookback)){counts.outsideWindow++;continue;}
-    if(seen[p.id]){counts.alreadySent++;continue;}
+    if(seen[p.id]||seen[key]){counts.alreadySent++;continue;}
     if(excluded.test(p.title)){counts.excludedType++;continue;}
     const research=researchFit(p.title,p.abstract);if(!research.eligible){counts.offTopic++;continue;}
     const fit=basicEducationFit(p.title,p.abstract);
     const age=Math.floor((Date.parse(today)-Date.parse(p.date))/86400000);
     const freshness=age<7?0:1;
     counts.eligible++;
-    const candidate={...p,topics:research.topics,researchReason:research.rationale,level:fit.level||'基础教育资源与公共服务研究（对象线索已核验）',freshness,
-      readingBand:freshness===0?'最近7天新文':'近30天论文',rank:research.score+(fit.bonus||0)+(p.weight||0)+(p.abstract?1:0)};
-    if(!unique.has(p.id)||candidate.rank>unique.get(p.id).rank)unique.set(p.id,candidate);
+    const candidate={...p,key,topics:research.topics,researchReason:research.rationale,level:fit.level||'基础教育资源与公共服务研究（对象线索已核验）',freshness,
+      readingBand:p.publicationVerification==='catalogue'?(freshness===0?'最近7天期刊题录':'近30天期刊题录'):(freshness===0?'最近7天新文':'近30天论文'),rank:research.score+(fit.bonus||0)+(p.weight||0)+(p.abstract?1:0)};
+    if(!unique.has(key)||candidate.rank>unique.get(key).rank)unique.set(key,candidate);
   }
   if(options.diagnostics)Object.assign(options.diagnostics,counts);
   return ['zh','en'].map(lang=>[...unique.values()].filter(p=>p.language===lang).sort((a,b)=>a.freshness-b.freshness||b.rank-a.rank||b.date.localeCompare(a.date))[0]||null);
@@ -271,7 +276,7 @@ export async function collectSources(cfg,today,kind='all',shard=0,shards=1) {
  const report=newReport(today,cfg);
  const jobs=[...cfg.englishJournals.map(s=>({s,kind:'en',label:'英文期刊',run:()=>english(s,today,report,cfg.lookbackDays)})),...cfg.chineseJournals.map(s=>({s,kind:'zh',label:'中文期刊',run:()=>chinese(s,report)})),...cfg.policySources.map(s=>({s,kind:'news',label:'政策与新闻',run:()=>policies(s,today,report)}))].filter(j=>kind==='all'||kind===j.kind).filter((j,i)=>i%shards===shard);
  const run=async j=>{try{const count=await j.run();report.sources.push({name:j.s.name,kind:j.label,count});}catch(e){report.errors.push({source:j.s.name,error:e.message});}console.log(JSON.stringify({source:j.s.name,kind:j.kind,finished:true}));};
- if(kind==='en')for(const j of jobs){await run(j);await new Promise(r=>setTimeout(r,600));}
+ if(kind==='en'||kind==='zh')for(const j of jobs){await run(j);await new Promise(r=>setTimeout(r,600));}
  else for(let i=0;i<jobs.length;i+=3)await Promise.all(jobs.slice(i,i+3).map(run));
  return report;
 }
@@ -308,12 +313,13 @@ export async function main() {
   const policyItems=[...new Map(report.policies.filter(p=>!state.policies[p.id]&&!state.policyTitles?.[p.title.replace(/[\s\p{P}]/gu,'')]).map(p=>[p.title.replace(/[\s\p{P}]/gu,''),p])).values()].sort((a,b)=>Number(!recent(a.date,today,7))-Number(!recent(b.date,today,7))||b.score-a.score||b.date.localeCompare(a.date));
   const selectedPolicies=policyItems.slice(0,cfg.maxNewsItems??5);
   report.selected={zh,en,policies:selectedPolicies};
-  const lines=[`# 教育论文与政策素材｜${today}`,`论文仅限首次发表在最近${cfg.lookbackDays}天内，优先最近7天，中文、英文各至多一篇。政策与新闻取最近${cfg.policyLookbackDays}天，包含新文件、地方执行、解读评估与争议报道。`,
+  const lines=[`# 教育论文与政策素材｜${today}`,`论文范围最近${cfg.lookbackDays}天，优先最近7天，中文、英文各至多一篇。官网出版日期与RSS题录日期分别注明；未核验最早首发时间的题录会单独说明。政策与新闻取最近${cfg.policyLookbackDays}天，包含新文件、地方执行、解读评估与争议报道。`,
     '优先基础教育：农村教育、教育人口、教育政策、教育公平；排除高校机构建设等研究对象。规则排序仅在配置来源内比较，不代表全网最佳。'];
   for(const [label,p] of [['中文论文',zh],['英文论文',en]]) {
     lines.push(`## ${label}`);
     if(!p){lines.push(`本轮成功检索的来源及有效缓存中，没有确认最近${cfg.lookbackDays}天内、主题匹配且未推送的${label}；失败来源不计入结论。`);continue;}
-    lines.push(`**${p.title}**`,`${p.readingBand}｜${p.journal}｜首次发表：${p.date}｜${p.authors||'作者信息见原文'}`,`主题：${p.topics.join('、')}`,`推荐理由：${rationale(p)}`);
+    lines.push(`**${p.title}**`,`${p.readingBand}｜${p.journal}｜${p.publicationVerification==='catalogue'?'题录标注日期':'首次发表'}：${p.date}｜${p.authors||'作者信息见原文'}`,`主题：${p.topics.join('、')}`,`推荐理由：${rationale(p)}`);
+    if(p.publicationVerification==='catalogue')lines.push('日期依据为知网期刊RSS条目，尚未逐篇核验更早的网络首发时间；如取得更早出版日期，按更早日期重新筛选。');
     if(p.abstract)lines.push(`摘要摘录（非全文解读）：${p.abstract.slice(0,p.language==='zh'?140:400)}${p.abstract.length>(p.language==='zh'?140:400)?'…':''}`);
     lines.push(`[期刊原文/DOI](${p.url})`, `日期依据：${p.dateBasis}。全文是否开放获取请查看原文。`);
     if(p.fromCache)lines.push(`本次使用已核验元数据缓存，采集日期：${p.fetchedAt}；本轮未重新取得该条文章元数据，原文可访问性须打开链接确认。`);
@@ -323,7 +329,7 @@ export async function main() {
   for(const p of selectedPolicies)lines.push(`- **${p.title}**\n  ${p.region}｜${p.source}｜本篇发布：${p.date}\n  类型：${p.kind}\n  关联：${p.researchReason||p.rationale}\n  内容线索：${p.excerpt||'见原文'}\n  写作切入：${policyInspiration(p)}\n  ${p.rssOnly?'仅取得发布机构RSS摘要，正文尚未核验。':''}\n  [报道/文件原文](${p.url})`);
   if(policyItems.length>selectedPolicies.length)lines.push(`另有${policyItems.length-selectedPolicies.length}条符合条件政策，完整候选见本次运行摘要。`);
   const jc=report.journalCoverage;const read=jc.filter(s=>s.state==='read').length,partial=jc.filter(s=>s.state==='partial').length;
-  lines.push(`中文期刊范围${cfg.chineseJournals.length}本：目录与首发入口均取得题录${read}本，部分取得${partial}本，未取得题录${cfg.chineseJournals.length-read-partial}本。入口读取成功不代表完整覆盖所有新文。`, '[逐刊读取状态](https://github.com/fengsenran/education-conference-alert/blob/main/archive/journal-coverage.json)');
+  lines.push(`中文期刊范围${cfg.chineseJournals.length}本：目录与首发入口均取得题录${read}本，部分取得${partial}本，未取得题录${cfg.chineseJournals.length-read-partial}本。RSS刊名核验并读取${jc.filter(s=>s.rss).length}本，其中RSS最新日期已超出30天窗口${jc.filter(s=>s.rss&&!s.rss.latestWithinWindow).length}本，可能存在更新滞后。入口读取成功不代表完整覆盖所有新文。`, '[逐刊读取状态](https://github.com/fengsenran/education-conference-alert/blob/main/archive/journal-coverage.json)');
   lines.push(`监测入口：${report.sources.length}/${totalSources}个读取成功，${report.errors.length}项读取失败，${report.warnings.length}项检查未完成或元数据不完整。`);
   lines.push(`筛选记录：解析后候选${report.funnel.input}；日期不明${report.funnel.missingDate}；超出窗口${report.funnel.outsideWindow}；已推送${report.funnel.alreadySent}；非研究性文章${report.funnel.excludedType}；不符合研究主线${report.funnel.offTopic}；可选${report.funnel.eligible}。`);
   lines.push(`本次另保留${report.cache.used}条既有元数据缓存参与筛选；缓存不改变首次发表日期或去重规则，超过${cfg.lookbackDays}天自动淘汰。`);
@@ -341,7 +347,7 @@ export async function main() {
   await writeFile(path.join(root,'archive','journal-coverage.json'),JSON.stringify({date:today,window:report.window,journals:jc},null,2)+'\n');
   await writeFile(path.join(root,'archive','research-receipt.json'),JSON.stringify({...receipt,digestDate:today},null,2)+'\n');
   console.log('推送服务已接受请求，实际微信送达须在接收端确认；正文和接口回执已存档。');
-  for(const p of [zh,en].filter(Boolean))state.papers[p.id]=today;
+  for(const p of [zh,en].filter(Boolean)){state.papers[p.id]=today;state.papers[paperKey(p)]=today;}
   for(const p of selectedPolicies)state.policies[p.id]=today;
   state.policyTitles??={};for(const p of selectedPolicies)state.policyTitles[p.title.replace(/[\s\p{P}]/gu,'')]=today;
   await writeFile(path.join(root,'paper-cache.json'),JSON.stringify(merged.map(({fromCache,...p})=>p),null,2)+'\n');

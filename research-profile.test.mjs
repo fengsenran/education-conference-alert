@@ -9,6 +9,7 @@ test('actual wrong digital-classroom recommendation and unrelated teaching do no
  assert.equal(researchFit(wrong,'K–12 science instruction increasingly uses computers alongside science education reforms.').eligible,false);
  assert.equal(researchFit('乡村小学生科学课堂合作学习研究','教育公平与教学创新').eligible,false);
  assert.equal(researchFit('高校机构建立与组织变革研究','教育治理和教育公平').eligible,false);
+ assert.equal(researchFit('社会生态系统理论下乡村教师韧性发展的动力与路径','乡村教师韧性可以保障教育供给稳定、提升教育资源配置效益。').eligible,false);
  assert.equal(researchFit('Racial Status Threat and Anti-DEI Efforts in Local School Districts','Demographic changes influence school board elections and book bans in U.S. school districts.').eligible,false);
  assert.equal(researchFit('The Lingering Legacy of Redlining on School Funding, Diversity, and Performance','School funding relies on local revenue and federal aid. Historic housing discrimination continues to shape public education.').eligible,true);
 });
