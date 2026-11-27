@@ -1,38 +1,1539 @@
 {
-  "anchorDate":"2026-11-18",
-  "intervalDays":1,
-  "lookbackDays":90,
-  "englishJournals":[
-    {"name":"American Educational Research Journal","issn":"0002-8312","weight":5},
-    {"name":"Educational Evaluation and Policy Analysis","issn":"0162-3737","weight":5},
-    {"name":"Review of Educational Research","issn":"0034-6543","weight":5},
-    {"name":"Educational Researcher","issn":"0013-189X","weight":5},
-    {"name":"Journal of Education Policy","issn":"0268-0939","weight":4},
-    {"name":"Economics of Education Review","issn":"0272-7757","weight":4},
-    {"name":"Comparative Education Review","issn":"0010-4086","weight":4},
-    {"name":"Comparative Education","issn":"0305-0068","weight":4},
-    {"name":"Sociology of Education","issn":"0038-0407","weight":5},
-    {"name":"Journal of Rural Studies","issn":"0743-0167","weight":4},
-    {"name":"Demography","issn":"0070-3370","weight":5},
-    {"name":"Population and Development Review","issn":"0098-7921","weight":5},
-    {"name":"British Educational Research Journal","issn":"0141-1926","weight":4},
-    {"name":"International Journal of Educational Development","issn":"0738-0593","weight":4},
-    {"name":"Race Ethnicity and Education","issn":"1361-3324","weight":4},
-    {"name":"Education Economics","issn":"0964-5292","weight":4}
+  "anchorDate": "2026-11-18",
+  "intervalDays": 1,
+  "lookbackDays": 30,
+  "englishJournals": [
+    {
+      "name": "American Educational Research Journal",
+      "issn": "0002-8312",
+      "weight": 5
+    },
+    {
+      "name": "Educational Evaluation and Policy Analysis",
+      "issn": "0162-3737",
+      "weight": 5
+    },
+    {
+      "name": "Review of Educational Research",
+      "issn": "0034-6543",
+      "weight": 5
+    },
+    {
+      "name": "Educational Researcher",
+      "issn": "0013-189X",
+      "weight": 5
+    },
+    {
+      "name": "Journal of Education Policy",
+      "issn": "0268-0939",
+      "weight": 4
+    },
+    {
+      "name": "Economics of Education Review",
+      "issn": "0272-7757",
+      "weight": 4
+    },
+    {
+      "name": "Comparative Education Review",
+      "issn": "0010-4086",
+      "weight": 4
+    },
+    {
+      "name": "Comparative Education",
+      "issn": "0305-0068",
+      "weight": 4
+    },
+    {
+      "name": "Sociology of Education",
+      "issn": "0038-0407",
+      "weight": 5
+    },
+    {
+      "name": "Journal of Rural Studies",
+      "issn": "0743-0167",
+      "weight": 4
+    },
+    {
+      "name": "Demography",
+      "issn": "0070-3370",
+      "weight": 5
+    },
+    {
+      "name": "Population and Development Review",
+      "issn": "0098-7921",
+      "weight": 5
+    },
+    {
+      "name": "British Educational Research Journal",
+      "issn": "0141-1926",
+      "weight": 4
+    },
+    {
+      "name": "International Journal of Educational Development",
+      "issn": "0738-0593",
+      "weight": 4
+    },
+    {
+      "name": "Race Ethnicity and Education",
+      "issn": "1361-3324",
+      "weight": 4
+    },
+    {
+      "name": "Education Economics",
+      "issn": "0964-5292",
+      "weight": 4
+    }
   ],
-  "chineseJournals":[
-    {"name":"教育研究","url":"https://jyyj.cnaes.edu.cn/","adapter":"cnaes","weight":5},
-    {"name":"华东师范大学学报（教育科学版）","url":"https://xbjk.ecnu.edu.cn/CN/1000-5560/home.shtml","pattern":"/CN/(?:abstract|10\\.|Y)|/article/","weight":5},
-    {"name":"清华大学教育研究","url":"https://tje.ioe.tsinghua.edu.cn/default.aspx","pattern":"/oa/darticle\\.aspx","weight":4},
-    {"name":"人口研究","url":"https://rkyj.ruc.edu.cn/CN/1000-6087/home.shtml","pattern":"/CN/(?:abstract|10\\.|Y)|/article/","weight":5}
+  "chineseJournals": [
+    {
+      "name": "教育研究",
+      "index": "CSSCI来源",
+      "code": "jyyj",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://jyyj.cnaes.edu.cn/zxqk?label=year",
+          "adapter": "cnaes",
+          "role": "current"
+        },
+        {
+          "url": "https://jyyj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "华东师范大学学报（教育科学版）",
+      "index": "CSSCI来源",
+      "code": "hsjy",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://xbjk.ecnu.edu.cn/CN/1000-5560/home.shtml",
+          "role": "current"
+        },
+        {
+          "url": "https://xbjk.ecnu.edu.cn/CN/article/showNewArticle.do",
+          "role": "online-first"
+        },
+        {
+          "url": "https://hsjy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "北京大学教育评论",
+      "index": "CSSCI来源",
+      "code": "bjpl",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://bjpl.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "教育发展研究",
+      "index": "CSSCI来源",
+      "code": "shgj",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://shgj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "教育学报",
+      "index": "CSSCI来源",
+      "code": "xkjy",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "教育科学",
+      "index": "CSSCI来源",
+      "code": "jyko",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://jyko.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "教育研究与实验",
+      "index": "CSSCI来源",
+      "code": "yjsy",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://yjsy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "湖南师范大学教育科学学报",
+      "index": "CSSCI来源",
+      "code": "fljy",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "教育与经济",
+      "index": "CSSCI来源",
+      "code": "jyji",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://jyji.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "现代教育管理",
+      "index": "CSSCI来源",
+      "code": "lnjy",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://www.xdjygl.com/CN/volumn/home.shtml",
+          "role": "current"
+        },
+        {
+          "url": "https://lnjy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "国家教育行政学院学报",
+      "index": "CSSCI来源",
+      "code": "gjxz",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://gjxz.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "清华大学教育研究",
+      "index": "CSSCI来源",
+      "code": "qhdj",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://tje.ioe.tsinghua.edu.cn/default.aspx",
+          "role": "current"
+        },
+        {
+          "url": "https://qhdj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "基础教育",
+      "index": "CSSCI来源",
+      "code": "jcjy",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://jcjy.ecnu.edu.cn/CN/volumn/home.shtml",
+          "role": "current"
+        },
+        {
+          "url": "https://jcjy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "中国教育学刊",
+      "index": "CSSCI来源",
+      "code": "zjyx",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://www.jcse.com.cn/",
+          "role": "current"
+        },
+        {
+          "url": "https://zjyx.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "苏州大学学报（教育科学版）",
+      "index": "CSSCI来源",
+      "code": "szjk",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "教师教育研究",
+      "index": "CSSCI来源",
+      "code": "gdsz",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://gdsz.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "学前教育研究",
+      "index": "CSSCI来源",
+      "code": "xqjy",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://xqjy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "民族教育研究",
+      "index": "CSSCI来源",
+      "code": "mzjy",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://mzjy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "比较教育研究",
+      "index": "CSSCI来源",
+      "code": "bjjy",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://bjjy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "全球教育展望",
+      "index": "CSSCI来源",
+      "code": "wgjn",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://wgjn.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "人口研究",
+      "index": "CSSCI来源",
+      "code": "rkyj",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://rkyj.ruc.edu.cn/CN/1000-6087/home.shtml",
+          "role": "current"
+        },
+        {
+          "url": "https://rkyj.ruc.edu.cn/CN/article/showNewArticle.do",
+          "role": "online-first"
+        },
+        {
+          "url": "https://rkyj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "中国人口科学",
+      "index": "CSSCI来源",
+      "code": "zgrk",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://zgrk.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "人口学刊",
+      "index": "CSSCI来源",
+      "code": "rkxk",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://rkxk.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "人口与经济",
+      "index": "CSSCI来源",
+      "code": "rkjj",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://rkjj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "人口与发展",
+      "index": "CSSCI来源",
+      "code": "scrk",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://rkyfz.pku.edu.cn/CN/1674-1668/home.shtml",
+          "role": "current"
+        },
+        {
+          "url": "https://scrk.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "财政研究",
+      "index": "CSSCI来源",
+      "code": "czyj",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://czyj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "财经研究",
+      "index": "CSSCI来源",
+      "code": "cjyj",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://qks.sufe.edu.cn/J/CJYJ",
+          "role": "current"
+        },
+        {
+          "url": "https://cjyj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "公共管理学报",
+      "index": "CSSCI来源",
+      "code": "gggl",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://gggl.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "公共管理与政策评论",
+      "index": "CSSCI来源",
+      "code": "ggzc",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://ggglyzc.ruc.edu.cn/CN/2095-4026/home.shtml",
+          "role": "current"
+        },
+        {
+          "url": "https://ggzc.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "中国行政管理",
+      "index": "CSSCI来源",
+      "code": "zgxz",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://zgxz.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "社会学研究",
+      "index": "CSSCI来源",
+      "code": "shxj",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://shxyj.ajcass.org/",
+          "role": "current"
+        },
+        {
+          "url": "https://shxj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "社会",
+      "index": "CSSCI来源",
+      "code": "sheh",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://www.society.shu.edu.cn/CN/volumn/home.shtml",
+          "role": "current"
+        },
+        {
+          "url": "https://www.society.shu.edu.cn/CN/article/showNewArticle.do",
+          "role": "online-first"
+        },
+        {
+          "url": "https://sheh.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "社会发展研究",
+      "index": "CSSCI来源",
+      "code": "shfy",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://shfzyj.ajcass.org/",
+          "role": "current"
+        },
+        {
+          "url": "https://shfy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "中国农村经济",
+      "index": "CSSCI来源",
+      "code": "znjj",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://znjj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "中国农村观察",
+      "index": "CSSCI来源",
+      "code": "zncg",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://zncg.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "农业经济问题",
+      "index": "CSSCI来源",
+      "code": "njwt",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://njwt.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "地理研究",
+      "index": "CSSCI来源",
+      "code": "dlyj",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://www.dlyj.ac.cn/CN/1000-0585/home.shtml",
+          "role": "current"
+        },
+        {
+          "url": "https://www.dlyj.ac.cn/CN/article/showNewArticle.do",
+          "role": "online-first"
+        },
+        {
+          "url": "https://dlyj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "人文地理",
+      "index": "CSSCI来源",
+      "code": "rwdl",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://rwdl.xisu.edu.cn/CN/1003-2398/home.shtml",
+          "role": "current"
+        },
+        {
+          "url": "https://rwdl.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "地理科学进展",
+      "index": "CSSCI来源",
+      "code": "dlkj",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://www.progressingeography.com/CN/1007-6301/home.shtml",
+          "role": "current"
+        },
+        {
+          "url": "https://www.progressingeography.com/CN/article/showNewArticle.do",
+          "role": "online-first"
+        },
+        {
+          "url": "https://dlkj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "城市规划学刊",
+      "index": "CSSCI来源",
+      "code": "cxgh",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://cxgh.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "东北师大学报（哲学社会科学版）",
+      "index": "CSSCI来源",
+      "code": "dbss",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://dbss.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "北京师范大学学报（社会科学版）",
+      "index": "CSSCI来源",
+      "code": "bjsf",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://wkxb.bnu.edu.cn/CN/1002-0209/home.shtml",
+          "role": "current"
+        },
+        {
+          "url": "https://bjsf.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "华中师范大学学报（人文社会科学版）",
+      "index": "CSSCI来源",
+      "code": "hzsd",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://hzsd.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "西南大学学报（社会科学版）",
+      "index": "CSSCI来源",
+      "code": "xbds",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://xbds.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "南京师大学报（社会科学版）",
+      "index": "CSSCI来源",
+      "code": "njss",
+      "weight": 4,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://njss.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "教育经济评论",
+      "index": "CSSCI扩展",
+      "code": "jyjj",
+      "weight": 3,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://jyjjpl.bnu.edu.cn/ch/index.aspx",
+          "role": "current"
+        },
+        {
+          "url": "https://jyjj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "教育学术月刊",
+      "index": "CSSCI扩展",
+      "code": "jxjk",
+      "weight": 3,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://jxjk.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "教育科学研究",
+      "index": "CSSCI扩展",
+      "code": "jyky",
+      "weight": 3,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://jyky.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "中小学管理",
+      "index": "CSSCI扩展",
+      "code": "zxxg",
+      "weight": 3,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://zxxg.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "中国教育科学（中英文）",
+      "index": "CSSCI扩展",
+      "code": "zjka",
+      "weight": 3,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://zjka.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "河北师范大学学报（教育科学版）",
+      "index": "CSSCI扩展",
+      "code": "hbsj",
+      "weight": 3,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://xuebao.hebtu.edu.cn/",
+          "role": "current"
+        },
+        {
+          "url": "https://hbsj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "天津师范大学学报（基础教育版）",
+      "index": "CSSCI扩展",
+      "code": "tjjy",
+      "weight": 3,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://tjjy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "比较教育学报",
+      "index": "CSSCI扩展",
+      "code": "wgzx",
+      "weight": 3,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://wgzx.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "外国教育研究",
+      "index": "CSSCI扩展",
+      "code": "wgjy",
+      "weight": 3,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://wgjy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "当代教育科学",
+      "index": "北大核心",
+      "code": "sdjk",
+      "weight": 3,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://sdjk.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "上海教育科研",
+      "index": "北大核心",
+      "code": "pjyy",
+      "weight": 3,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://pjyy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "教育理论与实践",
+      "index": "北大核心",
+      "code": "jyll",
+      "weight": 3,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://jyll.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "当代教育论坛",
+      "index": "北大核心",
+      "code": "ddjy",
+      "weight": 3,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://ddjy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "教学与管理",
+      "index": "北大核心",
+      "code": "jxgl",
+      "weight": 3,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://jxgl.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "人民教育",
+      "index": "北大核心",
+      "code": "rmjy",
+      "weight": 3,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://rmjy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    },
+    {
+      "name": "西北人口",
+      "index": "北大核心",
+      "code": "xbrk",
+      "weight": 3,
+      "adapter": "multi",
+      "maxArticles": 80,
+      "endpoints": [
+        {
+          "url": "https://xbrk.cbpt.cnki.net/portal/journal/portal/client/index",
+          "role": "current",
+          "verification": "live-journal-name-required"
+        }
+      ]
+    }
   ],
-  "policySources":[
-    {"name":"中国教育部：中央文件","region":"中国","url":"https://www.moe.gov.cn/jyb_xxgk/moe_1777/moe_1778/","pattern":"t\\d{8}_\\d+\\.html"},
-    {"name":"中国教育部：教育部文件","region":"中国","url":"https://www.moe.gov.cn/was5/web/search?channelid=239993","pattern":"t\\d{8}_\\d+\\.html|/srcsite/"},
-    {"name":"中国教育部：其他部门文件","region":"中国","url":"https://www.moe.gov.cn/jyb_xxgk/moe_1777/moe_1779/","pattern":"t\\d{8}_\\d+\\.html"},
-    {"name":"北京市政府政策文件","region":"中国·北京","url":"https://www.beijing.gov.cn/zhengce/zhengcefagui/","pattern":"t\\d{8}_\\d+\\.html"},
-    {"name":"英国教育部","region":"英国","adapter":"govuk","url":"https://www.gov.uk/api/search.json?filter_organisations=department-for-education&filter_format=policy_paper,statutory_guidance,consultation&order=-public_timestamp&count=35"},
-    {"name":"威尔士政府","region":"英国·威尔士","url":"https://www.gov.wales/announcements","pattern":"^/[^/?#]+$"},
-    {"name":"澳大利亚教育部","region":"澳大利亚","url":"https://www.education.gov.au/newsroom","pattern":"/newsroom/articles/"}
-  ]
+  "policySources": [
+    {
+      "name": "中国教育部：中央文件",
+      "region": "中国",
+      "url": "https://www.moe.gov.cn/jyb_xxgk/moe_1777/moe_1778/",
+      "pattern": "t\\d{8}_\\d+\\.html",
+      "category": "official"
+    },
+    {
+      "name": "中国教育部：教育部文件",
+      "region": "中国",
+      "url": "https://www.moe.gov.cn/was5/web/search?channelid=239993",
+      "pattern": "t\\d{8}_\\d+\\.html|/srcsite/",
+      "category": "official"
+    },
+    {
+      "name": "中国教育部：其他部门文件",
+      "region": "中国",
+      "url": "https://www.moe.gov.cn/jyb_xxgk/moe_1777/moe_1779/",
+      "pattern": "t\\d{8}_\\d+\\.html",
+      "category": "official"
+    },
+    {
+      "name": "北京市政府政策文件",
+      "region": "中国·北京",
+      "url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/",
+      "pattern": "t\\d{8}_\\d+\\.html",
+      "category": "official"
+    },
+    {
+      "name": "英国教育部",
+      "region": "英国",
+      "adapter": "govuk",
+      "url": "https://www.gov.uk/api/search.json?filter_organisations=department-for-education&filter_format=news_story,press_release,policy_paper,statutory_guidance,consultation,research_and_analysis&order=-public_timestamp&count=80",
+      "category": "official"
+    },
+    {
+      "name": "威尔士政府",
+      "region": "英国·威尔士",
+      "url": "https://www.gov.wales/announcements",
+      "pattern": "^/[^/?#]+$",
+      "category": "official"
+    },
+    {
+      "name": "澳大利亚教育部",
+      "region": "澳大利亚",
+      "url": "https://www.education.gov.au/newsroom",
+      "pattern": "/newsroom/articles/",
+      "category": "official"
+    },
+    {
+      "name": "国务院政策与工作动态",
+      "region": "中国",
+      "url": "https://www.gov.cn/zhengce/zuixin/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "教育部各地工作动态",
+      "region": "中国",
+      "url": "https://www.moe.gov.cn/jyb_xwfb/s6192/s222/moe_1776/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "教育部教育评论",
+      "region": "中国",
+      "url": "https://www.moe.gov.cn/jyb_xwfb/s5148/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "教育部地方经验简报",
+      "region": "中国",
+      "url": "https://www.moe.gov.cn/jyb_sjzl/s3165/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "教育部新闻发布会",
+      "region": "中国",
+      "url": "https://www.moe.gov.cn/jyb_xwfb/xw_fbh/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "财政部科教政策",
+      "region": "中国",
+      "url": "https://jkw.mof.gov.cn/zhengcefabu/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "北京教育厅/教委官网资讯入口",
+      "region": "中国·北京",
+      "url": "https://jw.beijing.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "天津教育厅/教委官网资讯入口",
+      "region": "中国·天津",
+      "url": "https://jy.tj.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "河北教育厅/教委官网资讯入口",
+      "region": "中国·河北",
+      "url": "https://jyt.hebei.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "山西教育厅/教委官网资讯入口",
+      "region": "中国·山西",
+      "url": "https://jyt.shanxi.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "内蒙古教育厅/教委官网资讯入口",
+      "region": "中国·内蒙古",
+      "url": "https://jyt.nmg.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "辽宁教育厅/教委官网资讯入口",
+      "region": "中国·辽宁",
+      "url": "https://jyt.ln.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "吉林教育厅/教委官网资讯入口",
+      "region": "中国·吉林",
+      "url": "https://jyt.jl.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "黑龙江教育厅/教委官网资讯入口",
+      "region": "中国·黑龙江",
+      "url": "https://jyt.hlj.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "上海教育厅/教委官网资讯入口",
+      "region": "中国·上海",
+      "url": "https://edu.sh.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "江苏教育厅/教委官网资讯入口",
+      "region": "中国·江苏",
+      "url": "https://jyt.jiangsu.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "浙江教育厅/教委官网资讯入口",
+      "region": "中国·浙江",
+      "url": "https://jyt.zj.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "安徽教育厅/教委官网资讯入口",
+      "region": "中国·安徽",
+      "url": "https://jyt.ah.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "福建教育厅/教委官网资讯入口",
+      "region": "中国·福建",
+      "url": "https://jyt.fujian.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "江西教育厅/教委官网资讯入口",
+      "region": "中国·江西",
+      "url": "https://jyt.jiangxi.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "山东教育厅/教委官网资讯入口",
+      "region": "中国·山东",
+      "url": "https://edu.shandong.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "河南教育厅/教委官网资讯入口",
+      "region": "中国·河南",
+      "url": "https://jyt.henan.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "湖北教育厅/教委官网资讯入口",
+      "region": "中国·湖北",
+      "url": "https://jyt.hubei.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "湖南教育厅/教委官网资讯入口",
+      "region": "中国·湖南",
+      "url": "https://jyt.hunan.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "广东教育厅/教委官网资讯入口",
+      "region": "中国·广东",
+      "url": "https://edu.gd.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "广西教育厅/教委官网资讯入口",
+      "region": "中国·广西",
+      "url": "https://jyt.gxzf.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "海南教育厅/教委官网资讯入口",
+      "region": "中国·海南",
+      "url": "https://edu.hainan.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "重庆教育厅/教委官网资讯入口",
+      "region": "中国·重庆",
+      "url": "https://jw.cq.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "四川教育厅/教委官网资讯入口",
+      "region": "中国·四川",
+      "url": "https://edu.sc.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "贵州教育厅/教委官网资讯入口",
+      "region": "中国·贵州",
+      "url": "https://jyt.guizhou.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "云南教育厅/教委官网资讯入口",
+      "region": "中国·云南",
+      "url": "https://jyt.yn.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "西藏教育厅/教委官网资讯入口",
+      "region": "中国·西藏",
+      "url": "https://edu.xizang.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "陕西教育厅/教委官网资讯入口",
+      "region": "中国·陕西",
+      "url": "https://jyt.shaanxi.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "甘肃教育厅/教委官网资讯入口",
+      "region": "中国·甘肃",
+      "url": "https://jyt.gansu.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "青海教育厅/教委官网资讯入口",
+      "region": "中国·青海",
+      "url": "https://jyt.qinghai.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "宁夏教育厅/教委官网资讯入口",
+      "region": "中国·宁夏",
+      "url": "https://jyt.nx.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "新疆教育厅/教委官网资讯入口",
+      "region": "中国·新疆",
+      "url": "https://jyt.xinjiang.gov.cn/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "中国教育新闻网",
+      "region": "中国",
+      "url": "https://www.jyb.cn/",
+      "category": "media",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "新华网教育",
+      "region": "中国",
+      "url": "https://education.news.cn/",
+      "category": "media",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "人民网教育",
+      "region": "中国",
+      "url": "http://edu.people.com.cn/",
+      "category": "media",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "光明网教育",
+      "region": "中国",
+      "url": "https://edu.gmw.cn/",
+      "category": "media",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "中国青年报教育",
+      "region": "中国",
+      "url": "https://edu.cyol.com/",
+      "category": "media",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "中国新闻网教育",
+      "region": "中国",
+      "url": "https://www.chinanews.com.cn/edu/",
+      "category": "media",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "澎湃教育新闻",
+      "region": "中国",
+      "url": "https://www.thepaper.cn/channel_25950",
+      "category": "media",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "苏格兰政府新闻",
+      "region": "英国·苏格兰",
+      "url": "https://www.gov.scot/news/",
+      "category": "official",
+      "pattern": ".",
+      "maxArticles": 12
+    },
+    {
+      "name": "BBC教育新闻RSS",
+      "region": "英国",
+      "url": "https://feeds.bbci.co.uk/news/education/rss.xml",
+      "category": "media",
+      "pattern": ".",
+      "maxArticles": 12,
+      "adapter": "rss",
+      "articleHosts": [
+        "bbc.co.uk",
+        "bbc.com"
+      ]
+    },
+    {
+      "name": "卫报教育RSS",
+      "region": "英国",
+      "url": "https://www.theguardian.com/education/rss",
+      "category": "media",
+      "pattern": ".",
+      "maxArticles": 12,
+      "adapter": "rss",
+      "articleHosts": [
+        "theguardian.com"
+      ]
+    }
+  ],
+  "policyLookbackDays": 30,
+  "maxNewsItems": 5
 }

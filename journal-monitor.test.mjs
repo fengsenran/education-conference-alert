@@ -1,0 +1,34 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {journalIdentity,paperLinks,collectJournal} from './journal-monitor.mjs';
+import {htmlPaper,parseCnaes,newReport,recent} from './research.mjs';
+test('all 61 promised journals have separate monitoring records and a strict 30-day window',async()=>{
+ const cfg=JSON.parse(await readFile(new URL('./research-config.json',import.meta.url),'utf8'));
+ const registry=JSON.parse(await readFile(new URL('./journal-registry.json',import.meta.url),'utf8'));
+ assert.equal(cfg.lookbackDays,30);assert.equal(cfg.policyLookbackDays,30);
+ assert.equal(cfg.chineseJournals.length,61);assert.equal(new Set(cfg.chineseJournals.map(j=>j.name)).size,61);
+ assert.deepEqual(new Set(cfg.chineseJournals.map(j=>j.name)),new Set(registry.map(j=>j.name)));
+ assert.equal(new Set(cfg.policySources.map(j=>j.name)).size,cfg.policySources.length);
+ assert.ok(cfg.policySources.length>=50);
+});
+test('similar journal names, malformed publisher links and other hosts are not substituted',()=>{
+ assert.equal(journalIdentity('<title>教育科学研究</title>',{name:'教育科学'}),false);
+ assert.equal(journalIdentity('<title>华东师范大学学报(教育科学版) - 首页</title>',{name:'华东师范大学学报（教育科学版）'}),true);
+ assert.deepEqual(paperLinks('<a href="https://other.test/client/paper/abc">农村学校布局研究</a>','https://example.test/'),[]);
+});
+test('a directory read cannot hide article failures or missing online-first access',async()=>{
+ const cfg={lookbackDays:30,policyLookbackDays:30};const report=newReport('2026-11-27',cfg);
+ const source={name:'测试期刊',index:'CSSCI来源',endpoints:[{url:'https://example.test/index',role:'current'}]};
+ const index='<title>测试期刊</title><a href="/client/paper/a">人口变化与农村学校布局</a><a href="/client/paper/b">农村义务教育资源配置</a>';
+ const article='<title>测试期刊</title><meta name="citation_title" content="人口变化与农村学校布局"><meta name="citation_online_date" content="2026-11-20">';
+ const request=async url=>{if(url.endsWith('index'))return index;if(url.endsWith('/a'))return article;throw new Error('HTTP 403');};
+ await collectJournal(source,report,{request,htmlPaper,parseCnaes,today:report.date,recent,lookback:30});
+ assert.equal(report.journalCoverage[0].state,'partial');assert.equal(report.journalCoverage[0].inWindow,1);assert.equal(report.journalCoverage[0].articleFailures.length,1);
+});
+test('CNKI dates use publication labels and never site upload or modification timestamps',()=>{
+ const source={name:'测试期刊'};
+ const h='<h1>人口变化与农村学校布局</h1><p>摘要(Abstract)：研究义务教育资源配置。关键词：农村</p><p>发布时间：2026-11-26</p><p>出版时间：2026-11-01</p><p>网络发布时间：2026-10-20</p>';
+ const p=htmlPaper(h,source,'https://example.test/a');assert.equal(p.date,'2026-10-20');assert.equal(p.abstract,'研究义务教育资源配置。');
+ assert.equal(htmlPaper(h.replace(/出版时间：2026-11-01|网络发布时间：2026-10-20/g,''),source,'https://example.test/a').date,null);
+});

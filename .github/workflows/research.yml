@@ -1,7 +1,7 @@
 name: 每日基础教育论文与政策精选
 on:
   push:
-    paths: ['research.mjs', 'research.test.mjs', 'research-profile.mjs', 'research-profile.test.mjs', 'research-config.json', '.github/workflows/research.yml']
+    paths: ['research.mjs', 'research.test.mjs', 'research-profile.mjs', 'research-profile.test.mjs', 'journal-monitor.mjs', 'journal-monitor.test.mjs', 'journal-registry.json', 'research-config.json', '.github/workflows/research.yml']
   schedule:
     - cron: '30 0 * * *'
   workflow_dispatch:
@@ -17,9 +17,58 @@ concurrency:
   group: education-wechat-daily
   cancel-in-progress: false
 jobs:
-  research:
+  test:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test monitor.test.mjs research.test.mjs research-profile.test.mjs wechat-discovery.test.mjs journal-monitor.test.mjs
+  collect:
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        include:
+          - {kind: zh, shard: 0, shards: 8}
+          - {kind: zh, shard: 1, shards: 8}
+          - {kind: zh, shard: 2, shards: 8}
+          - {kind: zh, shard: 3, shards: 8}
+          - {kind: zh, shard: 4, shards: 8}
+          - {kind: zh, shard: 5, shards: 8}
+          - {kind: zh, shard: 6, shards: 8}
+          - {kind: zh, shard: 7, shards: 8}
+          - {kind: en, shard: 0, shards: 2}
+          - {kind: en, shard: 1, shards: 2}
+          - {kind: news, shard: 0, shards: 4}
+          - {kind: news, shard: 1, shards: 4}
+          - {kind: news, shard: 2, shards: 4}
+          - {kind: news, shard: 3, shards: 4}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: 逐来源检索（不使用推送密钥）
+        env:
+          KIND: ${{ matrix.kind }}
+          SHARD: ${{ matrix.shard }}
+          SHARDS: ${{ matrix.shards }}
+        run: node research.mjs --collect "$KIND" --shard "$SHARD" --shards "$SHARDS"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: collection-${{ matrix.kind }}-${{ matrix.shard }}
+          path: reports/collect-${{ matrix.kind }}-${{ matrix.shard }}.json
+          retention-days: 3
+          if-no-files-found: error
+  digest:
+    needs: [test, collect]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
@@ -27,32 +76,41 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: 检查日期、每日计划和基础教育筛选规则
-        run: node --test monitor.test.mjs research.test.mjs research-profile.test.mjs
-      - name: 读取期刊与政府原始来源
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: collection-*
+          path: reports/collected
+          merge-multiple: true
+      - name: 合并检索、筛选及按计划推送
         env:
           SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
           MODE: ${{ github.event.inputs.mode || (github.event_name == 'schedule' && 'send' || 'dry-run') }}
         run: |
           if [ "$MODE" = 'send' ]; then
-            node research.mjs
+            node research.mjs --assemble reports/collected
           else
-            node research.mjs --dry-run
+            node research.mjs --assemble reports/collected --dry-run
           fi
-      - name: 保存文章与政策去重记录
+      - name: 保存去重、缓存及覆盖记录
         if: github.event_name == 'schedule' || inputs.mode == 'send'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add research-state.json paper-cache.json
-          if [ -f archive/research-latest.md ]; then git add archive/research-latest.md archive/research-receipt.json; fi
+          if [ -f archive/research-latest.md ]; then git add archive/research-latest.md archive/research-receipt.json archive/journal-coverage.json; fi
           if ! git diff --cached --quiet; then
-            git commit -m 'Update research digest delivery state'
+            git commit -m 'Update research digest and source coverage'
             git push
           fi
-      - name: 查看本轮精选与抓取范围
+      - name: 在运行摘要查看完整结果
         if: always()
         run: |
-          if [ -f reports/research-latest.md ]; then
-            cat reports/research-latest.md >> "$GITHUB_STEP_SUMMARY"
-          fi
+          if [ -f reports/research-latest.md ]; then cat reports/research-latest.md >> "$GITHUB_STEP_SUMMARY"; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: digest-preview
+          path: |
+            reports/research-latest.*
+            reports/journal-coverage.json
+          retention-days: 3

@@ -1,12 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {due,exactDate,recent,crossrefDate,relevance,parseCnaes,htmlPaper,policyDate,policyKind,selectPapers,basicEducationFit,mergePaperCache} from './research.mjs';
+import {due,exactDate,recent,crossrefDate,relevance,parseCnaes,htmlPaper,policyDate,policyKind,selectPapers,basicEducationFit,mergePaperCache,policyNewsKind,policyInspiration,parseFeed,combineReports,newReport} from './research.mjs';
 
 test('verified cache survives a source outage but never refreshes publication dates or sent status',()=>{
- const p={id:'p',language:'en',title:'Rural school funding',abstract:'Rural school funding formulas for primary education',date:'2026-09-12',fetchedAt:'2026-11-26'};
+ const p={id:'p',language:'en',title:'Rural school funding',abstract:'Rural school funding formulas for primary education',date:'2026-11-12',fetchedAt:'2026-11-26'};
  const kept=mergePaperCache([], [p,{...p,id:'expired',date:'2025-09-12'},{...p,id:'uncertain',date:'2026-09'}], '2026-11-27');
- assert.equal(kept.length,1);assert.equal(kept[0].date,'2026-09-12');assert.equal(kept[0].fetchedAt,'2026-11-26');assert.equal(kept[0].fromCache,true);
- assert.equal(selectPapers(kept,'2026-11-27',{p:true},{lookbackDays:90})[1],null);
+ assert.equal(kept.length,1);assert.equal(kept[0].date,'2026-11-12');assert.equal(kept[0].fetchedAt,'2026-11-26');assert.equal(kept[0].fromCache,true);
+ assert.equal(selectPapers(kept,'2026-11-27',{p:true},{lookbackDays:30})[1],null);
  assert.equal(mergePaperCache([{...p,date:null}], [p], '2026-11-27').length,0);
  assert.equal(mergePaperCache([{...p}], [p], '2026-11-27')[0].fromCache,false);
 });
@@ -17,15 +17,38 @@ test('every other day is continuous across months and leap days',()=>{
  assert.equal(due('2026-11-17','2026-11-18'),false);
  assert.equal(due('2028-03-01','2028-02-28'),true);
 });
-test('a 90-day backfill never displaces a qualifying seven-day paper and exposes rejection counts',()=>{
+test('a 30-day window excludes older papers and prioritises a qualifying seven-day paper',()=>{
  const base={weight:5,language:'en',journal:'Journal',abstract:'primary school funding formulas in rural districts'};
- const items=[{...base,id:'old',title:'Rural school funding and demographic change',date:'2026-10-01'},
+ const items=[{...base,id:'old',title:'Rural school funding and demographic change',date:'2026-11-01'},
  {...base,id:'new',title:'Rural school funding',date:'2026-11-25'},
- {...base,id:'outside',title:'Rural school funding',date:'2025-11-25'}];
+ {...base,id:'outside',title:'Rural school funding',date:'2026-10-28'}];
  const diagnostics={};
- assert.equal(selectPapers(items,'2026-11-27',{}, {lookbackDays:90,diagnostics})[1].id,'new');
- assert.equal(selectPapers(items,'2026-11-27',{new:true},{lookbackDays:90})[1].readingBand,'近90天补充阅读');
+ assert.equal(selectPapers(items,'2026-11-27',{}, {lookbackDays:30,diagnostics})[1].id,'new');
+ assert.equal(selectPapers(items,'2026-11-27',{new:true},{lookbackDays:30})[1].readingBand,'近30天论文');
  assert.equal(diagnostics.outsideWindow,1);
+});
+
+test('policy execution, interpretation, evidence and disputes are retained with distinct labels',()=>{
+ assert.match(policyNewsKind('宁夏推进基础教育优化布局'),/执行/);
+ assert.match(policyNewsKind('学校撤并政策引发家长争议'),/争议/);
+ assert.match(policyNewsKind('解读基础教育经费保障政策'),/解读/);
+ assert.match(policyNewsKind('县域师资配置政策效果评估'),/评估/);
+ assert.match(policyNewsKind('关于印发义务教育经费管理办法的通知'),/正式/);
+ assert.equal(policyNewsKind('中小学教师招聘公告'),null);
+ assert.match(policyInspiration({title:'农村学校布局调整'}),/可及性/);
+});
+
+test('RSS publication dates never fall back to updated dates and malformed links stay untrusted',()=>{
+ const p=parseFeed('<rss><item><title><![CDATA[农村学校布局调整]]></title><link>https://example.org/a?x=1&amp;y=2</link><pubDate>Fri, 27 Nov 2026 01:00:00 GMT</pubDate><description><![CDATA[<p>义务教育服务供给</p>]]></description></item></rss>')[0];
+ assert.equal(p.date,'2026-11-27');assert.equal(p.url,'https://example.org/a?x=1&y=2');assert.equal(p.description,'义务教育服务供给');
+ assert.equal(parseFeed('<feed><entry><title>Rural schools</title><updated>2026-11-27</updated></entry></feed>')[0].date,null);
+});
+
+test('a missing or stale collection shard cannot masquerade as completed coverage',()=>{
+ const cfg={lookbackDays:30,policyLookbackDays:30,chineseJournals:[{name:'甲刊'}],englishJournals:[],policySources:[]};
+ const r=newReport('2026-11-27',cfg);assert.throws(()=>combineReports([r],'2026-11-27',cfg),/分片缺失/);
+ r.errors.push({source:'甲刊',error:'HTTP 403'});assert.equal(combineReports([r],'2026-11-27',cfg).errors.length,1);
+ assert.throws(()=>combineReports([r],'2026-11-28',cfg),/不一致/);
 });
 test('publication window uses exact dates and excludes future and month-only dates',()=>{
  assert.equal(exactDate('2026-11'),null);assert.equal(exactDate([2026,11]),null);
