@@ -4,7 +4,7 @@ const axes=[
  ['人口变化与流动',/学龄人口|教育人口|人口变动|人口变化|人口减少|人口负增长|少子化|生源减少|人口流动|人口迁移|流入|流出|demograph|population (?:decline|change|growth|shift)|declining enrol|enrollment decline|enrolment decline|school.age population|pupil projection|migration|migrant/i],
  ['县域城乡与乡村教育',/县域|城乡|乡村|农村|偏远地区|乡镇|rural|remote (?:school|communit)|urban.rural|rural.urban|county.level|rural district/i],
  ['学校布局与资源配置',/学校布局|撤点并校|小规模学校|寄宿制学校|县中|县域普通高中|三类学校|学位供给|教育资源|资源统筹|资源配置|师资配置|教师配置|师资供给|教师供给|教师编制|教师转岗|教师分流|经费配置|财政投入|转移支付|学校选址|闲置校舍|班级规模|小班化|学校规模|school (?:closure|consolidation|location|network|capacity|place|funding|financ)|small (?:rural )?school|boarding school|teacher (?:allocation|supply|shortage|deployment|redistribution|mobility)|resource (?:allocation|distribution|redistribution)|class size|education(?:al)? financ|school size/i],
- ['公共教育服务与制度机制',/公共教育服务|教育服务供给|教育供给|教育体系结构|教育结构|教育治理|财政体制|教育投入|就近入学|入学条件|入学机会|教育可及|教育共同体|教育一体化|优质均衡|城乡教育公平|城乡义务教育|普职|education(?:al)? service provision|public education|school govern|education(?:al)? govern|funding formula|school access|access to school|school admission|catchment|school district|education(?:al)? provision/i]
+ ['公共教育服务与制度机制',/公共教育服务|教育服务供给|教育供给|教育体系结构|教育结构|教育治理|财政体制|教育投入|就近入学|入学条件|入学机会|教育可及|教育共同体|教育一体化|优质均衡|城乡教育公平|城乡义务教育|普职|education(?:al)? service provision|public education|school govern|education(?:al)? govern|funding formula|school access|access to school|school admission|catchment|education(?:al)? provision/i]
 ];
 const higher=/高等教育|高校|大学组织|大学治理|本科|研究生|higher education|universit|\bcollege\b|postsecondary|tertiary|hispanic.serving institution|\bHSI\b/i;
 const k12=/基础教育|义务教育|学前教育|农村教育|乡村教育|公共教育服务|小学|初中|高中|中小学|县中|学校|教师|幼儿园|学龄|K[–-]?12|primary|secondary|elementary|preschool|kindergarten|pupil|school|teacher/i;

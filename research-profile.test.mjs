@@ -9,6 +9,13 @@ test('actual wrong digital-classroom recommendation and unrelated teaching do no
  assert.equal(researchFit(wrong,'K–12 science instruction increasingly uses computers alongside science education reforms.').eligible,false);
  assert.equal(researchFit('乡村小学生科学课堂合作学习研究','教育公平与教学创新').eligible,false);
  assert.equal(researchFit('高校机构建立与组织变革研究','教育治理和教育公平').eligible,false);
+ assert.equal(researchFit('Racial Status Threat and Anti-DEI Efforts in Local School Districts','Demographic changes influence school board elections and book bans in U.S. school districts.').eligible,false);
+ assert.equal(researchFit('The Lingering Legacy of Redlining on School Funding, Diversity, and Performance','School funding relies on local revenue and federal aid. Historic housing discrimination continues to shape public education.').eligible,true);
+});
+
+test('a non-descriptive title can qualify only with strong research evidence in the abstract',()=>{
+ assert.equal(researchFit('Adapting to change','Demographic decline in rural communities requires primary school resource allocation.').eligible,true);
+ assert.equal(researchFit('New challenges','Rural teachers use digital tools for classroom learning.').eligible,false);
 });
 test('roundups are discovery material; high-level general meetings require named organisers',()=>{
  assert.equal(isRoundup('2026年11—12月学术会议征稿5场汇总'),true);
