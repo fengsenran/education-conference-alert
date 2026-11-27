@@ -18,7 +18,8 @@ export function researchFit(title,abstract='') {
  const names=allAxes.map(([n])=>n);
  const structural=names.includes('学校布局与资源配置')||names.includes('公共教育服务与制度机制');
  // A generic mention of reform/equity in an abstract is not a research problem.
- if(!titleAxes.length||!structural)return {eligible:false,reason:'未明确关联人口、县域城乡、教育资源或公共服务机制'};
+ if(!structural)return {eligible:false,reason:'未明确关联人口、县域城乡、教育资源或公共服务机制'};
+ if(!titleAxes.length&&allAxes.length<3)return {eligible:false,reason:'标题线索不足，摘要也未提供至少三类直接研究依据'};
  if(allAxes.length<2)return {eligible:false,reason:'只有单一泛化线索，尚不足以证明研究相关性'};
  const evidence=allAxes.map(([axis,re])=>{const m=re.exec(t)||re.exec(a);return {axis,phrase:m?.[0]||''};});
  return {eligible:true,topics:names,score:titleAxes.length*12+allAxes.length*3,evidence,

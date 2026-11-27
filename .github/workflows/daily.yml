@@ -54,6 +54,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add state.json
+          if [ -f archive/conference-latest.md ]; then git add archive/conference-latest.md; fi
           if ! git diff --cached --quiet; then
             git commit -m 'Update daily conference notification state'
             git push

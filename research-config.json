@@ -1,7 +1,7 @@
 {
   "anchorDate":"2026-11-18",
   "intervalDays":1,
-  "lookbackDays":7,
+  "lookbackDays":90,
   "englishJournals":[
     {"name":"American Educational Research Journal","issn":"0002-8312","weight":5},
     {"name":"Educational Evaluation and Policy Analysis","issn":"0162-3737","weight":5},

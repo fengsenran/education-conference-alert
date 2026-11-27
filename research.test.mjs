@@ -8,6 +8,16 @@ test('every other day is continuous across months and leap days',()=>{
  assert.equal(due('2026-11-17','2026-11-18'),false);
  assert.equal(due('2028-03-01','2028-02-28'),true);
 });
+test('a 90-day backfill never displaces a qualifying seven-day paper and exposes rejection counts',()=>{
+ const base={weight:5,language:'en',journal:'Journal',abstract:'primary school funding formulas in rural districts'};
+ const items=[{...base,id:'old',title:'Rural school funding and demographic change',date:'2026-10-01'},
+ {...base,id:'new',title:'Rural school funding',date:'2026-11-25'},
+ {...base,id:'outside',title:'Rural school funding',date:'2025-11-25'}];
+ const diagnostics={};
+ assert.equal(selectPapers(items,'2026-11-27',{}, {lookbackDays:90,diagnostics})[1].id,'new');
+ assert.equal(selectPapers(items,'2026-11-27',{new:true},{lookbackDays:90})[1].readingBand,'近90天补充阅读');
+ assert.equal(diagnostics.outsideWindow,1);
+});
 test('publication window uses exact dates and excludes future and month-only dates',()=>{
  assert.equal(exactDate('2026-11'),null);assert.equal(exactDate([2026,11]),null);
  assert.equal(exactDate('2026年11月17日'),'2026-11-17');assert.equal(exactDate('2026-02-30'),null);
