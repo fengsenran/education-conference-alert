@@ -1,0 +1,23 @@
+name: 公开题录来源连通性检查
+on:
+  push:
+    paths: ['diagnostics/metadata-probe.mjs', '.github/workflows/metadata-check.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node diagnostics/metadata-probe.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-metadata-probe
+          path: reports/metadata-probe/
+          retention-days: 3
