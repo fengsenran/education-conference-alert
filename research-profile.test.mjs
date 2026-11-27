@@ -4,6 +4,9 @@ import {researchFit,isRoundup,highLevelEducationConference} from './research-pro
 test('team research problems qualify through population, geography, allocation and services',()=>{
  for(const title of ['人口变化下基础教育资源统筹调配研究','人口变动下县域中小学校布局调整的类型学研究','人口负增长时代乡村小规模学校高质量发展的现实困境与推进路径','面向2035年乡镇寄宿制学校建设的政策迭代研究','人口变动趋势下基础教育师资配置机制研究','Rural school funding formulas and access to primary education'])assert.equal(researchFit(title).eligible,true,title);
 });
+test('high-school capacity expansion is recognised as resource planning in the real exported example',()=>{
+ assert.equal(researchFit('面向2035的高中教育规模波动与扩容应对','高中学龄人口即将迎来峰值，扩容需统筹新建学校、学位供给和人口向城区流动。').eligible,true);
+});
 test('actual wrong digital-classroom recommendation and unrelated teaching do not qualify',()=>{
  const wrong='The (In)Visibility of Social Interactions in the Digital Classroom: A Review of Research on Digitally Mediated K–12 Science Instruction in the United States from 2012 to 2022';
  assert.equal(researchFit(wrong,'K–12 science instruction increasingly uses computers alongside science education reforms.').eligible,false);

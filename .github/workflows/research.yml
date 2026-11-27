@@ -1,7 +1,7 @@
 name: 每日基础教育论文与政策精选
 on:
   push:
-    paths: ['research.mjs', 'research.test.mjs', 'research-profile.mjs', 'research-profile.test.mjs', 'journal-monitor.mjs', 'public-rss-fetch.mjs', 'journal-monitor.test.mjs', 'journal-registry.json', 'research-config.json', '.github/workflows/research.yml']
+    paths: ['research.mjs', 'import-cnki.mjs', 'import-cnki.test.mjs', 'imports/**', 'research.test.mjs', 'research-profile.mjs', 'research-profile.test.mjs', 'journal-monitor.mjs', 'public-rss-fetch.mjs', 'journal-monitor.test.mjs', 'journal-registry.json', 'research-config.json', '.github/workflows/research.yml']
   schedule:
     - cron: '30 0 * * *'
   workflow_dispatch:
@@ -24,7 +24,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - run: node --test monitor.test.mjs research.test.mjs research-profile.test.mjs wechat-discovery.test.mjs journal-monitor.test.mjs
+      - run: node --test monitor.test.mjs research.test.mjs research-profile.test.mjs wechat-discovery.test.mjs journal-monitor.test.mjs import-cnki.test.mjs
   collect:
     needs: test
     runs-on: ubuntu-latest
