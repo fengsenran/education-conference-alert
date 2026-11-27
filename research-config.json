@@ -94,6 +94,11 @@
       "maxArticles": 80,
       "endpoints": [
         {
+          "url": "https://oversea.cnki.net/knavi/rss/JYYJ?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
+        {
           "url": "https://navi.cnki.net/knavi/rss/JYYJ",
           "adapter": "cnki-rss",
           "role": "latest-feed"
@@ -109,7 +114,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "华东师范大学学报（教育科学版）",
@@ -119,6 +125,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/HDXK?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/HDXK",
           "adapter": "cnki-rss",
@@ -138,7 +149,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "北京大学教育评论",
@@ -148,6 +160,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/BJPL?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/BJPL",
           "adapter": "cnki-rss",
@@ -159,7 +176,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "教育发展研究",
@@ -169,6 +187,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/SHGJ?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/SHGJ",
           "adapter": "cnki-rss",
@@ -180,7 +203,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "教育学报",
@@ -190,6 +214,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/XKJY?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/XKJY",
           "adapter": "cnki-rss",
@@ -201,7 +230,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "教育科学",
@@ -211,6 +241,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/JYKO?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/JYKO",
           "adapter": "cnki-rss",
@@ -222,7 +257,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "教育研究与实验",
@@ -232,6 +268,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/YJSY?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/YJSY",
           "adapter": "cnki-rss",
@@ -243,7 +284,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "湖南师范大学教育科学学报",
@@ -253,6 +295,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/FLJY?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/FLJY",
           "adapter": "cnki-rss",
@@ -264,7 +311,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "教育与经济",
@@ -274,6 +322,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/JYJI?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/JYJI",
           "adapter": "cnki-rss",
@@ -285,7 +338,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "现代教育管理",
@@ -295,6 +349,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/LNGD?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/LNGD",
           "adapter": "cnki-rss",
@@ -310,7 +369,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "国家教育行政学院学报",
@@ -320,6 +380,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/GJXZ?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/GJXZ",
           "adapter": "cnki-rss",
@@ -331,7 +396,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "清华大学教育研究",
@@ -341,6 +407,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/QHDJ?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/QHDJ",
           "adapter": "cnki-rss",
@@ -356,7 +427,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "基础教育",
@@ -366,6 +438,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/ZHJY?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/ZHJY",
           "adapter": "cnki-rss",
@@ -381,7 +458,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "中国教育学刊",
@@ -391,6 +469,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/ZJYX?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/ZJYX",
           "adapter": "cnki-rss",
@@ -406,7 +489,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "苏州大学学报（教育科学版）",
@@ -416,6 +500,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/SZJK?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/SZJK",
           "adapter": "cnki-rss",
@@ -427,7 +516,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "教师教育研究",
@@ -437,6 +527,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/GDSZ?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/GDSZ",
           "adapter": "cnki-rss",
@@ -448,7 +543,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "学前教育研究",
@@ -458,6 +554,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/XQJY?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/XQJY",
           "adapter": "cnki-rss",
@@ -469,7 +570,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "民族教育研究",
@@ -479,6 +581,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/MZJY?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/MZJY",
           "adapter": "cnki-rss",
@@ -490,7 +597,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "比较教育研究",
@@ -500,6 +608,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/BJJY?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/BJJY",
           "adapter": "cnki-rss",
@@ -511,7 +624,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "全球教育展望",
@@ -521,6 +635,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/WGJN?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/WGJN",
           "adapter": "cnki-rss",
@@ -532,7 +651,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "人口研究",
@@ -542,6 +662,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/RKYZ?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/RKYZ",
           "adapter": "cnki-rss",
@@ -561,7 +686,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "中国人口科学",
@@ -571,6 +697,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/ZKRK?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/ZKRK",
           "adapter": "cnki-rss",
@@ -582,7 +713,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "人口学刊",
@@ -592,6 +724,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/RKXK?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/RKXK",
           "adapter": "cnki-rss",
@@ -603,7 +740,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "人口与经济",
@@ -613,6 +751,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/RKJJ?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/RKJJ",
           "adapter": "cnki-rss",
@@ -624,7 +767,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "人口与发展",
@@ -634,6 +778,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/SCRK?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/SCRK",
           "adapter": "cnki-rss",
@@ -649,7 +798,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "财政研究",
@@ -659,6 +809,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/CZYJ?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/CZYJ",
           "adapter": "cnki-rss",
@@ -670,7 +825,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "财经研究",
@@ -680,6 +836,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/CJYJ?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/CJYJ",
           "adapter": "cnki-rss",
@@ -695,7 +856,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "公共管理学报",
@@ -705,6 +867,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/GGGL?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/GGGL",
           "adapter": "cnki-rss",
@@ -716,7 +883,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "公共管理与政策评论",
@@ -726,6 +894,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/GGZC?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/GGZC",
           "adapter": "cnki-rss",
@@ -741,7 +914,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "中国行政管理",
@@ -751,6 +925,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/ZXGL?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/ZXGL",
           "adapter": "cnki-rss",
@@ -762,7 +941,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "社会学研究",
@@ -772,6 +952,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/SHXJ?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/SHXJ",
           "adapter": "cnki-rss",
@@ -787,7 +972,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "社会",
@@ -797,6 +983,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/SHEH?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/SHEH",
           "adapter": "cnki-rss",
@@ -816,7 +1007,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "社会发展研究",
@@ -826,6 +1018,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/HFYJ?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/HFYJ",
           "adapter": "cnki-rss",
@@ -841,7 +1038,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "中国农村经济",
@@ -851,6 +1049,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/ZNJJ?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/ZNJJ",
           "adapter": "cnki-rss",
@@ -862,7 +1065,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "中国农村观察",
@@ -872,6 +1076,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/ZNCG?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/ZNCG",
           "adapter": "cnki-rss",
@@ -883,7 +1092,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "农业经济问题",
@@ -893,6 +1103,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/NJWT?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/NJWT",
           "adapter": "cnki-rss",
@@ -904,7 +1119,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "地理研究",
@@ -914,6 +1130,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/DLYJ?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/DLYJ",
           "adapter": "cnki-rss",
@@ -933,7 +1154,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "人文地理",
@@ -943,6 +1165,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/RWDL?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/RWDL",
           "adapter": "cnki-rss",
@@ -958,7 +1185,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "地理科学进展",
@@ -968,6 +1196,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/DLKJ?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/DLKJ",
           "adapter": "cnki-rss",
@@ -987,7 +1220,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "城市规划学刊",
@@ -997,6 +1231,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/CXGH?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/CXGH",
           "adapter": "cnki-rss",
@@ -1008,7 +1247,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "东北师大学报（哲学社会科学版）",
@@ -1018,6 +1258,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/DBSS?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/DBSS",
           "adapter": "cnki-rss",
@@ -1029,7 +1274,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "北京师范大学学报（社会科学版）",
@@ -1039,6 +1285,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/BJSF?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/BJSF",
           "adapter": "cnki-rss",
@@ -1054,7 +1305,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "华中师范大学学报（人文社会科学版）",
@@ -1064,6 +1316,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/HZSD?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/HZSD",
           "adapter": "cnki-rss",
@@ -1075,7 +1332,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "西南大学学报（社会科学版）",
@@ -1085,6 +1343,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/XBSW?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/XBSW",
           "adapter": "cnki-rss",
@@ -1096,7 +1359,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "南京师大学报（社会科学版）",
@@ -1106,6 +1370,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/NJSS?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/NJSS",
           "adapter": "cnki-rss",
@@ -1117,7 +1386,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "教育经济评论",
@@ -1127,6 +1397,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/JYJP?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/JYJP",
           "adapter": "cnki-rss",
@@ -1142,7 +1417,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "教育学术月刊",
@@ -1152,6 +1428,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/YANG?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/YANG",
           "adapter": "cnki-rss",
@@ -1163,7 +1444,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "教育科学研究",
@@ -1173,6 +1455,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/JYKY?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/JYKY",
           "adapter": "cnki-rss",
@@ -1184,7 +1471,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "中小学管理",
@@ -1194,6 +1482,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/ZXXG?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/ZXXG",
           "adapter": "cnki-rss",
@@ -1205,7 +1498,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "中国教育科学（中英文）",
@@ -1215,6 +1509,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/RJJY?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/RJJY",
           "adapter": "cnki-rss",
@@ -1226,7 +1525,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "河北师范大学学报（教育科学版）",
@@ -1236,6 +1536,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/HSJY?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/HSJY",
           "adapter": "cnki-rss",
@@ -1251,7 +1556,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "天津师范大学学报（基础教育版）",
@@ -1261,6 +1567,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/TSJY?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/TSJY",
           "adapter": "cnki-rss",
@@ -1272,7 +1583,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "比较教育学报",
@@ -1282,6 +1594,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/JYBX?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/JYBX",
           "adapter": "cnki-rss",
@@ -1293,7 +1610,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "外国教育研究",
@@ -1303,6 +1621,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/WGJY?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/WGJY",
           "adapter": "cnki-rss",
@@ -1314,7 +1637,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "当代教育科学",
@@ -1324,6 +1648,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/SDJK?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/SDJK",
           "adapter": "cnki-rss",
@@ -1335,7 +1664,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "上海教育科研",
@@ -1345,6 +1675,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/SJYY?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/SJYY",
           "adapter": "cnki-rss",
@@ -1356,7 +1691,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "教育理论与实践",
@@ -1366,6 +1702,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/JYLL?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/JYLL",
           "adapter": "cnki-rss",
@@ -1377,7 +1718,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "当代教育论坛",
@@ -1387,6 +1729,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/JYLT?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/JYLT",
           "adapter": "cnki-rss",
@@ -1398,7 +1745,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "教学与管理",
@@ -1408,6 +1756,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/JXGL?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/JXGL",
           "adapter": "cnki-rss",
@@ -1419,7 +1772,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "人民教育",
@@ -1429,6 +1783,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/RMJY?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/RMJY",
           "adapter": "cnki-rss",
@@ -1440,7 +1799,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     },
     {
       "name": "西北人口",
@@ -1450,6 +1810,11 @@
       "adapter": "multi",
       "maxArticles": 80,
       "endpoints": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/XBRK?language=CHS",
+          "adapter": "cnki-rss",
+          "role": "latest-feed"
+        },
         {
           "url": "https://navi.cnki.net/knavi/rss/XBRK",
           "adapter": "cnki-rss",
@@ -1461,7 +1826,8 @@
           "verification": "live-journal-name-required"
         }
       ],
-      "rssVerifiedAt": "2026-11-27"
+      "rssVerifiedAt": "2026-11-27",
+      "cloudRssVerifiedAt": "2026-11-27"
     }
   ],
   "policySources": [

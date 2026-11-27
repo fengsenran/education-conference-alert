@@ -57,3 +57,16 @@ test('RSS DNS fallback never retries a certificate error, CAPTCHA, or HTTP acces
 test('an unavailable overseas DNS route can use only the previously verified fixed-host address',async()=>{
  const xml=await requestPublicRss('https://navi.cnki.net/knavi/rss/JYYJ',{request:async()=>{throw new Error('ENOTFOUND');},resolve:async()=>{throw new Error('NXDOMAIN');},transport:async(url,address)=>{assert.equal(new URL(url).hostname,'navi.cnki.net');assert.equal(address,'121.194.4.8');return '<rss />';}});assert.equal(xml,'<rss />');
 });
+
+test('verified Chinese overseas RSS uses its normal HTTPS endpoint and cannot accept arbitrary queries',async()=>{
+ const url='https://oversea.cnki.net/knavi/rss/JYYJ?language=CHS';
+ assert.equal(await requestPublicRss(url,{request:async target=>{assert.equal(target,url);return 'rss';},resolve:async()=>{throw new Error('must not use alternate DNS');}}),'rss');
+ for(const bad of ['https://oversea.cnki.net/knavi/rss/JYYJ?language=EN','https://oversea.cnki.net/knavi/rss/JYYJ?language=CHS&url=https://other.test/','https://oversea.cnki.net/login?language=CHS'])await assert.rejects(requestPublicRss(bad,{request:async()=>{throw new Error('must not fetch');}}),/公开/);
+});
+test('a successful overseas feed avoids duplicate mainland RSS reads and records truncated abstracts',async()=>{
+ const report=newReport('2026-11-27',{lookbackDays:30});
+ const source={name:'测试期刊',endpoints:[{url:'https://oversea.cnki.net/knavi/rss/TEST?language=CHS',adapter:'cnki-rss'},{url:'https://navi.cnki.net/knavi/rss/TEST',adapter:'cnki-rss'}]};
+ const feed='<rss><channel><title>测试期刊-CNKI</title><item><title>人口变化与农村学校资源配置</title><link>https://kns.cnki.net/article</link><description>县域义务教育学校布局与师资配置...</description><pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate></item></channel></rss>';
+ let calls=0;await collectJournal(source,report,{request:async url=>{calls++;assert.ok(url.includes('oversea.cnki.net'));return feed;},htmlPaper,parseCnaes,parseFeed,today:report.date,recent,lookback:30});
+ assert.equal(calls,1);assert.equal(report.papers.length,1);assert.equal(report.papers[0].abstractTruncated,true);assert.equal(report.journalCoverage[0].rss.withAbstract,1);assert.equal(report.journalCoverage[0].rss.truncatedAbstracts,1);assert.equal(report.journalCoverage[0].state,'partial');
+});

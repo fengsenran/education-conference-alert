@@ -321,6 +321,7 @@ export async function main() {
     if(!p){lines.push(`本轮成功检索的来源及有效缓存中，没有确认最近${cfg.lookbackDays}天内、主题匹配且未推送的${label}；失败来源不计入结论。`);continue;}
     lines.push(`**${p.title}**`,`${p.readingBand}｜${p.journal}｜${p.publicationVerification==='catalogue'?'题录标注日期':'首次发表'}：${p.date}｜${p.authors||'作者信息见原文'}`,`主题：${p.topics.join('、')}`,`推荐理由：${rationale(p)}`);
     if(p.publicationVerification==='catalogue')lines.push('日期依据为数据库题录（具体来源见下文“日期依据”），尚未逐篇核验更早的网络首发时间；如取得更早出版日期，按更早日期重新筛选。');
+    if(p.abstractTruncated)lines.push('当前摘要为数据库提供的截断片段，未据此声称已取得完整摘要。');
     if(p.abstract)lines.push(`摘要摘录（非全文解读）：${p.abstract.slice(0,p.language==='zh'?140:400)}${p.abstract.length>(p.language==='zh'?140:400)?'…':''}`);
     lines.push(`[期刊原文/DOI](${p.url})`, `日期依据：${p.dateBasis}。全文是否开放获取请查看原文。`);
     if(p.fromCache)lines.push(`本次使用已核验元数据缓存，采集日期：${p.fetchedAt}；本轮未重新取得该条文章元数据，原文可访问性须打开链接确认。`);
@@ -340,7 +341,7 @@ export async function main() {
   await writeFile(path.join(root,'reports','research-latest.json'),JSON.stringify(report,null,2));
   await writeFile(path.join(root,'reports','research-latest.md'),lines.join('\n\n'));
   await writeFile(path.join(root,'reports','journal-coverage.json'),JSON.stringify({date:today,window:report.window,journals:jc},null,2));
-  console.log(JSON.stringify({date:today,sources:report.sources,journalCoverage:jc.map(j=>({name:j.name,state:j.state,parsed:j.parsed,dated:j.dated,inWindow:j.inWindow,failures:j.attempts.filter(a=>a.status==='failed')})),funnel:report.funnel,selected:{zh:zh?.title||null,en:en?.title||null,policies:selectedPolicies.map(p=>({title:p.title,date:p.date,kind:p.kind,url:p.url}))},errors:report.errors,warnings:report.warnings.length,dry},null,2));
+  console.log(JSON.stringify({date:today,sources:report.sources,journalCoverage:jc.map(j=>({name:j.name,state:j.state,parsed:j.parsed,dated:j.dated,inWindow:j.inWindow,rss:j.rss,failures:j.attempts.filter(a=>a.status==='failed')})),funnel:report.funnel,selected:{zh:zh?.title||null,en:en?.title||null,policies:selectedPolicies.map(p=>({title:p.title,date:p.date,kind:p.kind,url:p.url}))},errors:report.errors,warnings:report.warnings.length,dry},null,2));
   if(dry)return;
   const receipt=await push(`教育论文政策精选 ${today}`,lines.join('\n\n'));
   await mkdir(path.join(root,'archive'),{recursive:true});

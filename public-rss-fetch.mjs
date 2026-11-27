@@ -29,7 +29,9 @@ export function readRssAtAddress(url,address) {
  });
 }
 export async function requestPublicRss(url,{request,resolve=resolvePublicRss,transport=readRssAtAddress}) {
- const u=new URL(url);if(u.protocol!=='https:'||u.hostname!=='navi.cnki.net'||u.port||u.username||u.password||!/^\/knavi\/rss\/[A-Z0-9]+$/i.test(u.pathname)||u.search||u.hash)throw new Error('仅支持知网公开期刊RSS入口');
+ const u=new URL(url),overseas=u.hostname==='oversea.cnki.net'&&u.search==='?language=CHS';
+ if(u.protocol!=='https:'||u.port||u.username||u.password||!/^\/knavi\/rss\/[A-Z0-9]+$/i.test(u.pathname)||u.hash||!((u.hostname==='navi.cnki.net'&&!u.search)||overseas))throw new Error('仅支持知网公开期刊RSS入口');
+ if(overseas)return request(url);
  try{return await request(url);}catch(e){
   if(!/ENOTFOUND|EAI_AGAIN|ENODATA/.test([e.message,e.cause?.code].join(' ')))throw e;
   let address;try{address=await resolve(u.hostname);}catch(dnsError){address=lastVerifiedAddress[u.hostname];if(!address)throw dnsError;}if(!publicIPv4(address))throw new Error('RSS解析地址不是有效公网IPv4');
