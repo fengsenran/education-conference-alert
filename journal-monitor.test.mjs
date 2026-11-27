@@ -41,3 +41,15 @@ test('CNKI RSS identity, Chinese calendar dates, stable IDs and feed limits are 
  assert.equal(report.papers[0].date,'2026-11-18');assert.equal(report.papers[0].authors,'作者甲');assert.equal(report.papers[0].publicationVerification,'catalogue');assert.equal(report.journalCoverage[0].state,'partial');
  const again=newReport(report.date,{lookbackDays:30});await collectJournal(source,again,{request:async()=>feed.replace('token1','token2'),htmlPaper,parseCnaes,parseFeed,today:report.date,recent,lookback:30});assert.equal(again.papers[0].id,report.papers[0].id);
 });
+
+import {requestPublicRss,publicIPv4} from './public-rss-fetch.mjs';
+test('RSS DNS fallback retains the original HTTPS hostname and excludes private addresses',async()=>{
+ let called=0;const url='https://navi.cnki.net/knavi/rss/JYYJ';const request=async()=>{throw new Error('fetch failed | ENOTFOUND');};
+ assert.equal(await requestPublicRss(url,{request,resolve:async host=>{assert.equal(host,'navi.cnki.net');return '121.194.4.8';},transport:async (target,address)=>{called++;assert.equal(target,url);assert.equal(address,'121.194.4.8');return '<rss />';}}),'<rss />');
+ assert.equal(called,1);for(const address of ['127.0.0.1','10.0.0.2','169.254.1.1','192.168.2.1','::1'])assert.equal(publicIPv4(address),false);
+ await assert.rejects(requestPublicRss(url,{request,resolve:async()=>'127.0.0.1'}),/公网/);
+ await assert.rejects(requestPublicRss('https://other.test/knavi/rss/JYYJ',{request}),/公开/);
+});
+test('RSS DNS fallback never retries a certificate error, CAPTCHA, or HTTP access rejection',async()=>{
+ for(const message of ['HTTP 403','页面要求登录或验证','UNABLE_TO_VERIFY_LEAF_SIGNATURE'])await assert.rejects(requestPublicRss('https://navi.cnki.net/knavi/rss/JYYJ',{request:async()=>{throw new Error(message);},resolve:async()=>{throw new Error('must not resolve');}}),e=>e.message===message);
+});

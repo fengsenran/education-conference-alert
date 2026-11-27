@@ -1,3 +1,4 @@
+import {requestPublicRss} from './public-rss-fetch.mjs';
 import {plain} from './monitor.mjs';
 import {createHash} from 'node:crypto';
 const normalize=s=>String(s||'').replace(/[\s\p{P}]/gu,'').toLowerCase();
@@ -24,7 +25,7 @@ export async function collectJournal(source,report,{request,htmlPaper,parseCnaes
  const candidates=[];let identity=false;const covered=new Set();
  for(const endpoint of source.endpoints) {
   try{
-   const html=await request(endpoint.url);
+   const html=endpoint.adapter==='cnki-rss'?await requestPublicRss(endpoint.url,{request}):await request(endpoint.url);
    if(endpoint.adapter==='cnki-rss') {
     const channel=plain(html.match(/<channel>\s*<title>([\s\S]*?)<\/title>/i)?.[1]||'').replace(/-CNKI$/i,'');
     if(normalize(channel)!==normalize(source.name))throw new Error('RSS刊名与目标期刊不一致');

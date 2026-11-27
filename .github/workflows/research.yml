@@ -1,7 +1,7 @@
 name: 每日基础教育论文与政策精选
 on:
   push:
-    paths: ['research.mjs', 'research.test.mjs', 'research-profile.mjs', 'research-profile.test.mjs', 'journal-monitor.mjs', 'journal-monitor.test.mjs', 'journal-registry.json', 'research-config.json', '.github/workflows/research.yml']
+    paths: ['research.mjs', 'research.test.mjs', 'research-profile.mjs', 'research-profile.test.mjs', 'journal-monitor.mjs', 'public-rss-fetch.mjs', 'journal-monitor.test.mjs', 'journal-registry.json', 'research-config.json', '.github/workflows/research.yml']
   schedule:
     - cron: '30 0 * * *'
   workflow_dispatch:
@@ -24,16 +24,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: 检查公共RSS云端连通性
-        run: |
-          node --input-type=module <<'JS'
-          import dns from 'node:dns/promises';
-          console.log('DNS', await dns.lookup('navi.cnki.net',{all:true}).catch(e=>({error:e.message})));
-          for(const url of ['https://navi.cnki.net/knavi/rss/JYYJ','https://rss.cnki.net/knavi/rss/JYYJ','https://dns.alidns.com/resolve?name=navi.cnki.net&type=A','https://dns.google/resolve?name=navi.cnki.net&type=A']) {
-            try {const r=await fetch(url,{signal:AbortSignal.timeout(12000)}); console.log(JSON.stringify({url,status:r.status,finalUrl:r.url,type:r.headers.get('content-type'),preview:(await r.text()).slice(0,700)}));}
-            catch(e) {console.log(JSON.stringify({url,error:e.message,cause:e.cause?.code,detail:e.cause?.message}));}
-          }
-          JS
       - run: node --test monitor.test.mjs research.test.mjs research-profile.test.mjs wechat-discovery.test.mjs journal-monitor.test.mjs
   collect:
     needs: test
