@@ -29,8 +29,8 @@ jobs:
           node --input-type=module <<'JS'
           import dns from 'node:dns/promises';
           console.log('DNS', await dns.lookup('navi.cnki.net',{all:true}).catch(e=>({error:e.message})));
-          for(const url of ['https://navi.cnki.net/knavi/rss/JYYJ','http://navi.cnki.net/knavi/rss/JYYJ']) {
-            try {const r=await fetch(url,{signal:AbortSignal.timeout(12000)}); console.log(JSON.stringify({url,status:r.status,finalUrl:r.url,type:r.headers.get('content-type'),length:(await r.text()).length}));}
+          for(const url of ['https://navi.cnki.net/knavi/rss/JYYJ','https://rss.cnki.net/knavi/rss/JYYJ','https://dns.alidns.com/resolve?name=navi.cnki.net&type=A','https://dns.google/resolve?name=navi.cnki.net&type=A']) {
+            try {const r=await fetch(url,{signal:AbortSignal.timeout(12000)}); console.log(JSON.stringify({url,status:r.status,finalUrl:r.url,type:r.headers.get('content-type'),preview:(await r.text()).slice(0,700)}));}
             catch(e) {console.log(JSON.stringify({url,error:e.message,cause:e.cause?.code,detail:e.cause?.message}));}
           }
           JS
