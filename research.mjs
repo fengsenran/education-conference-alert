@@ -314,13 +314,13 @@ export async function main() {
   const policyItems=[...new Map(report.policies.filter(p=>!state.policies[p.id]&&!state.policyTitles?.[p.title.replace(/[\s\p{P}]/gu,'')]).map(p=>[p.title.replace(/[\s\p{P}]/gu,''),p])).values()].sort((a,b)=>Number(!recent(a.date,today,7))-Number(!recent(b.date,today,7))||b.score-a.score||b.date.localeCompare(a.date));
   const selectedPolicies=policyItems.slice(0,cfg.maxNewsItems??5);
   report.selected={zh,en,policies:selectedPolicies};
-  const lines=[`# 教育论文与政策素材｜${today}`,`论文范围最近${cfg.lookbackDays}天，优先最近7天，中文、英文各至多一篇。官网出版日期与RSS题录日期分别注明；未核验最早首发时间的题录会单独说明。政策与新闻取最近${cfg.policyLookbackDays}天，包含新文件、地方执行、解读评估与争议报道。`,
+  const lines=[`# 教育论文与政策素材｜${today}`,`论文范围最近${cfg.lookbackDays}天，优先最近7天，中文、英文各至多一篇。官网出版日期与数据库题录日期分别注明；未核验最早首发时间的题录会单独说明。政策与新闻取最近${cfg.policyLookbackDays}天，包含新文件、地方执行、解读评估与争议报道。`,
     '优先基础教育：农村教育、教育人口、教育政策、教育公平；排除高校机构建设等研究对象。规则排序仅在配置来源内比较，不代表全网最佳。'];
   for(const [label,p] of [['中文论文',zh],['英文论文',en]]) {
     lines.push(`## ${label}`);
     if(!p){lines.push(`本轮成功检索的来源及有效缓存中，没有确认最近${cfg.lookbackDays}天内、主题匹配且未推送的${label}；失败来源不计入结论。`);continue;}
     lines.push(`**${p.title}**`,`${p.readingBand}｜${p.journal}｜${p.publicationVerification==='catalogue'?'题录标注日期':'首次发表'}：${p.date}｜${p.authors||'作者信息见原文'}`,`主题：${p.topics.join('、')}`,`推荐理由：${rationale(p)}`);
-    if(p.publicationVerification==='catalogue')lines.push('日期依据为知网期刊RSS条目，尚未逐篇核验更早的网络首发时间；如取得更早出版日期，按更早日期重新筛选。');
+    if(p.publicationVerification==='catalogue')lines.push('日期依据为数据库题录（具体来源见下文“日期依据”），尚未逐篇核验更早的网络首发时间；如取得更早出版日期，按更早日期重新筛选。');
     if(p.abstract)lines.push(`摘要摘录（非全文解读）：${p.abstract.slice(0,p.language==='zh'?140:400)}${p.abstract.length>(p.language==='zh'?140:400)?'…':''}`);
     lines.push(`[期刊原文/DOI](${p.url})`, `日期依据：${p.dateBasis}。全文是否开放获取请查看原文。`);
     if(p.fromCache)lines.push(`本次使用已核验元数据缓存，采集日期：${p.fetchedAt}；本轮未重新取得该条文章元数据，原文可访问性须打开链接确认。`);

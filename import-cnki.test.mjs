@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {parseEndNote,prepareImports,mergeImports} from './import-cnki.mjs';
+import {parseEndNote,parseCnkiExport,prepareImports,mergeImports} from './import-cnki.mjs';
 import {selectPapers,paperKey} from './research.mjs';
 const cfg=JSON.parse(await readFile(new URL('./research-config.json',import.meta.url),'utf8'));
 const text=await readFile(new URL('./imports/cnki-2026-11-27.enw',import.meta.url),'utf8');
@@ -28,4 +28,25 @@ test('import enriches RSS metadata while preserving stable IDs, earlier dates an
  const selected=selectPapers(merged,'2026-11-27',{[old.id]:'2026-11-26'},{lookbackDays:30})[0];assert.equal(selected.title,incoming[0].title);
  assert.equal(paperKey(enriched),paperKey(old));
  const knownOld={...old,date:'2026-10-01'};assert.equal(mergeImports([knownOld],[incoming[1]],'2026-11-27').length,0);
+});
+
+test('real CNKI custom export supplies exact PubTime and agrees with the EndNote metadata',async()=>{
+ const customText=await readFile(new URL('./imports/cnki-custom-2026-11-27.txt',import.meta.url),'utf8');
+ const rows=parseCnkiExport(customText),en=parseEndNote(text);
+ assert.equal(rows.length,2);
+ for(let i=0;i<rows.length;i++){assert.equal(rows[i].title,en[i].title);assert.equal(rows[i].authors,en[i].authors);assert.equal(rows[i].abstract,en[i].abstract);assert.equal(rows[i].doi,en[i].doi);assert.equal(rows[i].date,'2026-11-24');}
+ const prepared=prepareImports(rows,cfg.chineseJournals,[],'2026-11-27');
+ assert.equal(prepared.papers.length,2);assert.match(prepared.papers[0].dateBasis,/PubTime/);assert.equal(prepared.papers[0].collectionOrigin,'user-cnki-custom');
+ const old=prepareImports(en,cfg.chineseJournals,evidence,'2026-11-27').papers;
+ const merged=mergeImports(old,prepared.papers,'2026-11-27');assert.equal(merged.length,2);
+ assert.equal(mergeImports(merged,prepared.papers,'2026-11-27').length,2);
+});
+test('custom export never treats year-only, modified, invalid or future dates as a recent publication',()=>{
+ const input='SrcDatabase-来源库: 期刊\nTitle-题名: 人口变化与农村学校布局\nSource-文献来源: 天津师范大学学报(基础教育版)\nURL-网址: https://example.test/article\nPubTime-发表时间: DATE\nUpdateTime-更新时间: 2026-11-27';
+ for(const date of ['2026','2026-11','2026-11-31','2026-11-28','2023-11-24','']) {
+  const rows=parseCnkiExport(input.replace('DATE',date));
+  assert.equal(prepareImports(rows,cfg.chineseJournals,[],'2026-11-27').papers.length,0,date);
+ }
+ assert.equal(parseCnkiExport(input.replace('期刊','硕士论文')).length,0);
+ assert.equal(parseCnkiExport(text).length,2);
 });
