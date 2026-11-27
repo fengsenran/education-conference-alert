@@ -59,7 +59,8 @@ function rationale(p) {
 export async function request(url,json=false) {
   let r;
   for(let n=0;n<2;n++) {
-    r=await fetch(url,{signal:AbortSignal.timeout(16000),headers:{'User-Agent':'EducationReadingMonitor/2.0 (public metadata and education news; daily)','Accept':'text/html,application/json,application/rss+xml,application/xml'}});
+    try { r=await fetch(url,{signal:AbortSignal.timeout(16000),headers:{'User-Agent':'EducationReadingMonitor/2.0 (public metadata and education news; daily)','Accept':'text/html,application/json,application/rss+xml,application/xml'}}); }
+    catch(e) { throw new Error([e.message,e.cause?.code,e.cause?.message].filter(Boolean).join(' | ')); }
     if(![429,500,502,503,504].includes(r.status)||n===1)break;
     await new Promise(resolve=>setTimeout(resolve,1500));
   }
