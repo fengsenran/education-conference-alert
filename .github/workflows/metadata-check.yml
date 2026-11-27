@@ -1,7 +1,7 @@
 name: 公开题录来源连通性检查
 on:
   push:
-    paths: ['diagnostics/metadata-probe.mjs', 'diagnostics/overseas-rss.mjs', '.github/workflows/metadata-check.yml']
+    paths: ['diagnostics/metadata-probe.mjs', 'diagnostics/overseas-rss.mjs', 'diagnostics/publisher-probe.mjs', '.github/workflows/metadata-check.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -14,10 +14,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - run: node diagnostics/overseas-rss.mjs
+      - run: node diagnostics/publisher-probe.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: public-overseas-rss-audit
-          path: reports/overseas-rss/
+          name: public-publisher-metadata-audit
+          path: reports/publisher-probe/
           retention-days: 3
