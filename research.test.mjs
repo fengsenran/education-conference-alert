@@ -1,6 +1,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {due,exactDate,recent,crossrefDate,relevance,parseCnaes,htmlPaper,policyDate,policyKind,selectPapers,basicEducationFit} from './research.mjs';
+import {due,exactDate,recent,crossrefDate,relevance,parseCnaes,htmlPaper,policyDate,policyKind,selectPapers,basicEducationFit,mergePaperCache} from './research.mjs';
+
+test('verified cache survives a source outage but never refreshes publication dates or sent status',()=>{
+ const p={id:'p',language:'en',title:'Rural school funding',abstract:'Rural school funding formulas for primary education',date:'2026-09-12',fetchedAt:'2026-11-26'};
+ const kept=mergePaperCache([], [p,{...p,id:'expired',date:'2025-09-12'},{...p,id:'uncertain',date:'2026-09'}], '2026-11-27');
+ assert.equal(kept.length,1);assert.equal(kept[0].date,'2026-09-12');assert.equal(kept[0].fetchedAt,'2026-11-26');assert.equal(kept[0].fromCache,true);
+ assert.equal(selectPapers(kept,'2026-11-27',{p:true},{lookbackDays:90})[1],null);
+ assert.equal(mergePaperCache([{...p,date:null}], [p], '2026-11-27').length,0);
+ assert.equal(mergePaperCache([{...p}], [p], '2026-11-27')[0].fromCache,false);
+});
 test('every other day is continuous across months and leap days',()=>{
  assert.equal(due('2026-12-02','2026-11-18'),true);
  assert.equal(due('2026-12-01','2026-11-18',2),false);

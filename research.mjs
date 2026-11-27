@@ -202,10 +202,21 @@ export function selectPapers(items,today,seen={},options={}) {
   if(options.diagnostics)Object.assign(options.diagnostics,counts);
   return ['zh','en'].map(lang=>[...unique.values()].filter(p=>p.language===lang).sort((a,b)=>a.freshness-b.freshness||b.rank-a.rank||b.date.localeCompare(a.date))[0]||null);
 }
+export function mergePaperCache(live,cached,today,lookback=90) {
+  const stored=new Map(cached.filter(p=>exactDate(p.date)===p.date&&recent(p.date,today,lookback)&&p.fetchedAt&&p.fetchedAt<=today).map(p=>[p.id,{...p,fromCache:true}]));
+  for(const p of live) {
+    if(!p.id)continue;
+    // Freshly retrieved metadata supersedes the cache, even when its date is now invalid.
+    stored.delete(p.id);
+    if(exactDate(p.date)===p.date&&recent(p.date,today,lookback))stored.set(p.id,{...p,fetchedAt:today,fromCache:false});
+  }
+  return [...stored.values()];
+}
 export async function main() {
   const today=dayCN(),dry=process.argv.includes('--dry-run');
   const cfg=JSON.parse(await readFile(path.join(root,'research-config.json'),'utf8'));
   const state=JSON.parse(await readFile(path.join(root,'research-state.json'),'utf8'));
+  const cached=JSON.parse(await readFile(path.join(root,'paper-cache.json'),'utf8'));
   if(!dry && (!due(today,cfg.anchorDate,cfg.intervalDays??1)||state.lastSentDay===today)){console.log('今天不是计划推送日，或今天已经发送。');return;}
   const report={date:today,window:[shift(today,1-cfg.lookbackDays),today],sources:[],errors:[],warnings:[],papers:[],policies:[],funnel:{}};
   const jobs=[...cfg.englishJournals.map(s=>({s,kind:'英文期刊',run:()=>english(s,today,report,cfg.lookbackDays)})),...cfg.chineseJournals.map(s=>({s,kind:'中文期刊',run:()=>chinese(s,report)})),...cfg.policySources.map(s=>({s,kind:'政策',run:()=>policies(s,today,report)}))];
@@ -217,6 +228,10 @@ export async function main() {
   for(const job of jobs.filter(j=>j.kind==='英文期刊')) {await runJob(job);await new Promise(r=>setTimeout(r,500));}
   const otherJobs=jobs.filter(j=>j.kind!=='英文期刊');
   for(let i=0;i<otherJobs.length;i+=3)await Promise.all(otherJobs.slice(i,i+3).map(runJob));
+  const livePapers=report.papers;
+  const merged=mergePaperCache(livePapers,cached,today,cfg.lookbackDays);
+  report.cache={retained:merged.length,used:merged.filter(p=>p.fromCache).length};
+  report.papers=[...livePapers,...merged.filter(p=>p.fromCache)];
   const [zh,en]=selectPapers(report.papers,today,state.papers,{lookbackDays:cfg.lookbackDays,diagnostics:report.funnel});
   const policyItems=[...new Map(report.policies.filter(p=>!state.policies[p.id]).map(p=>[p.id,p])).values()].sort((a,b)=>b.score-a.score||b.date.localeCompare(a.date));
   const selectedPolicies=policyItems.slice(0,8);
@@ -225,10 +240,11 @@ export async function main() {
     '优先基础教育：农村教育、教育人口、教育政策、教育公平；排除高校机构建设等研究对象。规则排序仅在配置来源内比较，不代表全网最佳。'];
   for(const [label,p] of [['中文论文',zh],['英文论文',en]]) {
     lines.push(`## ${label}`);
-    if(!p){lines.push(`本轮成功检索的来源中，没有确认最近${cfg.lookbackDays}天内、主题匹配且未推送的${label}；失败来源不计入结论。`);continue;}
+    if(!p){lines.push(`本轮成功检索的来源及有效缓存中，没有确认最近${cfg.lookbackDays}天内、主题匹配且未推送的${label}；失败来源不计入结论。`);continue;}
     lines.push(`**${p.title}**`,`${p.readingBand}｜${p.journal}｜首次发表：${p.date}｜${p.authors||'作者信息见原文'}`,`主题：${p.topics.join('、')}`,`推荐理由：${rationale(p)}`);
     if(p.abstract)lines.push(`摘要摘录（非全文解读）：${p.abstract.slice(0,p.language==='zh'?140:400)}${p.abstract.length>(p.language==='zh'?140:400)?'…':''}`);
     lines.push(`[期刊原文/DOI](${p.url})`, `日期依据：${p.dateBasis}。全文是否开放获取请查看原文。`);
+    if(p.fromCache)lines.push(`本次使用已核验元数据缓存，采集日期：${p.fetchedAt}；本轮未重新取得该条文章元数据，原文可访问性须打开链接确认。`);
   }
   lines.push('## 国家或地区新政策');
   if(!selectedPolicies.length)lines.push('本轮监测范围内没有确认最近7天发布、主题相关且尚未推送的新政策。');
@@ -236,6 +252,7 @@ export async function main() {
   if(policyItems.length>selectedPolicies.length)lines.push(`另有${policyItems.length-selectedPolicies.length}条符合条件政策，完整候选见本次运行摘要。`);
   lines.push(`监测入口：${report.sources.length}/${jobs.length}个成功，${report.errors.length}项读取失败，${report.warnings.length}项元数据不完整。`);
   lines.push(`筛选记录：解析后候选${report.funnel.input}；日期不明${report.funnel.missingDate}；超出窗口${report.funnel.outsideWindow}；已推送${report.funnel.alreadySent}；非研究性文章${report.funnel.excludedType}；不符合研究主线${report.funnel.offTopic}；可选${report.funnel.eligible}。`);
+  lines.push(`本次另保留${report.cache.used}条既有元数据缓存参与筛选；缓存不改变首次发表日期或去重规则，超过${cfg.lookbackDays}天自动淘汰。`);
   if(report.errors.length)lines.push('部分来源读取失败，本轮结果不完整；不能据此判断这些来源没有新文或新政策。',...report.errors.slice(0,12).map(e=>`- ${e.source}：${e.error}`));
   lines.push('免费推送内容保留1天，请及时保存原文链接。');
   await mkdir(path.join(root,'reports'),{recursive:true});
@@ -250,8 +267,9 @@ export async function main() {
   console.log('推送服务已接受请求，实际微信送达须在接收端确认；正文和接口回执已存档。');
   for(const p of [zh,en].filter(Boolean))state.papers[p.id]=today;
   for(const p of selectedPolicies)state.policies[p.id]=today;
+  await writeFile(path.join(root,'paper-cache.json'),JSON.stringify(merged.map(({fromCache,...p})=>p),null,2)+'\n');
   state.lastSentDay=today;
   await writeFile(path.join(root,'research-state.json'),JSON.stringify(state,null,2)+'\n');
-  if(!report.sources.length)throw new Error('全部来源读取失败，已发送异常汇总');
+  if(!report.sources.length&&!zh&&!en)throw new Error('全部来源读取失败且没有可用缓存文章，已发送异常汇总');
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url))main().catch(e=>{console.error(e.message);process.exitCode=1;});

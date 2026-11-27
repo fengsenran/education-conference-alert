@@ -44,7 +44,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add research-state.json
+          git add research-state.json paper-cache.json
           if [ -f archive/research-latest.md ]; then git add archive/research-latest.md archive/research-receipt.json; fi
           if ! git diff --cached --quiet; then
             git commit -m 'Update research digest delivery state'
