@@ -7,6 +7,7 @@ test('team research problems qualify through population, geography, allocation a
 test('actual wrong digital-classroom recommendation and unrelated teaching do not qualify',()=>{
  const wrong='The (In)Visibility of Social Interactions in the Digital Classroom: A Review of Research on Digitally Mediated K–12 Science Instruction in the United States from 2012 to 2022';
  assert.equal(researchFit(wrong,'K–12 science instruction increasingly uses computers alongside science education reforms.').eligible,false);
+ assert.equal(researchFit('以特色学科建设孕育县中振兴的内生活力：基本逻辑与关键路径','县中振兴以教学学术创新实践和学科特色推动城乡二元结构下的县中发展。').eligible,false);
  assert.equal(researchFit('乡村小学生科学课堂合作学习研究','教育公平与教学创新').eligible,false);
  assert.equal(researchFit('高校机构建立与组织变革研究','教育治理和教育公平').eligible,false);
  assert.equal(researchFit('社会生态系统理论下乡村教师韧性发展的动力与路径','乡村教师韧性可以保障教育供给稳定、提升教育资源配置效益。').eligible,false);
