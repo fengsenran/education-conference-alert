@@ -1,9 +1,24 @@
 {
-  "lastSentDay": "2026-11-27",
+  "lastSentDay": "2026-11-28",
   "papers": {
     "10.3102/00028312261503324": "2026-11-18",
     "10.1177/00380407261499649": "2026-11-20",
-    "10.3102/00346543261495158": "2026-11-24"
+    "10.3102/00346543261495158": "2026-11-24",
+    "cnki-rss:281a52b87281960208ec8c4b81d3962ef57b624c9c7b5b9509bffdf00f158b33": "2026-11-28",
+    "paperzh天津师范大学学报基础教育版十五五时期增加普通高中学位供给的逻辑理路与实践进路": "2026-11-28"
   },
-  "policies": {}
+  "policies": {
+    "https://www.theguardian.com/news/2026/nov/24/the-numbers-are-very-stark-this-primary-school-is-the-heart-of-a-welsh-village-can-it-be-saved": "2026-11-28",
+    "https://www.moe.gov.cn/jyb_sjzl/s3165/202611/t20261105_1457226.html": "2026-11-28",
+    "https://edu.gd.gov.cn/jyzxnew/gdjyxw/content/post_4982322.html": "2026-11-28",
+    "https://jyt.hlj.gov.cn/jyt/c110475/202611/c00_31993165.shtml": "2026-11-28",
+    "https://jyt.fujian.gov.cn/jyyw/jyt/202611/t20261111_7248341.htm": "2026-11-28"
+  },
+  "policyTitles": {
+    "ThenumbersareverystarkThisprimaryschoolistheheartofaWelshvillageCanitbesaved": "2026-11-28",
+    "安徽优化财政教育投入结构加快推进教育强省建设": "2026-11-28",
+    "学位建到哪里师资和机制就要跟到哪里教育家杂志专访广东省教育厅党组书记厅长林如鹏": "2026-11-28",
+    "黑龙江省人民政府关于印发黑龙江省教育发展十五五规划的通知": "2026-11-28",
+    "总校制一场扎根山区的教育均衡实践": "2026-11-28"
+  }
 }

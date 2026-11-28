@@ -1,0 +1,3354 @@
+{
+  "date": "2026-11-28",
+  "window": [
+    "2026-10-30",
+    "2026-11-28"
+  ],
+  "journals": [
+    {
+      "name": "教育研究",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/JYYJ?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://jyyj.cnaes.edu.cn/zxqk?label=year",
+          "status": "read",
+          "directoryItems": 119
+        },
+        {
+          "url": "https://jyyj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 139,
+      "dated": 139,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/JYYJ?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-10-28",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-10-28",
+      "currentIssueRead": true,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "教育与经济",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/JYJI?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://jyji.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "read",
+          "directoryItems": 15
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/JYJI?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 19,
+        "latest": "2026-08-15",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "articleFailures": [
+        {
+          "url": "https://jyji.cbpt.cnki.net/portal/journal/portal/client/paper/0f298cacf0052da94e95b4c60615e5f9",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyji.cbpt.cnki.net/portal/journal/portal/client/paper/1617de9a673bd5286724a6621128534c",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyji.cbpt.cnki.net/portal/journal/portal/client/paper/3a24305f5e3d7d8381682f47a4335bef",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyji.cbpt.cnki.net/portal/journal/portal/client/paper/0c150367d3bbdbcb3fb3c180c876d44a",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyji.cbpt.cnki.net/portal/journal/portal/client/paper/c00aabf9e09b827f4a2919e644cfe078",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyji.cbpt.cnki.net/portal/journal/portal/client/paper/eeb2d5e6f3eb077d751fbf9633924f07",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyji.cbpt.cnki.net/portal/journal/portal/client/paper/5dea828ad1fd5b05ce28a7ce29362b5f",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyji.cbpt.cnki.net/portal/journal/portal/client/paper/e2b933acd947c349321a0675a8d367b2",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyji.cbpt.cnki.net/portal/journal/portal/client/paper/1c37d64cfb0b9d87d52f84e060cfd460",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyji.cbpt.cnki.net/portal/journal/portal/client/paper/e4e69095539d16747d5e120800bbb414",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyji.cbpt.cnki.net/portal/journal/portal/client/paper/905a784f92f2d15b12f9b30469eff233",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyji.cbpt.cnki.net/portal/journal/portal/client/paper/3e8ced04dde6d5898a834eccb3673ee5",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyji.cbpt.cnki.net/portal/journal/portal/client/paper/ec621ac889460477185d863c9d8e9169",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyji.cbpt.cnki.net/portal/journal/portal/client/paper/52ac017d03302f4ab80c290d942d6e13",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyji.cbpt.cnki.net/portal/journal/portal/client/paper/e90e9d8606dfe563a27a88e5442554b2",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        }
+      ],
+      "latestPublication": "2026-08-15",
+      "currentIssueRead": true,
+      "onlineFirstRead": true
+    },
+    {
+      "name": "学前教育研究",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/XQJY?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://xqjy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "read",
+          "directoryItems": 14
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/XQJY?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 18,
+        "latest": "2026-10-01",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "articleFailures": [
+        {
+          "url": "https://xqjy.cbpt.cnki.net/portal/journal/portal/client/paper/53edce08c39b4bef18c0e03d1ef80f91",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xqjy.cbpt.cnki.net/portal/journal/portal/client/paper/2a28e1c13c060aebc5fb4bf34c2661fe",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xqjy.cbpt.cnki.net/portal/journal/portal/client/paper/f7c21897c1defb47f3c4b5afe6a95b1a",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xqjy.cbpt.cnki.net/portal/journal/portal/client/paper/19c603d08d075f2ff475033658073f69",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xqjy.cbpt.cnki.net/portal/journal/portal/client/paper/b4c72012a5c517d53729112658aadbb6",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xqjy.cbpt.cnki.net/portal/journal/portal/client/paper/db10dcd07e3f57c84c3f3576aef27c1d",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xqjy.cbpt.cnki.net/portal/journal/portal/client/paper/1ee4ef4609b9921816e766658a2f6387",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xqjy.cbpt.cnki.net/portal/journal/portal/client/paper/e7bfd785e73c716548774fa5e048a355",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xqjy.cbpt.cnki.net/portal/journal/portal/client/paper/4418dbe8e107a6fa338c190be3bfe4df",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xqjy.cbpt.cnki.net/portal/journal/portal/client/paper/39b12e0a91f3e958565d24f4b04ddea3",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xqjy.cbpt.cnki.net/portal/journal/portal/client/paper/5dc776379babe3e3f48c177bcd0a971e",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xqjy.cbpt.cnki.net/portal/journal/portal/client/paper/d28eca18e3d9522927031992874eecec",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xqjy.cbpt.cnki.net/portal/journal/portal/client/paper/d98d7c4340e45a6c0dcf96cca4690e92",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xqjy.cbpt.cnki.net/portal/journal/portal/client/paper/2363ade9d029221974871855d35ea8d4",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        }
+      ],
+      "latestPublication": "2026-10-01",
+      "currentIssueRead": true,
+      "onlineFirstRead": true
+    },
+    {
+      "name": "人口与发展",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/SCRK?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://rkyfz.pku.edu.cn/CN/1674-1668/home.shtml",
+          "status": "failed",
+          "error": "页面刊名与目标期刊不一致或无法核验"
+        },
+        {
+          "url": "https://scrk.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 1,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/SCRK?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-11-12",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-11-12",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "社会发展研究",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/HFYJ?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://shfzyj.ajcass.org/",
+          "status": "failed",
+          "error": "fetch failed | ERR_TLS_CERT_ALTNAME_INVALID | Hostname/IP does not match certificate's altnames: Host: shfzyj.ajcass.org. is not in the cert's altnames: DNS:*.114nba.com, DNS:114nba.com"
+        },
+        {
+          "url": "https://hfyj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/HFYJ?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-08-16",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-08-16",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "东北师大学报（哲学社会科学版）",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/DBSS?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://dbss.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "read",
+          "directoryItems": 18
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 16,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/DBSS?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-11-17",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "articleFailures": [
+        {
+          "url": "https://dbss.cbpt.cnki.net/portal/journal/portal/client/paper/b7a4cbc81507a05a65655ebc1537d7d9",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://dbss.cbpt.cnki.net/portal/journal/portal/client/paper/89775b24f056b0f79c6deee48e72a957",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://dbss.cbpt.cnki.net/portal/journal/portal/client/paper/a6511dcfba25e8a32671c5443a5789ec",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://dbss.cbpt.cnki.net/portal/journal/portal/client/paper/5698a5191fd3f974bb165cdd6d435c9f",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://dbss.cbpt.cnki.net/portal/journal/portal/client/paper/b3bcc46e4a9b1b4e38a3464ecf08216b",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://dbss.cbpt.cnki.net/portal/journal/portal/client/paper/286c3136441e82aef352b597d0feb4e1",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://dbss.cbpt.cnki.net/portal/journal/portal/client/paper/5fb2e9ec42dd561ef6c32aa891ddc61d",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://dbss.cbpt.cnki.net/portal/journal/portal/client/paper/9e56f5eb2e62faeb2c792ffffcf765c6",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://dbss.cbpt.cnki.net/portal/journal/portal/client/paper/b1d54f9f01ddc0e6137d33e3a0c09bbc",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://dbss.cbpt.cnki.net/portal/journal/portal/client/paper/1531c2b117d8524e491e62856f879285",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://dbss.cbpt.cnki.net/portal/journal/portal/client/paper/48c7f991ad4241e9885e3878970fc46d",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://dbss.cbpt.cnki.net/portal/journal/portal/client/paper/8faa2e09f0aecede73527019e9fe28a0",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://dbss.cbpt.cnki.net/portal/journal/portal/client/paper/1b21cdcc8693922b462db1f2e2817d71",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://dbss.cbpt.cnki.net/portal/journal/portal/client/paper/30a6d80087dde65daf8b630cdadafc88",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://dbss.cbpt.cnki.net/portal/journal/portal/client/paper/24f1b3ceabc355258272b261f01c8894",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://dbss.cbpt.cnki.net/portal/journal/portal/client/paper/0bfbd0991d8b8c1f1429e44c44f35b25",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://dbss.cbpt.cnki.net/portal/journal/portal/client/paper/3d2969a4338a9721577e5c16df1128f5",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://dbss.cbpt.cnki.net/portal/journal/portal/client/paper/506184fd9c067fd7aa7a8ac5904a6b2d",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        }
+      ],
+      "latestPublication": "2026-11-17",
+      "currentIssueRead": true,
+      "onlineFirstRead": true
+    },
+    {
+      "name": "中小学管理",
+      "index": "CSSCI扩展",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/ZXXG?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://zxxg.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/ZXXG?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 16,
+        "latest": "2026-10-10",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-10-10",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "教育理论与实践",
+      "index": "北大核心",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/JYLL?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://jyll.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "read",
+          "directoryItems": 15
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 12,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/JYLL?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 18,
+        "latest": "2026-11-10",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "articleFailures": [
+        {
+          "url": "https://jyll.cbpt.cnki.net/portal/journal/portal/client/paper/9d7cb6c42a0789751f22eb110a20a020",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyll.cbpt.cnki.net/portal/journal/portal/client/paper/8d4b1838a26bdc6f28ad93fbefcffd27",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyll.cbpt.cnki.net/portal/journal/portal/client/paper/6e3e9ce4cd020ef1e1760f4ef2bdab2a",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyll.cbpt.cnki.net/portal/journal/portal/client/paper/b0358eeab3c8d58c16be693ed05bcf5f",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyll.cbpt.cnki.net/portal/journal/portal/client/paper/807a23206805108d540aa1ec3b0a37fb",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyll.cbpt.cnki.net/portal/journal/portal/client/paper/c7ec1bc45b95838c2321e4dde281c652",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyll.cbpt.cnki.net/portal/journal/portal/client/paper/8e5e791db81ea0bd86313b8bb10963d8",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyll.cbpt.cnki.net/portal/journal/portal/client/paper/ae838b17aef2fb59a1a3215121510d71",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyll.cbpt.cnki.net/portal/journal/portal/client/paper/b342ec5ae84451f43099cf673e2f7c62",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyll.cbpt.cnki.net/portal/journal/portal/client/paper/c07ef75e881cd302e438d31291f2d03f",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyll.cbpt.cnki.net/portal/journal/portal/client/paper/5a57aa59525a2a1e304710804caf20f5",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyll.cbpt.cnki.net/portal/journal/portal/client/paper/d8e436484da9858931decb6be984895c",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyll.cbpt.cnki.net/portal/journal/portal/client/paper/7b14e4e3a3b23bdfc9cff356c4563857",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyll.cbpt.cnki.net/portal/journal/portal/client/paper/14d92ab8c059471c3a61d72b0edb5d66",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jyll.cbpt.cnki.net/portal/journal/portal/client/paper/2e40b8476867d6fc9b2da9174d593676",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        }
+      ],
+      "latestPublication": "2026-11-10",
+      "currentIssueRead": true,
+      "onlineFirstRead": true
+    },
+    {
+      "name": "华东师范大学学报（教育科学版）",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/HDXK?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://xbjk.ecnu.edu.cn/CN/1000-5560/home.shtml",
+          "status": "failed",
+          "error": "fetch failed | ETIMEDOUT"
+        },
+        {
+          "url": "https://xbjk.ecnu.edu.cn/CN/article/showNewArticle.do",
+          "status": "failed",
+          "error": "fetch failed | ETIMEDOUT"
+        },
+        {
+          "url": "https://hdxk.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/HDXK?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-10-26",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-10-26",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "现代教育管理",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/LNGD?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://www.xdjygl.com/CN/volumn/home.shtml",
+          "status": "failed",
+          "error": "fetch failed | UND_ERR_CONNECT_TIMEOUT | Connect Timeout Error (attempted address: www.xdjygl.com:443, timeout: 10000ms)"
+        },
+        {
+          "url": "https://lngd.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 13,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/LNGD?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-11-18",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-11-18",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "民族教育研究",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/MZJY?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://mzjy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "read",
+          "directoryItems": 16
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 2,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/MZJY?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-11-03",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "articleFailures": [
+        {
+          "url": "https://mzjy.cbpt.cnki.net/portal/journal/portal/client/paper/bb05d11e2f43a73053952f9f07fcfcc1",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://mzjy.cbpt.cnki.net/portal/journal/portal/client/paper/a1ad925f5cc6ca4f5df2fb6ceb07cee6",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://mzjy.cbpt.cnki.net/portal/journal/portal/client/paper/ccaed46b31bd04cb5ffe035b3ccae204",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://mzjy.cbpt.cnki.net/portal/journal/portal/client/paper/f919f50c0589b941b5e5f5f195e064eb",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://mzjy.cbpt.cnki.net/portal/journal/portal/client/paper/f6467ce2f2a93b6a1d111e188b083dc0",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://mzjy.cbpt.cnki.net/portal/journal/portal/client/paper/0e39b36ad5591207bb1d61030fe11203",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://mzjy.cbpt.cnki.net/portal/journal/portal/client/paper/d3f09df3f3f2c28817d5f5b0eb58aa5a",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://mzjy.cbpt.cnki.net/portal/journal/portal/client/paper/2fcebf1272c8dd4b9b758e6971e5f2e4",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://mzjy.cbpt.cnki.net/portal/journal/portal/client/paper/ca8b252163effb02f54aafaf8e85e7df",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://mzjy.cbpt.cnki.net/portal/journal/portal/client/paper/2d632b02a924254db991ef476ecd3eab",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://mzjy.cbpt.cnki.net/portal/journal/portal/client/paper/f9a7a411b1e34a2acc3e35942aa30ddb",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://mzjy.cbpt.cnki.net/portal/journal/portal/client/paper/80710150f005c359164cf4f0e5d04c60",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://mzjy.cbpt.cnki.net/portal/journal/portal/client/paper/0d5a4b31a5b97e26c650f144746bd53d",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://mzjy.cbpt.cnki.net/portal/journal/portal/client/paper/541d1d01dd856c9b795d62acf283f1ff",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://mzjy.cbpt.cnki.net/portal/journal/portal/client/paper/ca1945cbd9acd06b9f1d79d85739c664",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://mzjy.cbpt.cnki.net/portal/journal/portal/client/paper/ee888ffa3d42cad693e04315a66f4ee9",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        }
+      ],
+      "latestPublication": "2026-11-03",
+      "currentIssueRead": true,
+      "onlineFirstRead": true
+    },
+    {
+      "name": "财政研究",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/CZYJ?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://czyj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "read",
+          "directoryItems": 12
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/CZYJ?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-10-01",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "articleFailures": [
+        {
+          "url": "https://czyj.cbpt.cnki.net/portal/journal/portal/client/paper/bb08ec0ebe44eac7e45398d058bd6b13",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://czyj.cbpt.cnki.net/portal/journal/portal/client/paper/5ee5f48b92450a4e6d21951c584d0a1d",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://czyj.cbpt.cnki.net/portal/journal/portal/client/paper/3fa495e836361bd7250ee77edf353a1b",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://czyj.cbpt.cnki.net/portal/journal/portal/client/paper/7be6bbcc03d6ecad4ce9f57393a101d4",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://czyj.cbpt.cnki.net/portal/journal/portal/client/paper/c3def7b8d0f051e10c018c0c202838d2",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://czyj.cbpt.cnki.net/portal/journal/portal/client/paper/03a69bb61821428f9b51f61f93cacc04",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://czyj.cbpt.cnki.net/portal/journal/portal/client/paper/caa3fa2f3ed7b94fb032667f8ba07096",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://czyj.cbpt.cnki.net/portal/journal/portal/client/paper/59fba22c344fa04dd8d98ab18b13631d",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://czyj.cbpt.cnki.net/portal/journal/portal/client/paper/76460369989186b2e6d0451fcee842d3",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://czyj.cbpt.cnki.net/portal/journal/portal/client/paper/43f0160c3cd51007e261c61729338900",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://czyj.cbpt.cnki.net/portal/journal/portal/client/paper/351a76865a8465a6dc94310d592604c0",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://czyj.cbpt.cnki.net/portal/journal/portal/client/paper/0ed0dddacccdf888feb8fea8da8b75e6",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        }
+      ],
+      "latestPublication": "2026-10-01",
+      "currentIssueRead": true,
+      "onlineFirstRead": true
+    },
+    {
+      "name": "中国农村经济",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/ZNJJ?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://znjj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "页面刊名与目标期刊不一致或无法核验"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 9,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/ZNJJ?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-11-18",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-11-18",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "北京师范大学学报（社会科学版）",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/BJSF?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://wkxb.bnu.edu.cn/CN/1002-0209/home.shtml",
+          "status": "read",
+          "directoryItems": 13
+        },
+        {
+          "url": "https://bjsf.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 33,
+      "dated": 33,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/BJSF?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 19,
+        "latest": "2026-09-25",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-09-25",
+      "currentIssueRead": true,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "中国教育科学（中英文）",
+      "index": "CSSCI扩展",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/RJJY?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://rjjy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/RJJY?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 19,
+        "latest": "2026-09-10",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-09-10",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "当代教育论坛",
+      "index": "北大核心",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/JYLT?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://jylt.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 4,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/JYLT?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-11-25",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-11-25",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "北京大学教育评论",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/BJPL?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://bjpl.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/BJPL?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-10-10",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-10-10",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "国家教育行政学院学报",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/GJXZ?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://gjxz.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/GJXZ?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 18,
+        "latest": "2026-10-15",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-10-15",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "比较教育研究",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/BJJY?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://bjjy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "read",
+          "directoryItems": 13
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 10,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/BJJY?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-11-10",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "articleFailures": [
+        {
+          "url": "https://bjjy.cbpt.cnki.net/portal/journal/portal/client/paper/5a02b08f7c755e25575cd2d6e70c637f",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://bjjy.cbpt.cnki.net/portal/journal/portal/client/paper/c5545c5abffc4841750d6fd0b2c08b68",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://bjjy.cbpt.cnki.net/portal/journal/portal/client/paper/701da0e04788b234bdd0b2a83efeb210",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://bjjy.cbpt.cnki.net/portal/journal/portal/client/paper/a6902f5ffc6b408c09deb417a8c78fc1",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://bjjy.cbpt.cnki.net/portal/journal/portal/client/paper/35d35ec976cfd233469a19d92566108c",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://bjjy.cbpt.cnki.net/portal/journal/portal/client/paper/88596db403eab05d1b818ec4de2e1bb7",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://bjjy.cbpt.cnki.net/portal/journal/portal/client/paper/79e31ac108ad9bad6a440dc523435f16",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://bjjy.cbpt.cnki.net/portal/journal/portal/client/paper/a02c08a84653c35e7424219b7a6ffd58",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://bjjy.cbpt.cnki.net/portal/journal/portal/client/paper/65e03b701271d61313c424bbbb1176dc",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://bjjy.cbpt.cnki.net/portal/journal/portal/client/paper/0ddd9982f5485fc3e733190cae8c6610",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://bjjy.cbpt.cnki.net/portal/journal/portal/client/paper/39cabd803d9982100caa8568b5bbdb56",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://bjjy.cbpt.cnki.net/portal/journal/portal/client/paper/2974acde5633659ae0119e9781273dd8",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://bjjy.cbpt.cnki.net/portal/journal/portal/client/paper/8ba9b14e7ef437a05bb562d292a5a448",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        }
+      ],
+      "latestPublication": "2026-11-10",
+      "currentIssueRead": true,
+      "onlineFirstRead": true
+    },
+    {
+      "name": "财经研究",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/CJYJ?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://qks.sufe.edu.cn/J/CJYJ",
+          "status": "failed",
+          "error": "fetch failed | ETIMEDOUT"
+        },
+        {
+          "url": "https://cjyj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 1,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/CJYJ?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-11-16",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-11-16",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "中国农村观察",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/ZNCG?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://zncg.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 9,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/ZNCG?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-11-12",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-11-12",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "华中师范大学学报（人文社会科学版）",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/HZSD?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://hzsd.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/HZSD?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-09-27",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-09-27",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "河北师范大学学报（教育科学版）",
+      "index": "CSSCI扩展",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/HSJY?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://xuebao.hebtu.edu.cn/",
+          "status": "failed",
+          "error": "fetch failed | ETIMEDOUT"
+        },
+        {
+          "url": "https://hsjy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 17,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/HSJY?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 19,
+        "latest": "2026-11-16",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-11-16",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "教学与管理",
+      "index": "北大核心",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/JXGL?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://jxgl.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "read",
+          "directoryItems": 19
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 20,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/JXGL?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 18,
+        "latest": "2026-11-27",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "articleFailures": [
+        {
+          "url": "https://jxgl.cbpt.cnki.net/portal/journal/portal/client/paper/716278b07a79756aa9acd5df11edf424",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jxgl.cbpt.cnki.net/portal/journal/portal/client/paper/5b49ac3eb1ae94db2b08a8d5e5885e1e",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jxgl.cbpt.cnki.net/portal/journal/portal/client/paper/92ab69860f8ad0cf457ed89264544ff3",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jxgl.cbpt.cnki.net/portal/journal/portal/client/paper/e82c8e8071d5ffd7c22703f9e921326e",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jxgl.cbpt.cnki.net/portal/journal/portal/client/paper/475248f81cc2df663671b902be806955",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jxgl.cbpt.cnki.net/portal/journal/portal/client/paper/62dcd465ee1c686fe17ac0af4a4b528e",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jxgl.cbpt.cnki.net/portal/journal/portal/client/paper/94f7b20aa9908e34574dde811c2b32f0",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jxgl.cbpt.cnki.net/portal/journal/portal/client/paper/2b6e1d8e2201b1ef83cac326c6694ec3",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jxgl.cbpt.cnki.net/portal/journal/portal/client/paper/572dc2c19033528a337a09ccfe6b96ca",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jxgl.cbpt.cnki.net/portal/journal/portal/client/paper/93a18236967bfdba6aa11b1b8dbb1641",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jxgl.cbpt.cnki.net/portal/journal/portal/client/paper/e3046f26ebbf019bf2c0c45f33508fd1",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jxgl.cbpt.cnki.net/portal/journal/portal/client/paper/3a6afe1ec4bb1bc22b995110e266ddac",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jxgl.cbpt.cnki.net/portal/journal/portal/client/paper/e7e3107af5b9dbef769fd56771599c04",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jxgl.cbpt.cnki.net/portal/journal/portal/client/paper/cc13868b82b6439b0c37b3c898bceba7",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jxgl.cbpt.cnki.net/portal/journal/portal/client/paper/797bdd6b958412641a092263f6aa826c",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jxgl.cbpt.cnki.net/portal/journal/portal/client/paper/9dfa54747f25e241360df92f1d6e4acf",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jxgl.cbpt.cnki.net/portal/journal/portal/client/paper/a83303d311a448283100bdfacd992ab3",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jxgl.cbpt.cnki.net/portal/journal/portal/client/paper/d80dff44ef5c19fe837accdc770a5aa4",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://jxgl.cbpt.cnki.net/portal/journal/portal/client/paper/f00b2b9ae34d19c392aeb2ac082775d9",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        }
+      ],
+      "latestPublication": "2026-11-27",
+      "currentIssueRead": true,
+      "onlineFirstRead": true
+    },
+    {
+      "name": "教育发展研究",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/SHGJ?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://shgj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/SHGJ?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 19,
+        "latest": "2026-10-25",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-10-25",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "清华大学教育研究",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/QHDJ?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://tje.ioe.tsinghua.edu.cn/default.aspx",
+          "status": "read",
+          "directoryItems": 19
+        },
+        {
+          "url": "https://qhdj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/QHDJ?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-10-20",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "articleFailures": [
+        {
+          "url": "http://tje.ioe.tsinghua.edu.cn//oa/darticle.aspx?type=view&id=202605002",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "http://tje.ioe.tsinghua.edu.cn//oa/darticle.aspx?type=view&id=202605003",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "http://tje.ioe.tsinghua.edu.cn//oa/darticle.aspx?type=view&id=202605001",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "http://tje.ioe.tsinghua.edu.cn//oa/darticle.aspx?type=view&id=202605004",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "http://tje.ioe.tsinghua.edu.cn//oa/darticle.aspx?type=view&id=202605005",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "http://tje.ioe.tsinghua.edu.cn//oa/darticle.aspx?type=view&id=202605006",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "http://tje.ioe.tsinghua.edu.cn//oa/darticle.aspx?type=view&id=202605008",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "http://tje.ioe.tsinghua.edu.cn//oa/darticle.aspx?type=view&id=202605009",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "http://tje.ioe.tsinghua.edu.cn//oa/darticle.aspx?type=view&id=202605007",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "http://tje.ioe.tsinghua.edu.cn//oa/darticle.aspx?type=view&id=202605012",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "http://tje.ioe.tsinghua.edu.cn//oa/darticle.aspx?type=view&id=202605011",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "http://tje.ioe.tsinghua.edu.cn//oa/darticle.aspx?type=view&id=202605010",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "http://tje.ioe.tsinghua.edu.cn//oa/darticle.aspx?type=view&id=202605013",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "http://tje.ioe.tsinghua.edu.cn//oa/darticle.aspx?type=view&id=202605014",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "http://tje.ioe.tsinghua.edu.cn//oa/darticle.aspx?type=view&id=202605015",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "http://tje.ioe.tsinghua.edu.cn//oa/darticle.aspx?type=view&id=202605017",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "http://tje.ioe.tsinghua.edu.cn//oa/darticle.aspx?type=view&id=202605018",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "http://tje.ioe.tsinghua.edu.cn//oa/darticle.aspx?type=view&id=202605016",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "http://tje.ioe.tsinghua.edu.cn//oa/darticle.aspx?type=view&id=202605019",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        }
+      ],
+      "latestPublication": "2026-10-20",
+      "currentIssueRead": true,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "全球教育展望",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/WGJN?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://wgjn.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "read",
+          "directoryItems": 13
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/WGJN?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 19,
+        "latest": "2026-10-15",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "articleFailures": [
+        {
+          "url": "https://wgjn.cbpt.cnki.net/portal/journal/portal/client/paper/8d0e973fd2e7c10e2afc4631f4db2e1b",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjn.cbpt.cnki.net/portal/journal/portal/client/paper/8457486d7cba21413f2300787e4268e8",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjn.cbpt.cnki.net/portal/journal/portal/client/paper/4e41af9df42b1c8aaed0b1b18b839ec4",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjn.cbpt.cnki.net/portal/journal/portal/client/paper/4fa761dc884cb3acc64dc36866ee382b",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjn.cbpt.cnki.net/portal/journal/portal/client/paper/01950b718468f4df8c61796091f6b1ed",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjn.cbpt.cnki.net/portal/journal/portal/client/paper/9ea87374ef0eb2e9d1df1f22adcada56",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjn.cbpt.cnki.net/portal/journal/portal/client/paper/dd9577225a69023e71cf13b135f33647",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjn.cbpt.cnki.net/portal/journal/portal/client/paper/aa979956702f9848e86521ada9e75c7d",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjn.cbpt.cnki.net/portal/journal/portal/client/paper/ca654c4fbbb19d67f234f8d69844ef6a",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjn.cbpt.cnki.net/portal/journal/portal/client/paper/7f2db8bc081c19e6ae20218688d9ec2f",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjn.cbpt.cnki.net/portal/journal/portal/client/paper/7e92a8a8db3e1dd26e9ab8ff7e41e197",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjn.cbpt.cnki.net/portal/journal/portal/client/paper/884df10502d059dfa5cfdabc903e372e",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjn.cbpt.cnki.net/portal/journal/portal/client/paper/4ec5646e82bccbf8e95c494dae5fd810",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        }
+      ],
+      "latestPublication": "2026-10-15",
+      "currentIssueRead": true,
+      "onlineFirstRead": true
+    },
+    {
+      "name": "公共管理学报",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/GGGL?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://gggl.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "read",
+          "directoryItems": 17
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 3,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/GGGL?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-11-20",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "articleFailures": [
+        {
+          "url": "https://gggl.cbpt.cnki.net/portal/journal/portal/client/paper/fca9594fdfcd5ea46ef56022c38115e7",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://gggl.cbpt.cnki.net/portal/journal/portal/client/paper/9c4199f99df865c6d09e91a8791c7eef",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://gggl.cbpt.cnki.net/portal/journal/portal/client/paper/3f1c9d5f83d575ea20fcc4f5842ee53a",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://gggl.cbpt.cnki.net/portal/journal/portal/client/paper/928472b7dc345bdbb7be023462f18ae5",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://gggl.cbpt.cnki.net/portal/journal/portal/client/paper/39f52cb51c5877b169dbe78b94f8639e",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://gggl.cbpt.cnki.net/portal/journal/portal/client/paper/e573bc0c6027aaf22004cdc496b20365",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://gggl.cbpt.cnki.net/portal/journal/portal/client/paper/d399c7871ed789c2534d134226b78157",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://gggl.cbpt.cnki.net/portal/journal/portal/client/paper/96b0c1f2688d0686a2d8a7920b1b0daf",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://gggl.cbpt.cnki.net/portal/journal/portal/client/paper/f459ddfdfbd9d48c012e731f740de9e5",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://gggl.cbpt.cnki.net/portal/journal/portal/client/paper/b6ca52d0077fdff1b8e615fbc3032e8a",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://gggl.cbpt.cnki.net/portal/journal/portal/client/paper/d79d1af464dd99db301857f3c4202b18",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://gggl.cbpt.cnki.net/portal/journal/portal/client/paper/b6ee50f4cacaa4ab8711d8e729b7c71e",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://gggl.cbpt.cnki.net/portal/journal/portal/client/paper/788b9d590a93de9b5e4797526c02eb61",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://gggl.cbpt.cnki.net/portal/journal/portal/client/paper/d9146b8716eeeb8b7e4a3c717763380e",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://gggl.cbpt.cnki.net/portal/journal/portal/client/paper/466fea9b60d22ef094ec2459206a81f3",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://gggl.cbpt.cnki.net/portal/journal/portal/client/paper/b88c98e5d51b4a1b928b541405891773",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://gggl.cbpt.cnki.net/portal/journal/portal/client/paper/9cb42fa7075e5ea7d5e122134f264d3d",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        }
+      ],
+      "latestPublication": "2026-11-20",
+      "currentIssueRead": true,
+      "onlineFirstRead": true
+    },
+    {
+      "name": "农业经济问题",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/NJWT?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://njwt.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "read",
+          "directoryItems": 14
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/NJWT?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-10-28",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "articleFailures": [
+        {
+          "url": "https://njwt.cbpt.cnki.net/portal/journal/portal/client/paper/2921cbe7c1573ae4f5eb31cb5156249e",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://njwt.cbpt.cnki.net/portal/journal/portal/client/paper/7648d8504cb291325acb029ad44002af",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://njwt.cbpt.cnki.net/portal/journal/portal/client/paper/18ab38eef05f5f52d23834d720a9e7d4",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://njwt.cbpt.cnki.net/portal/journal/portal/client/paper/dd8f597ed45a048260a1320c76c0e640",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://njwt.cbpt.cnki.net/portal/journal/portal/client/paper/8238a7ed44064c1891cc1251325a4cf2",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://njwt.cbpt.cnki.net/portal/journal/portal/client/paper/f50942997d4d036c9e1151c70e4f12f9",
+          "error": "fetch failed | UND_ERR_CONNECT_TIMEOUT | Connect Timeout Error (attempted address: njwt.cbpt.cnki.net:443, timeout: 10000ms)"
+        },
+        {
+          "url": "https://njwt.cbpt.cnki.net/portal/journal/portal/client/paper/d8065569d7c75ebddf3daa8d4963ddfc",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://njwt.cbpt.cnki.net/portal/journal/portal/client/paper/18bd1da937a745a2d7b5233fde003411",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://njwt.cbpt.cnki.net/portal/journal/portal/client/paper/b4cce3a0996509b5c25dbe275b7c63e0",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://njwt.cbpt.cnki.net/portal/journal/portal/client/paper/315aaedfc5ac254ff9ee7e365521fc99",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://njwt.cbpt.cnki.net/portal/journal/portal/client/paper/5309b318bbb22ba25674e03fb3246d95",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://njwt.cbpt.cnki.net/portal/journal/portal/client/paper/2338ee4158bc9c7ad38e92c561cf9e20",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://njwt.cbpt.cnki.net/portal/journal/portal/client/paper/5708630755d0885aeede451ed4c0e19f",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://njwt.cbpt.cnki.net/portal/journal/portal/client/paper/e473c86808ffa9c9f8d06db7b133e33e",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        }
+      ],
+      "latestPublication": "2026-10-28",
+      "currentIssueRead": true,
+      "onlineFirstRead": true
+    },
+    {
+      "name": "西南大学学报（社会科学版）",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/XBSW?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://xbsw.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "fetch failed | UND_ERR_CONNECT_TIMEOUT | Connect Timeout Error (attempted address: xbsw.cbpt.cnki.net:443, timeout: 10000ms)"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 16,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/XBSW?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-11-18",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-11-18",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "天津师范大学学报（基础教育版）",
+      "index": "CSSCI扩展",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/TSJY?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://tsjy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 10,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/TSJY?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 18,
+        "latest": "2026-11-24",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-11-24",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "人民教育",
+      "index": "北大核心",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/RMJY?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://rmjy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "fetch failed | UND_ERR_CONNECT_TIMEOUT | Connect Timeout Error (attempted address: rmjy.cbpt.cnki.net:443, timeout: 10000ms)"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/RMJY?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 11,
+        "latest": "2026-08-18",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-08-18",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "教育学报",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/XKJY?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "read",
+          "directoryItems": 27
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 1,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/XKJY?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-11-20",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "articleFailures": [
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/9e0549695a2b2aea4681312eb0390787",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/0f74cc6ff13b4115a7deaa889bde8ff0",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/13f67efa09a4324b46497f16c38c5045",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/add454de0733a6e1006a89396772807f",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/c0760387f0dd98fbb4e359cfdcb0c299",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/8300d727742c19f01622a950b72d21d6",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/60ffbe068fdd5f5a18790aaa84a44080",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/6f23f6571100bf59d36b7f486a2021c8",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/363ffff8fc3414e82748a271e5f36574",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/60b3f259f9095891630d2137d2d2d5d1",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/a1495f670cc393d449928c232ea26ceb",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/801027acc2305ecc93029a170013cddf",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/cc63d56e37669d9fb6186c1f2afe5c30",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/f28e9f3067195dc30740e3fc37d6bd15",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/489f122a5b620219e3e5cb4ec7e1237d",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/d2ad860f1ae1026933d73a1407e890fb",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/814d5ae37fe0f5e01d79d1633d38e89b",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/a4c57bb4606654b632092a80271a8609",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/679fa7ab2fc69cc5392ce2ddbf9a751c",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/8359f03c037b17d8d5f04d49dabfadcc",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/c422ca3b428ee7faac6e0f587f02b443",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/8ab6f0cee2fa40895bd749683e22e9b5",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/0770f6a035857bce4a7f768c3abe652e",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/eb151067448c0f95a354c33209a61236",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/674fe0d04868a516d7e87315acfab793",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/XKJY_0504700b-baf2-49c2-a4f3-9cd90623c58f",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://xkjy.cbpt.cnki.net/portal/journal/portal/client/paper/XKJY_db1b48bd-6f5b-4871-ae55-0fee6726f25e",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        }
+      ],
+      "latestPublication": "2026-11-20",
+      "currentIssueRead": true,
+      "onlineFirstRead": true
+    },
+    {
+      "name": "基础教育",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/ZHJY?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://jcjy.ecnu.edu.cn/CN/volumn/home.shtml",
+          "status": "failed",
+          "error": "fetch failed | ETIMEDOUT"
+        },
+        {
+          "url": "https://zhjy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/ZHJY?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-06-06",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-06-06",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "人口研究",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/RKYZ?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://rkyj.ruc.edu.cn/CN/1000-6087/home.shtml",
+          "status": "failed",
+          "error": "fetch failed | ETIMEDOUT"
+        },
+        {
+          "url": "https://rkyj.ruc.edu.cn/CN/article/showNewArticle.do",
+          "status": "failed",
+          "error": "fetch failed | ETIMEDOUT"
+        },
+        {
+          "url": "https://rkyz.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/RKYZ?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-09-29",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-09-29",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "公共管理与政策评论",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/GGZC?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://ggglyzc.ruc.edu.cn/CN/2095-4026/home.shtml",
+          "status": "failed",
+          "error": "fetch failed | ETIMEDOUT"
+        },
+        {
+          "url": "https://ggzc.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/GGZC?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-09-17",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-09-17",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "地理研究",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/DLYJ?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://www.dlyj.ac.cn/CN/1000-0585/home.shtml",
+          "status": "read",
+          "directoryItems": 18
+        },
+        {
+          "url": "https://www.dlyj.ac.cn/CN/article/showNewArticle.do",
+          "status": "failed",
+          "error": "页面刊名与目标期刊不一致或无法核验"
+        },
+        {
+          "url": "https://dlyj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 32,
+      "dated": 32,
+      "inWindow": 2,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/DLYJ?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-11-27",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "articleFailures": [
+        {
+          "url": "https://www.dlyj.ac.cn/CN/10.11821/dlyj020250900",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://www.dlyj.ac.cn/CN/10.11821/dlyj020250453",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://www.dlyj.ac.cn/CN/10.11821/dlyj020251128",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://www.dlyj.ac.cn/CN/10.11821/dlyj020251380",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://www.dlyj.ac.cn/CN/10.11821/dlyj020250681",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://www.dlyj.ac.cn/CN/10.11821/dlyj020250639",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        }
+      ],
+      "latestPublication": "2026-11-27",
+      "currentIssueRead": true,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "南京师大学报（社会科学版）",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/NJSS?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://njss.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/NJSS?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-09-25",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-09-25",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "比较教育学报",
+      "index": "CSSCI扩展",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/JYBX?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://wgzx.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "read",
+          "directoryItems": 12
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/JYBX?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-10-08",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "articleFailures": [
+        {
+          "url": "https://wgzx.cbpt.cnki.net/portal/journal/portal/client/paper/b9217666291cf059f3e038194256484a",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgzx.cbpt.cnki.net/portal/journal/portal/client/paper/7a98a576b94f9b3fdff1556613bf92da",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgzx.cbpt.cnki.net/portal/journal/portal/client/paper/80fddf20390ce215d9dce30f661d474a",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgzx.cbpt.cnki.net/portal/journal/portal/client/paper/5b02d7bc379d8e60ab30d344b979eb77",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgzx.cbpt.cnki.net/portal/journal/portal/client/paper/b9093eab4bca0a25bc5367435847fb27",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgzx.cbpt.cnki.net/portal/journal/portal/client/paper/970d130051ab33d053245fd8ffb0c81e",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgzx.cbpt.cnki.net/portal/journal/portal/client/paper/d28df402994c72e8866abba91b3a9e23",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgzx.cbpt.cnki.net/portal/journal/portal/client/paper/0d36c641f9a3b5bb4fdc8c219730befc",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgzx.cbpt.cnki.net/portal/journal/portal/client/paper/55b7ef243f61a6ebb3ee65b791e74545",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgzx.cbpt.cnki.net/portal/journal/portal/client/paper/5927c51d7c10ff50c686d229cfe8be47",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgzx.cbpt.cnki.net/portal/journal/portal/client/paper/96d5194c873482148ea425ae08ae8b7e",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgzx.cbpt.cnki.net/portal/journal/portal/client/paper/3af324daf81aeb7eac74c78103213984",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        }
+      ],
+      "latestPublication": "2026-10-08",
+      "currentIssueRead": true,
+      "onlineFirstRead": true
+    },
+    {
+      "name": "西北人口",
+      "index": "北大核心",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/XBRK?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://xbrk.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 5,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/XBRK?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-11-17",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-11-17",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "教育科学",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/JYKO?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://jyko.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/JYKO?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-09-15",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-09-15",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "中国教育学刊",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/ZJYX?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://www.jcse.com.cn/",
+          "status": "failed",
+          "error": "页面内容不足或要求跳转"
+        },
+        {
+          "url": "https://zjyx.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 20,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/ZJYX?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 19,
+        "latest": "2026-11-10",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-11-10",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "中国人口科学",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/ZKRK?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://zkrk.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/ZKRK?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-10-01",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-10-01",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "中国行政管理",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/ZXGL?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://zxgl.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/ZXGL?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 18,
+        "latest": "2026-10-25",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-10-25",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "人文地理",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/RWDL?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://rwdl.xisu.edu.cn/CN/1003-2398/home.shtml",
+          "status": "failed",
+          "error": "fetch failed | ETIMEDOUT"
+        },
+        {
+          "url": "https://rwdl.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/RWDL?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-10-28",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-10-28",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "教育经济评论",
+      "index": "CSSCI扩展",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/JYJP?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://jyjjpl.bnu.edu.cn/ch/index.aspx",
+          "status": "failed",
+          "error": "fetch failed | ENOTFOUND | getaddrinfo ENOTFOUND jyjjpl.bnu.edu.cn"
+        },
+        {
+          "url": "https://jyjp.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/JYJP?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 17,
+        "latest": "2026-09-15",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-09-15",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "外国教育研究",
+      "index": "CSSCI扩展",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/WGJY?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://wgjy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "read",
+          "directoryItems": 17
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 12,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/WGJY?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-11-27",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "articleFailures": [
+        {
+          "url": "https://wgjy.cbpt.cnki.net/portal/journal/portal/client/paper/6f076563ccc5188a0a00111eac33bc54",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjy.cbpt.cnki.net/portal/journal/portal/client/paper/1ea10645cb5479a4d9a0f142ac207b5d",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjy.cbpt.cnki.net/portal/journal/portal/client/paper/c38b835e03036842ef8d501b5f02d581",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjy.cbpt.cnki.net/portal/journal/portal/client/paper/afc89a6ba589401ced29728cd6bce350",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjy.cbpt.cnki.net/portal/journal/portal/client/paper/1d5d42b6466978d2db0c6886d67c61d0",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjy.cbpt.cnki.net/portal/journal/portal/client/paper/6a17c573f438a7d6a25374a6d7307d5f",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjy.cbpt.cnki.net/portal/journal/portal/client/paper/7f729a2e47a70f481fe40ed068a8016f",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjy.cbpt.cnki.net/portal/journal/portal/client/paper/b11943b27115f01941d308f82a5c51a1",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjy.cbpt.cnki.net/portal/journal/portal/client/paper/da9a38c0685433cc56edf346bdce060d",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjy.cbpt.cnki.net/portal/journal/portal/client/paper/02ea90a535200fd76e9e49978437fcfe",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjy.cbpt.cnki.net/portal/journal/portal/client/paper/ba9d49108bfba93506b855f18ea0421d",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjy.cbpt.cnki.net/portal/journal/portal/client/paper/0d6433c22be088f8553445ad300faf92",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjy.cbpt.cnki.net/portal/journal/portal/client/paper/9f1f795c8abd15f8a5c89a669154d63c",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjy.cbpt.cnki.net/portal/journal/portal/client/paper/e72bedc8bf0ccdae0e6e249e42bc8476",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjy.cbpt.cnki.net/portal/journal/portal/client/paper/32a9f68754303d74ae9a41077689f5b5",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjy.cbpt.cnki.net/portal/journal/portal/client/paper/42a88586899511e0ceeb4dd6014a8a6d",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://wgjy.cbpt.cnki.net/portal/journal/portal/client/paper/3066414fc1d065801f6811a68a6ef854",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        }
+      ],
+      "latestPublication": "2026-11-27",
+      "currentIssueRead": true,
+      "onlineFirstRead": true
+    },
+    {
+      "name": "教育研究与实验",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/YJSY?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://yjsy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/YJSY?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 18,
+        "latest": "2026-09-20",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-09-20",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "苏州大学学报（教育科学版）",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/SZJK?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "read",
+          "directoryItems": 25
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 3,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/SZJK?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-11-11",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "articleFailures": [
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/fa0181148b8260e20aff019870f36421",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/44186e7568a7ba5422cee1c3705842d2",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/b4ec8b84f12e3d7be3f6a90e95b59831",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/70e4168ee72985f881b6bff774d6351b",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/33e2d91e2d53f0f5b45b2d31d400218c",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/2ff989503b48079a5ad03aa858f8e986",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/af6e5df79af22490dca82513feaff73e",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/ea00663ebc697a0c9eaf3420fb71e140",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/e6402e42a481be1517f83e6c9f81894f",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/e9bd109cc1f43814a709976e26cfe9fa",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/03f70d81fe69341cb484da45f2b6830c",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/d45312c35039b4c672153a1c2c9eeee4",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/78a4b88e9f65b69bf4fbb1ea7c79f718",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/d43b0e53711df6395eb203be7d065fe6",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/e0b1f9f120220f84e27ffa06fc6c2e8d",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/4c295ed0b55610291e562a3a3f22f629",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/d0897074ab0c9e521ad5148e713c36e9",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/05c7f0a923f1479b081da1ae694ef8f7",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/21c6346a641b41184e0dc952726e80a1",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/7ed538ee6b870654884217a9fa501520",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/473296272162acf158d10df960a2c020",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/2173d340e5286f4c412316f3a6e55799",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/5fb03a296741d54a15f0fe4d2482f012",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/b95eb99f084eb6aefcb63446b811e46e",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://szjk.cbpt.cnki.net/portal/journal/portal/client/paper/87ae5ca0fbb560343b3b1407fd008f9e",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        }
+      ],
+      "latestPublication": "2026-11-11",
+      "currentIssueRead": true,
+      "onlineFirstRead": true
+    },
+    {
+      "name": "人口学刊",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/RKXK?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://rkxk.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/RKXK?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-09-30",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-09-30",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "社会学研究",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/SHXJ?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://shxyj.ajcass.org/",
+          "status": "failed",
+          "error": "fetch failed | ERR_TLS_CERT_ALTNAME_INVALID | Hostname/IP does not match certificate's altnames: Host: shxyj.ajcass.org. is not in the cert's altnames: DNS:*.114nba.com, DNS:114nba.com"
+        },
+        {
+          "url": "https://shxj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/SHXJ?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 19,
+        "latest": "2026-09-20",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-09-20",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "地理科学进展",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/DLKJ?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://www.progressingeography.com/CN/1007-6301/home.shtml",
+          "status": "read",
+          "directoryItems": 18
+        },
+        {
+          "url": "https://www.progressingeography.com/CN/article/showNewArticle.do",
+          "status": "failed",
+          "error": "页面刊名与目标期刊不一致或无法核验"
+        },
+        {
+          "url": "https://dlkj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 38,
+      "dated": 38,
+      "inWindow": 20,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/DLKJ?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-11-12",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-11-28",
+      "currentIssueRead": true,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "教育学术月刊",
+      "index": "CSSCI扩展",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/YANG?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://yang.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/YANG?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-10-15",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-10-15",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "当代教育科学",
+      "index": "北大核心",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/SDJK?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://sdjk.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/SDJK?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 17,
+        "latest": "2026-08-28",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-08-28",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "湖南师范大学教育科学学报",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/FLJY?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "read",
+          "directoryItems": 22
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 1,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/FLJY?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-11-25",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "articleFailures": [
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/f438037283fb562ea5c930007d86f899",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/bba6f4ba8654a3d034918f882885025c",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/25955aa565e9e63d138b3cb585e1d313",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/013fa15115f460e4f313cec0a9b9bc21",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/c3862536a4566a331a171939a9e32115",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/3c87f59ed7707bf96fc0b7f27799e622",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/4d7590e560d5aa0abb9aa329ebd17221",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/2885be5a00867c1ee38fc5789ccd3e5f",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/cf30e26512bb6ac7b63bfaa6618fb6bb",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/005e322ae939b56efbea9368c5cc85d9",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/5c0a1ebdbcba2b0360fe69a0380550b0",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/516c8a10681ce267ddb3eedc0a49fb97",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/9f3b4824a25c054e74e073a83f40b9b5",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/db16ae158e9bd3ea1621a3c2af2e8017",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/6783424e7eb8fffde03c45af651521af",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/550d998e20923c5655cb1cb36c0f776e",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/1604cfdcd437189e275dc8370e8c2be7",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/f93028b38c82832e9db7836716b50344",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/43af5f93d55996ffc98798631de2eacb",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/198cb34047d39a4e60ad9c06bac951c3",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/84bf7347bf930450e380a5132e4a81b7",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        },
+        {
+          "url": "https://fljy.cbpt.cnki.net/portal/journal/portal/client/paper/7d6bd81ccec1f420a20843b9d37a2c9b",
+          "error": "文章题目与已核验目录不一致，暂不采纳"
+        }
+      ],
+      "latestPublication": "2026-11-25",
+      "currentIssueRead": true,
+      "onlineFirstRead": true
+    },
+    {
+      "name": "教师教育研究",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/GDSZ?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://gdsz.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "期刊身份已核验，但未能解析文章目录"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/GDSZ?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-09-15",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-09-15",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "人口与经济",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/RKJJ?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://rkjj.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "页面刊名与目标期刊不一致或无法核验"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 6,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/RKJJ?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-11-16",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-11-16",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "社会",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/SHEH?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://www.society.shu.edu.cn/CN/volumn/home.shtml",
+          "status": "failed",
+          "error": "fetch failed | ETIMEDOUT"
+        },
+        {
+          "url": "https://www.society.shu.edu.cn/CN/article/showNewArticle.do",
+          "status": "failed",
+          "error": "fetch failed | ETIMEDOUT"
+        },
+        {
+          "url": "https://sheh.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 0,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/SHEH?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 19,
+        "latest": "2026-07-20",
+        "latestWithinWindow": false,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-07-20",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "城市规划学刊",
+      "index": "CSSCI来源",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/CXGH?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://cxgh.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 13,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/CXGH?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-11-06",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-11-06",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "教育科学研究",
+      "index": "CSSCI扩展",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/JYKY?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://jyky.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 17,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/JYKY?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 20,
+        "latest": "2026-11-10",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-11-10",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    },
+    {
+      "name": "上海教育科研",
+      "index": "北大核心",
+      "attempts": [
+        {
+          "url": "https://oversea.cnki.net/knavi/rss/SJYY?language=CHS",
+          "status": "read",
+          "directoryItems": 20
+        },
+        {
+          "url": "https://sjyy.cbpt.cnki.net/portal/journal/portal/client/index",
+          "status": "failed",
+          "error": "HTTP 500"
+        }
+      ],
+      "parsed": 20,
+      "dated": 20,
+      "inWindow": 14,
+      "state": "partial",
+      "rss": {
+        "url": "https://oversea.cnki.net/knavi/rss/SJYY?language=CHS",
+        "items": 20,
+        "withAbstract": 20,
+        "truncatedAbstracts": 18,
+        "latest": "2026-11-15",
+        "latestWithinWindow": true,
+        "limitedToLatestItems": true
+      },
+      "truncated": false,
+      "latestPublication": "2026-11-15",
+      "currentIssueRead": false,
+      "onlineFirstRead": false
+    }
+  ]
+}
